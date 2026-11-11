@@ -17,7 +17,7 @@
 
 <br>
 
-### [📱 Abrir o app online](https://__VERCEL_URL__) &nbsp;·&nbsp; [💻 Ver código](https://github.com/XkrulesVitor/Gamificacao-Inatel-Academico)
+### [📱 Abrir o app online](https://gamificacao-inatel-academico.vercel.app) &nbsp;·&nbsp; [💻 Ver código](https://github.com/XkrulesVitor/Gamificacao-Inatel-Academico)
 
 <sub>Trabalho de **S05 / S205 · Interface Homem-Máquina** · Engenharia de Software · Inatel</sub>
 
@@ -67,9 +67,9 @@ O que o protótipo entrega:
 
 <div align="center">
 
-<a href="https://__VERCEL_URL__"><img src="docs/screenshots/qrcode.png" alt="QR code para abrir o app online" width="180"></a>
+<a href="https://gamificacao-inatel-academico.vercel.app"><img src="docs/screenshots/qrcode.png" alt="QR code para abrir o app online" width="180"></a>
 
-**[https://__VERCEL_URL__](https://__VERCEL_URL__)**
+**[https://gamificacao-inatel-academico.vercel.app](https://gamificacao-inatel-academico.vercel.app)**
 
 <sub>Aponte a câmera do celular para o QR code. Deploy automático a cada push na branch `main`.</sub>
 
