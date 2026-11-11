@@ -1,5 +1,17 @@
 import { BatteryFull, Signal, Smartphone, Trophy, Wifi } from "lucide-react";
 
+/** Rodapé: indicador de home falso no desktop (moldura) e safe-area inferior real no PWA. */
+function HomeIndicator() {
+  return (
+    <>
+      <div className="h-[env(safe-area-inset-bottom)] shrink-0 bg-bg md:hidden" />
+      <div className="hidden h-6 shrink-0 items-center justify-center bg-bg md:flex" aria-hidden>
+        <span className="h-[5px] w-32 rounded-full bg-white/70" />
+      </div>
+    </>
+  );
+}
+
 /** Barra de status: falsa no desktop (moldura) e safe-area real no PWA instalado. */
 function StatusBar() {
   return (
@@ -59,6 +71,7 @@ export function DeviceFrame({ children }: { children: React.ReactNode }) {
         >
           <StatusBar />
           {children}
+          <HomeIndicator />
         </div>
       </div>
     </div>

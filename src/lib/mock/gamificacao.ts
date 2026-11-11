@@ -180,8 +180,8 @@ export const medalhas: Medalha[] = [
     icone: "Crown",
     pontos: pontosPorRaridade.platina,
     desbloqueada: false,
-    progresso: { atual: 87.0, meta: 89.3, unidade: "pts ponderados" },
-    pendente: "Você está em 4º. Faltam 2,3 pontos ponderados para alcançar a 3ª posição.",
+    progresso: { atual: 0, meta: 1, unidade: "semana no Top 3" },
+    pendente: "Você está em 4º. Faltam 2,2 pontos ponderados para alcançar a 3ª posição.",
   },
 ];
 
@@ -214,7 +214,7 @@ export const MINHA_MATRICULA = aluno.matricula;
 
 /**
  * Alunos do ranking (fictícios). Pontos ponderados resultantes (fórmula em lib/ranking.ts):
- * Marina 105,0 · Rafael 100,2 · Beatriz 89,3 · LUCAS 87,0 · Gabriel 86,7 ...
+ * Marina 105,0 · Rafael 100,2 · Beatriz 89,2 · LUCAS 87,0 · Gabriel 86,7 ...
  * Repare: Gabriel e Ana Júlia têm MAIS pontos brutos que o Lucas, mas cursam
  * mais créditos / frequentam menos os labs — a normalização deixa a disputa justa.
  */
@@ -250,7 +250,7 @@ export const alunosRanking: AlunoRanking[] = [
     nome: "Beatriz Nogueira",
     curso: "GET",
     periodo: 5,
-    pontos: 1690,
+    pontos: 1688,
     creditosMatriculados: 28,
     presencaLab: 0.98,
     avatarCor: "#f2a541",
