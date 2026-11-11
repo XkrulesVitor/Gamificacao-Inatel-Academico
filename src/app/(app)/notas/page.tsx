@@ -1,6 +1,13 @@
 import { Page } from "@/components/ui/primitives";
+import { NotasCard } from "@/components/academico/notas-card";
+import { notas } from "@/lib/mock/aluno";
 
-// PLACEHOLDER — será substituído pelo subagente responsável.
-export default function Placeholder() {
-  return <Page><p className="text-muted">Tela "notas" em construção.</p></Page>;
+export default function NotasPage() {
+  return (
+    <Page className="space-y-3">
+      {notas.map((nota) => (
+        <NotasCard key={nota.disciplina} nota={nota} />
+      ))}
+    </Page>
+  );
 }

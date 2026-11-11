@@ -1,6 +1,11 @@
 import { Page } from "@/components/ui/primitives";
+import { ProvasLista } from "@/components/academico/provas-lista";
+import { provas } from "@/lib/mock/aluno";
 
-// PLACEHOLDER — será substituído pelo subagente responsável.
-export default function Placeholder() {
-  return <Page><p className="text-muted">Tela "provas" em construção.</p></Page>;
+export default function ProvasPage() {
+  return (
+    <Page>
+      <ProvasLista provas={provas} />
+    </Page>
+  );
 }

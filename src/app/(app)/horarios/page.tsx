@@ -1,6 +1,10 @@
 import { Page } from "@/components/ui/primitives";
+import { GradeHorarios } from "@/components/academico/grade-horarios";
 
-// PLACEHOLDER — será substituído pelo subagente responsável.
-export default function Placeholder() {
-  return <Page><p className="text-muted">Tela "horarios" em construção.</p></Page>;
+export default function HorariosPage() {
+  return (
+    <Page>
+      <GradeHorarios />
+    </Page>
+  );
 }

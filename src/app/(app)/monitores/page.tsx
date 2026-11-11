@@ -1,6 +1,10 @@
 import { Page } from "@/components/ui/primitives";
+import { MonitoresLista } from "@/components/academico/monitores-lista";
 
-// PLACEHOLDER — será substituído pelo subagente responsável.
-export default function Placeholder() {
-  return <Page><p className="text-muted">Tela "monitores" em construção.</p></Page>;
+export default function MonitoresPage() {
+  return (
+    <Page>
+      <MonitoresLista />
+    </Page>
+  );
 }
