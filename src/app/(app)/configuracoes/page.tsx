@@ -1,6 +1,5 @@
-import { Page } from "@/components/ui/primitives";
+import { TelaConfiguracoes } from "@/components/configuracoes/tela-configuracoes";
 
-// PLACEHOLDER — será substituído pelo subagente responsável.
-export default function Placeholder() {
-  return <Page><p className="text-muted">Tela "configuracoes" em construção.</p></Page>;
+export default function ConfiguracoesPage() {
+  return <TelaConfiguracoes />;
 }

@@ -1,6 +1,5 @@
-import { Page } from "@/components/ui/primitives";
+import { ListaAvisos } from "@/components/avisos/lista-avisos";
 
-// PLACEHOLDER — será substituído pelo subagente responsável.
-export default function Placeholder() {
-  return <Page><p className="text-muted">Tela "avisos" em construção.</p></Page>;
+export default function AvisosPage() {
+  return <ListaAvisos />;
 }
