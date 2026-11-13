@@ -138,7 +138,7 @@ export function HorariosGrade() {
               <Fragment key={hora}>
                 <div
                   className={`flex items-center justify-center bg-navy-deep font-semibold text-on-header ${
-                    vazia ? "h-6 text-[11px] opacity-80 lg:h-8 lg:text-xs" : "h-12 text-xs lg:h-16 lg:text-[13px]"
+                    vazia ? "h-6 text-[11px] text-on-header-muted lg:h-8 lg:text-xs" : "h-12 text-xs lg:h-16 lg:text-[13px]"
                   }`}
                 >
                   {hora}
