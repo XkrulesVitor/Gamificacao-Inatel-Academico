@@ -10,7 +10,7 @@
  * Para publicar uma nova versão do cache, altere VERSION.
  */
 
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE_PREFIX = "academico-inatel-";
 const CACHE_NAME = `${CACHE_PREFIX}${VERSION}`;
 const OFFLINE_URL = "/offline.html";

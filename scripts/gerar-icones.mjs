@@ -1,4 +1,4 @@
-// Gera os ícones do PWA a partir de um SVG desenhado aqui mesmo.
+// Gera os ícones do PWA a partir de um SVG desenhado aqui mesmo: um A branco sobre azul.
 // Uso: node scripts/gerar-icones.mjs
 //
 // Saídas:
@@ -18,48 +18,20 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ICONS_DIR = path.join(ROOT, "public", "icons");
 const FAVICON_PATH = path.join(ROOT, "src", "app", "favicon.ico");
 
-const NAVY = "#1d3b5a";
-const BLUE = "#0b63d6";
-const GOLD = "#f5b301";
-const GOLD_LIGHT = "#ffd34d";
-const GOLD_DARK = "#c98a00";
+const BLUE = "#1a63c4";
 
-// Estrela de 5 pontas (centro cx, cy) usada no bojo do troféu.
-function star(cx, cy, outer, inner) {
-  const pts = [];
-  for (let k = 0; k < 10; k++) {
-    const angle = -Math.PI / 2 + (k * Math.PI) / 5;
-    const r = k % 2 === 0 ? outer : inner;
-    pts.push(`${(cx + r * Math.cos(angle)).toFixed(1)} ${(cy + r * Math.sin(angle)).toFixed(1)}`);
-  }
-  return `M${pts.join(" L")} Z`;
-}
-
-// Troféu desenhado em um espaço 512x512, centralizado em (256, 246) e escalado
-// em torno do centro da arte (256, 256).
-function trophy(scale) {
+// "A" de Acadêmico desenhado como forma (não depende de fonte), em um espaço 512x512.
+// Hastes paralelas com topo reto, barra horizontal e contraforma triangular (evenodd).
+function letraA(scale) {
   return `
-  <g transform="translate(256 256) scale(${scale}) translate(-256 -246)">
-    <path d="M176 150 C120 150 116 236 186 244" fill="none" stroke="${GOLD}" stroke-width="22" stroke-linecap="round"/>
-    <path d="M336 150 C392 150 396 236 326 244" fill="none" stroke="${GOLD}" stroke-width="22" stroke-linecap="round"/>
-    <path d="M170 110 H342 V200 C342 262 302 300 256 300 C210 300 170 262 170 200 Z" fill="${GOLD}"/>
-    <rect x="236" y="300" width="40" height="60" fill="${GOLD}"/>
-    <rect x="186" y="358" width="140" height="38" rx="12" fill="${GOLD}"/>
-    <rect x="152" y="96" width="208" height="28" rx="10" fill="${GOLD_LIGHT}"/>
-    <path d="M186 196 H326" stroke="${GOLD_DARK}" stroke-width="10" stroke-linecap="round"/>
-    <path d="${star(256, 226, 40, 16)}" fill="${NAVY}"/>
+  <g transform="translate(256 256) scale(${scale}) translate(-256 -256)">
+    <path fill-rule="evenodd" fill="#ffffff" d="M224 112 H288 L392 400 H326 L303 334 H209 L186 400 H120 Z M229 280 H283 L256 206 Z"/>
   </g>`;
 }
 
 function svgRounded() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${NAVY}"/>
-      <stop offset="1" stop-color="${BLUE}"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>${trophy(0.92)}
+  <rect width="512" height="512" rx="112" ry="112" fill="${BLUE}"/>${letraA(0.92)}
 </svg>
 `;
 }
@@ -67,20 +39,14 @@ function svgRounded() {
 // Fundo cheio (sem cantos transparentes), para maskable e apple-touch-icon.
 function svgFullBleed(scale) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${NAVY}"/>
-      <stop offset="1" stop-color="${BLUE}"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" fill="url(#bg)"/>${trophy(scale)}
+  <rect width="512" height="512" fill="${BLUE}"/>${letraA(scale)}
 </svg>
 `;
 }
 
 async function renderPng(svg, size, { flatten = false } = {}) {
   let img = sharp(Buffer.from(svg), { density: 288 }).resize(size, size);
-  if (flatten) img = img.flatten({ background: NAVY });
+  if (flatten) img = img.flatten({ background: BLUE });
   return img.png({ compressionLevel: 9 }).toBuffer();
 }
 

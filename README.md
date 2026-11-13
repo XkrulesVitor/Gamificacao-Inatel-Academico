@@ -38,22 +38,23 @@
 
 1. [Sobre](#sobre)
 2. [Acesse](#acesse)
-3. [Telas](#telas)
-4. [O que mudou na v3](#o-que-mudou-na-v3)
-5. [User Story](#user-story)
-6. [HTA → implementação](#hta--implementação)
-7. [Diagrama de Classes](#diagrama-de-classes)
-8. [Ranking justo](#ranking-justo)
-9. [Medalhas e níveis](#medalhas-e-níveis)
-10. [Navegação](#navegação)
-11. [Design system](#design-system)
-12. [Heurísticas de Nielsen](#heurísticas-de-nielsen)
-13. [PWA](#pwa)
-14. [Tecnologias e arquitetura](#tecnologias-e-arquitetura)
-15. [Rodando localmente](#rodando-localmente)
-16. [Como foi feito](#como-foi-feito)
-17. [Aviso](#aviso)
-18. [Autor](#autor)
+3. [Documentação da entrega](#documentação-da-entrega)
+4. [Telas](#telas)
+5. [O que mudou na v3](#o-que-mudou-na-v3)
+6. [User Story](#user-story)
+7. [HTA → implementação](#hta--implementação)
+8. [Diagrama de Classes](#diagrama-de-classes)
+9. [Ranking justo](#ranking-justo)
+10. [Medalhas e níveis](#medalhas-e-níveis)
+11. [Navegação](#navegação)
+12. [Design system](#design-system)
+13. [Heurísticas de Nielsen](#heurísticas-de-nielsen)
+14. [PWA](#pwa)
+15. [Tecnologias e arquitetura](#tecnologias-e-arquitetura)
+16. [Rodando localmente](#rodando-localmente)
+17. [Como foi feito](#como-foi-feito)
+18. [Aviso](#aviso)
+19. [Autor](#autor)
 
 ---
 
@@ -99,6 +100,27 @@ Entregas:
 
 > [!WARNING]
 > Não digite sua senha real. Nada é enviado a servidor. A sessão é um flag no `localStorage` e qualquer senha é aceita.
+
+---
+
+## Documentação da entrega
+
+Documentação de apoio à concepção da interface, na ordem do modelo da disciplina: capa, User Story, Análise da Tarefa, Fluxo de Informação (Diagrama de Classes) e Wireframe, seguidos da tarefa de ponta a ponta nas telas implementadas.
+
+**[Baixar o PDF da entrega](docs/entrega/Entrega%20Conquistas%20e%20Ranking%20(App%20Inatel).pdf)**
+
+| | |
+|---|---|
+| **Capa:** justificativa pela persona, links e acesso de teste | **User Story:** persona, história e critérios de aceitação |
+| <img src="docs/entrega/p1.png" alt="Capa da entrega" width="100%"> | <img src="docs/entrega/p2.png" alt="User Story" width="100%"> |
+| **Análise da Tarefa:** HTA até as operações da interface | **Planos:** input, processamento e feedback de cada tarefa |
+| <img src="docs/entrega/p3.png" alt="Diagrama HTA" width="100%"> | <img src="docs/entrega/p4.png" alt="Planos da HTA" width="100%"> |
+| **Fluxo de Informação:** diagrama de classes com a regra do ranking | **Wireframe:** autenticação, Início e menu lateral |
+| <img src="docs/entrega/p5.png" alt="Diagrama de classes" width="100%"> | <img src="docs/entrega/p6.png" alt="Wireframes de acesso e Início" width="100%"> |
+| **Wireframe:** Conquistas, detalhe da medalha e Ranking | **Tela implementada:** a tarefa de ponta a ponta |
+| <img src="docs/entrega/p7.png" alt="Wireframes de Conquistas e Ranking" width="100%"> | <img src="docs/entrega/p8.png" alt="Tarefa de ponta a ponta" width="100%"> |
+| **Responsivo e identidade:** desktop, celular, paleta e componentes | |
+| <img src="docs/entrega/p9.png" alt="Responsivo e identidade" width="100%"> | |
 
 ---
 
@@ -242,29 +264,44 @@ Detalhes:
 A Análise Hierárquica de Tarefas (Annett & Duncan, 1967) descreve o "como será" do uso do módulo.
 
 ```text
-0. Acompanhar Desempenho Gamificado              plano 1 > 2 / 3
-├── 1. Acessar Módulo
-│   ├── 1.1 Login no App                          ● pré-requisito
-│   └── 1.2 Abrir Menu
-├── 2. Explorar Conquistas
-│   ├── A. Ver Medalhas
-│   └── B. Requisitos                             * iteração
-└── 3. Consultar Ranking
-    ├── 3.1 Ver Pontos
-    └── 3.2 Filtrar Labs                          ○ opcional
+0. Acompanhar desempenho gamificado                 plano 1 > (2 / 3)*
+├── 1. Acessar o módulo                             plano 1.1 > (1.2 / 1.3)
+│   ├── 1.1 Autenticar                              ● pré-requisito, plano 1 > 2 > 3
+│   │   ├── 1.1.1 Escolher o curso
+│   │   ├── 1.1.2 Digitar matrícula e senha
+│   │   └── 1.1.3 Tocar em Autenticar
+│   ├── 1.2 Abrir pelo menu ou barra inferior
+│   └── 1.3 Tocar no atalho da Início               ○ opcional
+├── 2. Explorar Conquistas                          plano 2.1 > 2.2 > (2.3* / 2.4)
+│   ├── 2.1 Ler nível, pontos e quanto falta
+│   ├── 2.2 Ver a próxima conquista
+│   ├── 2.3 Abrir uma medalha                       * repetição, plano 1 + 2
+│   │   ├── 2.3.1 Ler a regra
+│   │   └── 2.3.2 Ver progresso e o que falta
+│   └── 2.4 Consultar raridades                     ○ opcional
+└── 3. Consultar Ranking                            plano (3.1 + 3.2) > 3.3* > 3.4
+    ├── 3.1 Ver sua posição e evolução
+    ├── 3.2 Comparar com pódio e lista
+    ├── 3.3 Filtrar o ranking                       * repetição, plano 1 > 2
+    │   ├── 3.3.1 Escolher curso, período ou lab
+    │   └── 3.3.2 Localizar a linha Você
+    └── 3.4 Conferir o cálculo                      ○ opcional
 ```
 
 | Nó da HTA | Onde está no app | Rota | Componente / arquivo |
 |---|---|---|---|
-| **0.** Acompanhar Desempenho Gamificado | Tela Início com cartão de gamificação. Cartão de nível no topo do módulo, com duas abas | `/inicio` e `/gamificacao` | `inicio/tela-inicio.tsx`, `inicio/cartao-gamificacao.tsx`, `gamificacao/nivel-resumo.tsx`, `gamificacao/emblema-nivel.tsx`, `shell/section-tabs.tsx` |
-| **1.1** Login no App | Perfis Salvos e Login com validação | `/` e `/login` | `app/page.tsx`, `app/login/page.tsx`, `session-provider.tsx` |
-| **1.2** Abrir Menu | Sidebar fixa no desktop. No mobile, menu lateral e barra inferior com 5 destinos. Sino de avisos no cabeçalho | `/inicio` | `shell/sidebar.tsx`, `shell/app-drawer.tsx`, `shell/bottom-tabs.tsx`, `shell/nav-list.tsx`, `lib/nav.ts` |
-| **2.** Explorar Conquistas | Cartão de nível, Próxima conquista e vitrine com filtro | `/gamificacao/conquistas` | `gamificacao/proxima-conquista.tsx`, `gamificacao/vitrine.tsx` |
-| **2.A** Ver Medalhas | Medalhas de fita e metal por raridade. Bloqueadas com anel de progresso e cadeado | `/gamificacao/conquistas` | `gamificacao/vitrine.tsx`, `gamificacao/medal-emblem.tsx`, `gamificacao/metal.tsx` |
-| **2.B** Requisitos *(iteração)* | Painel lateral no desktop e bottom sheet no mobile, com regra, progresso e atividade recente. O botão de ajuda explica o sistema | `/gamificacao/conquistas` | `gamificacao/medal-detail.tsx`, `gamificacao/atividade-recente.tsx`, `gamificacao/ajuda-medalhas.tsx`, `ui/bottom-sheet.tsx` |
-| **3.** Consultar Ranking | Sua posição, top 3, tabela e Disputa | `/gamificacao/ranking` | `gamificacao/posicao-heroi.tsx`, `gamificacao/podio.tsx`, `gamificacao/lista-ranking.tsx`, `lib/ranking.ts` |
-| **3.1** Ver Pontos | Evolução semanal e Cálculo com a conta do próprio usuário | `/gamificacao/ranking` | `gamificacao/grafico-evolucao.tsx`, `gamificacao/calculo.tsx` |
-| **3.2** Filtrar Labs *(opcional)* | Chips de visão e de laboratório. A lista recarrega e destaca o aluno | `/gamificacao/ranking` | `lib/ranking.ts` (`opcoesFiltro`, `carregarRanking`), `gamificacao/lista-ranking.tsx` |
+| **0.** Acompanhar desempenho gamificado | Cartão de gamificação na Início e cartão de nível no topo do módulo, com duas abas | `/inicio` e `/gamificacao` | `inicio/cartao-gamificacao.tsx`, `gamificacao/nivel-resumo.tsx`, `gamificacao/emblema-nivel.tsx` |
+| **1.1** Autenticar | Perfis Salvos e Login com validação, erro junto ao campo e carregamento | `/` e `/login` | `app/page.tsx`, `app/login/page.tsx`, `session-provider.tsx` |
+| **1.2** Abrir pelo menu ou barra | Sidebar no desktop; menu lateral e barra inferior de 5 destinos no celular | todas | `shell/sidebar.tsx`, `shell/app-drawer.tsx`, `shell/bottom-tabs.tsx`, `lib/nav.ts` |
+| **1.3** Atalho da Início | Faixa com nível, pontos e posição; alerta da medalha mais perto | `/inicio` | `inicio/cartao-gamificacao.tsx`, `inicio/saudacao.tsx` |
+| **2.1** Ler nível e pontos | Brasão, barra por nível e quanto falta | `/gamificacao/conquistas` | `gamificacao/nivel-resumo.tsx` |
+| **2.2** Próxima conquista | Medalha de maior percentual com o que falta | `/gamificacao/conquistas` | `gamificacao/proxima-conquista.tsx` |
+| **2.3** Abrir uma medalha | Painel lateral no desktop, folha inferior no celular, com regra e progresso | `/gamificacao/conquistas` | `gamificacao/medal-detail.tsx`, `ui/bottom-sheet.tsx` |
+| **2.4** Consultar raridades | Botão de ajuda com bronze, prata, ouro e platina | `/gamificacao/conquistas` | `gamificacao/ajuda-medalhas.tsx` |
+| **3.1** Sua posição e evolução | Posição, variação e gráfico por semana | `/gamificacao/ranking` | `gamificacao/posicao-heroi.tsx`, `gamificacao/grafico-evolucao.tsx` |
+| **3.2** Pódio e lista | Top 3 e lista com a linha Você | `/gamificacao/ranking` | `gamificacao/podio.tsx`, `gamificacao/lista-ranking.tsx` |
+| **3.3** Filtrar | Chips Geral, Meu curso, 4º período e laboratórios; a lista reordena | `/gamificacao/ranking` | `lib/ranking.ts` (`opcoesFiltro`, `carregarRanking`) |
+| **3.4** Conferir o cálculo | Fração da própria pontuação e posição sem normalização | `/gamificacao/ranking` | `gamificacao/calculo.tsx` |
 
 Recomendações da HTA implementadas:
 
@@ -278,50 +315,103 @@ Recomendações da HTA implementadas:
 
 ## Diagrama de Classes
 
-Fluxo de informações do módulo, reproduzido em Mermaid.
+Fluxo de informações do módulo. A versão desenhada está na página 5 do [PDF da entrega](docs/entrega/Entrega%20Conquistas%20e%20Ranking%20(App%20Inatel).pdf).
 
 ```mermaid
 classDiagram
-    direction LR
+    direction TB
 
     class Aluno {
         -String nome
         -String matricula
+        -String curso
+        -int periodo
+        -int creditosMatriculados
+        -float presencaLab
         -int pontos
-        +autenticar()
+        +autenticar(credenciais) boolean
+        +nivelAtual() Nivel
+    }
+    class Nivel {
+        -int numero
+        -String titulo
+        -int minimo
+        +porPontos(pontos) Nivel
+        +faltam(pontos) int
+    }
+    class RegistroPontos {
+        -String descricao
+        -int pontos
+        -Date data
+        -String tipo
     }
     class ModuloGamificacao {
         -String abaAtiva
         +abrirConquistas()
         +abrirRanking()
+        +proximaMedalha() Medalha
     }
     class Medalha {
         -String nome
         -String requisito
+        -Raridade raridade
+        -int progressoAtual
+        -int meta
         -boolean desbloqueada
-        +verRequisitos()
+        +verRequisitos() String
+        +percentual() float
+    }
+    class Raridade {
+        <<enumeration>>
+        BRONZE_50
+        PRATA_100
+        OURO_200
+        PLATINA_400
     }
     class Ranking {
-        -Filtro filtro
-        +carregar()
+        -FiltroRanking filtro
+        +carregar() EntradaRanking[]
         +filtrar(filtro)
+        +minhaPosicao() EntradaRanking
+    }
+    class EntradaRanking {
+        -int posicao
+        -float pontuacao
+        -float fatorPresenca
+        -float peso
+        -boolean souEu
+        +calcular() float
+    }
+    class FiltroRanking {
+        -String tipo
+        -String valor
+        +rotulo() String
     }
     class Laboratorio {
+        -String codigo
         -String nome
         -float peso
+        -int creditos
     }
 
+    Aluno "0..*" --> "1" Nivel : está no
+    Aluno "1" *-- "0..*" RegistroPontos : acumula
     Aluno "1" --> "1" ModuloGamificacao : acessa
     Aluno "1" --> "0..*" Medalha : conquista
     ModuloGamificacao "1" o-- "0..*" Medalha : exibe
     ModuloGamificacao "1" *-- "1" Ranking : contém
-    Ranking "1" --> "0..*" Aluno : classifica
-    Ranking "1" --> "0..1" Laboratorio : filtra por
+    Ranking "1" *-- "0..*" EntradaRanking : gera
+    EntradaRanking "0..*" --> "1" Aluno : classifica
+    Ranking "1" --> "1" FiltroRanking : aplica
+    FiltroRanking "0..*" --> "0..1" Laboratorio : por lab
+    Medalha "0..*" --> "1" Raridade : classificada por
 ```
 
 | Diagrama | Implementação |
 |---|---|
-| `Aluno`, `Medalha`, `Laboratorio` | Interfaces em `src/lib/types.ts`, estendidas para as telas acadêmicas |
+| `Aluno`, `Medalha`, `Laboratorio`, `Nivel`, `RegistroPontos`, `EntradaRanking`, `FiltroRanking` | Interfaces em `src/lib/types.ts` |
+| `EntradaRanking.calcular()` | `pontosPonderados()` em `src/lib/ranking.ts` |
+| `Nivel.porPontos()` | `nivelPorPontos()` em `src/lib/ranking.ts` |
 | `Ranking.carregar()` e `filtrar(filtro)` | Função única `carregarRanking(filtro)` em `src/lib/ranking.ts` |
 | `Ranking` ◆ `ModuloGamificacao` | A aba Ranking só existe no módulo. Ranking e Conquistas compartilham `gamificacao/layout.tsx` |
 | `abaAtiva`, `abrirConquistas()`, `abrirRanking()` | Rotas `/gamificacao/*` com abas (`abas.tsx`). A aba ativa é a rota atual |
@@ -515,7 +605,7 @@ Regras de craft:
 
 ## PWA
 
-- **Manifest** (`src/app/manifest.ts`): ícones `any` e `maskable`, atalhos para Conquistas, Ranking e Avisos.
+- **Manifest** (`src/app/manifest.ts`): ícones `any` e `maskable` com um A branco sobre azul (gerados por `scripts/gerar-icones.mjs`), atalhos para Conquistas, Ranking e Início.
 - **Service worker próprio** (`public/sw.js`), sem dependências, registrado só em produção.
 - Safe-areas do iPhone respeitadas.
 
