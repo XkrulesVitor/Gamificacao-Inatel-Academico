@@ -444,3 +444,13 @@ export const alunosRanking: AlunoRanking[] = [
     labs: { "e08-l1": { pontos: 100, presenca: 0.73 } },
   },
 ];
+
+/** Evolução semanal da posição do Lucas no ranking geral (semana 7 a 12 do semestre). */
+export const evolucaoRanking: { semana: string; posicao: number }[] = [
+  { semana: "S7", posicao: 9 },
+  { semana: "S8", posicao: 8 },
+  { semana: "S9", posicao: 6 },
+  { semana: "S10", posicao: 6 },
+  { semana: "S11", posicao: 6 },
+  { semana: "S12", posicao: 4 },
+];

@@ -12,7 +12,7 @@ export default function PerfisSalvos() {
   const { ready, autenticado, aluno } = useSession();
 
   useEffect(() => {
-    if (ready && autenticado) router.replace("/avisos");
+    if (ready && autenticado) router.replace("/inicio");
   }, [ready, autenticado, router]);
 
   function abrirPerfil() {

@@ -1,41 +1,41 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Power } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { useSession } from "@/components/session-provider";
 import { NavList } from "@/components/shell/nav-list";
-import { UserBlock } from "@/components/shell/user-block";
+import { UserCard } from "@/components/shell/user-block";
 import { InatelLogo } from "@/components/ui/primitives";
 
-/** Sidebar fixa do desktop: o menu do app real sempre aberto, com "Sair" como último item da lista. */
+/** Sidebar fixa do desktop: marca, 6 itens e o cartão do aluno com o anel de nível. */
 export function Sidebar() {
   const router = useRouter();
   const { sair } = useSession();
   return (
     <aside
       aria-label="Menu principal"
-      className="hidden w-[232px] shrink-0 flex-col border-r border-black/40 bg-drawer lg:flex xl:w-[264px]"
+      className="hidden w-[248px] shrink-0 flex-col border-r border-line bg-sidebar lg:flex xl:w-[264px]"
     >
-      <div className="flex h-16 shrink-0 items-center gap-2.5 bg-header px-5">
-        <InatelLogo className="text-[26px] leading-none" />
-        <span className="pt-1 text-[15px] text-white/80">Acadêmico</span>
+      <div className="flex h-16 shrink-0 items-center gap-2.5 bg-gradient-to-r from-header to-header-2 px-5">
+        <InatelLogo className="text-[26px] leading-none !text-white" />
+        <span className="pt-1 text-[15px] text-on-header-muted">Acadêmico</span>
       </div>
       <div className="app-scroll flex-1">
-        <UserBlock />
-        <NavList compact />
-        <div className="py-1.5">
-          <button
-            type="button"
-            onClick={() => {
-              sair();
-              router.replace("/");
-            }}
-            className="flex h-10 w-full items-center gap-4 px-5 text-left text-[14px] text-[#e4e4e7] transition-colors hover:bg-white/[0.04] xl:gap-5 xl:text-[15px]"
-          >
-            <Power className="size-5 text-[#c9c9cf]" strokeWidth={1.75} aria-hidden />
-            Sair
-          </button>
-        </div>
+        <NavList />
+      </div>
+      <div className="shrink-0 border-t border-line p-3">
+        <UserCard />
+        <button
+          type="button"
+          onClick={() => {
+            sair();
+            router.replace("/");
+          }}
+          className="mt-1 flex h-10 w-full items-center gap-3.5 rounded-control px-3 text-left text-sm text-sidebar-muted transition-colors hover:bg-sidebar-active hover:text-fg"
+        >
+          <LogOut className="size-[18px]" strokeWidth={1.75} aria-hidden />
+          Sair
+        </button>
       </div>
     </aside>
   );

@@ -42,7 +42,7 @@ export default function Credenciais() {
   const matricula = matEd ?? (matPerfil || "");
 
   useEffect(() => {
-    if (ready && autenticado) router.replace("/avisos");
+    if (ready && autenticado) router.replace("/inicio");
   }, [ready, autenticado, router]);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function Credenciais() {
     setCarregando(true);
     timer.current = setTimeout(() => {
       entrar();
-      router.replace("/avisos");
+      router.replace("/inicio");
     }, 700);
   }
 

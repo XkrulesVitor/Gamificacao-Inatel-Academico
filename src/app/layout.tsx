@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "@/components/session-provider";
+import { ThemeProvider, SCRIPT_TEMA } from "@/components/theme-provider";
 import { PwaRegister } from "@/components/pwa-register";
 
 const inter = Inter({
@@ -33,8 +34,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1d3b5a",
-  colorScheme: "dark",
+  themeColor: "#12345a",
+  colorScheme: "light dark",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -42,13 +43,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} h-full antialiased`}>
+    <html lang="pt-BR" data-theme="dark" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
+      </head>
       <body className="h-full bg-bg text-fg">
-        <SessionProvider>
-          <div id="app-root" className="flex h-dvh flex-col overflow-hidden">
-            {children}
-          </div>
-        </SessionProvider>
+        <ThemeProvider>
+          <SessionProvider>
+            <div id="app-root" className="flex h-dvh flex-col overflow-hidden">
+              {children}
+            </div>
+          </SessionProvider>
+        </ThemeProvider>
         <PwaRegister />
       </body>
     </html>

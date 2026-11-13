@@ -60,9 +60,9 @@ export function AppDrawer({ aberto, onFechar }: { aberto: boolean; onFechar: () 
                     sair();
                     router.replace("/");
                   }}
-                  className="flex h-12 w-full items-center gap-5 px-5 text-left text-base text-[#e4e4e7] transition-colors hover:bg-white/[0.04]"
+                  className="mx-3 flex h-11 w-[calc(100%-24px)] items-center gap-3.5 rounded-control px-3 text-left text-[15px] text-sidebar-muted transition-colors hover:bg-sidebar-active hover:text-fg"
                 >
-                  <Power className="size-5 text-[#c9c9cf]" strokeWidth={1.75} aria-hidden />
+                  <Power className="size-5" strokeWidth={1.75} aria-hidden />
                   Sair
                 </button>
               </div>

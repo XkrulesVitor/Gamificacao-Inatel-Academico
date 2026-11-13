@@ -1,14 +1,18 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, Search, X } from "lucide-react";
+import { Bell, Menu, Moon, Search, Sun, X } from "lucide-react";
 import clsx from "clsx";
 import { AppDrawer } from "@/components/shell/app-drawer";
 import { BottomTabs } from "@/components/shell/bottom-tabs";
 import { Sidebar } from "@/components/shell/sidebar";
 import { useSession } from "@/components/session-provider";
+import { useTheme } from "@/components/theme-provider";
 import { tituloDaRota } from "@/lib/nav";
+import { avisos } from "@/lib/mock/aluno";
+import { HOJE } from "@/lib/format";
 
 interface ShellValue {
   /** Texto da busca do cabeçalho (só na tela Avisos, como no app real) */
@@ -26,17 +30,43 @@ export function useShell(): ShellValue {
 }
 
 const ROTAS_COM_BUSCA = ["/avisos"];
+const naoLidos = avisos.filter((a) => !a.lido).length;
+const dataHojeBruta = new Date(`${HOJE}T12:00:00`).toLocaleDateString("pt-BR", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+});
+const dataHoje = dataHojeBruta.charAt(0).toUpperCase() + dataHojeBruta.slice(1);
+
+function BotaoCabecalho({
+  children,
+  className,
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button
+      type="button"
+      {...props}
+      className={clsx(
+        "relative grid size-10 place-items-center rounded-full text-on-header transition-colors duration-150 hover:bg-white/10 active:bg-white/15",
+        className,
+      )}
+    >
+      {children}
+    </button>
+  );
+}
 
 /**
  * Shell autenticado.
- * Mobile (<1024px): cabeçalho azul-marinho com menu, conteúdo, barra inferior; menu lateral em drawer.
- * Desktop (≥1024px): sidebar fixa à esquerda, barra superior azul-marinho, conteúdo largo.
- * O conteúdo rola dentro de #app-scroll.
+ * Mobile (<1024px): cabeçalho azul-marinho (menu, título, tema, avisos), conteúdo, barra inferior.
+ * Desktop (≥1024px): sidebar fixa, cabeçalho com título e data, conteúdo largo.
  */
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const { ready, autenticado } = useSession();
+  const { tema, alternar } = useTheme();
   const [drawerAberto, setDrawerAberto] = useState(false);
   const [buscaAberta, setBuscaAberta] = useState(false);
   const [busca, setBusca] = useState("");
@@ -61,6 +91,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const value = useMemo(() => ({ busca, setBusca, buscaAberta }), [busca, buscaAberta]);
   const titulo = tituloDaRota(pathname);
   const temBusca = ROTAS_COM_BUSCA.includes(pathname);
+  // Muda só ao trocar de seção (não entre abas da mesma seção), para a animação não repetir
+  const chaveSecao = titulo;
 
   if (!ready || !autenticado) return <div className="flex-1 bg-bg" aria-busy="true" />;
 
@@ -70,17 +102,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <Sidebar />
 
         <div className="flex min-w-0 flex-1 flex-col">
-          <header className="z-20 shrink-0 bg-header pt-[env(safe-area-inset-top)] lg:pt-0">
-            <div className="flex h-14 items-center gap-1 px-1.5 lg:h-16 lg:px-8">
-              <button
-                type="button"
-                onClick={() => setDrawerAberto(true)}
-                className="grid size-11 place-items-center rounded-full text-fg transition-colors hover:bg-white/10 lg:hidden"
-                aria-label="Abrir menu"
-                aria-expanded={drawerAberto}
-              >
+          <header className="relative z-30 shrink-0 bg-gradient-to-r from-header to-header-2 pt-[env(safe-area-inset-top)] shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] lg:pt-0">
+            <div className="mx-auto flex h-14 w-full items-center gap-1 px-1.5 lg:h-16 lg:px-6 xl:px-8">
+              <BotaoCabecalho onClick={() => setDrawerAberto(true)} aria-label="Abrir menu" aria-expanded={drawerAberto} className="lg:hidden">
                 <Menu className="size-6" strokeWidth={1.75} />
-              </button>
+              </BotaoCabecalho>
 
               {buscaAberta ? (
                 <input
@@ -88,36 +114,52 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   value={busca}
                   onChange={(e) => setBusca(e.target.value)}
                   placeholder="Buscar avisos"
-                  className="h-10 min-w-0 flex-1 rounded-control bg-white/10 px-3 text-[15px] text-fg placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-accent lg:max-w-md"
+                  className="h-10 min-w-0 flex-1 rounded-control bg-white/10 px-3 text-[15px] text-on-header placeholder:text-on-header-muted focus:outline-none focus:ring-2 focus:ring-white/40 lg:max-w-md"
                   aria-label="Buscar avisos"
                 />
               ) : (
-                <h1 className="min-w-0 flex-1 truncate pl-3 text-xl font-normal text-fg lg:pl-0 lg:text-[22px] lg:font-medium">
-                  {titulo}
-                </h1>
+                <div className="min-w-0 flex-1 pl-2 lg:pl-0">
+                  <h1 className="truncate text-[19px] font-medium leading-tight text-on-header lg:text-[22px]">{titulo}</h1>
+                  <p className="hidden text-[13px] text-on-header-muted lg:block">{dataHoje}</p>
+                </div>
               )}
 
               {temBusca && (
-                <button
-                  type="button"
+                <BotaoCabecalho
                   onClick={() => {
                     setBuscaAberta((v) => !v);
                     setBusca("");
                   }}
-                  className={clsx(
-                    "grid size-11 place-items-center rounded-full text-fg transition-colors hover:bg-white/10",
-                    buscaAberta && "lg:ml-auto",
-                  )}
-                  aria-label={buscaAberta ? "Fechar busca" : "Buscar"}
+                  aria-label={buscaAberta ? "Fechar busca" : "Buscar avisos"}
+                  className={clsx(buscaAberta && "lg:ml-auto")}
                 >
-                  {buscaAberta ? <X className="size-6" strokeWidth={1.75} /> : <Search className="size-6" strokeWidth={1.75} />}
-                </button>
+                  {buscaAberta ? <X className="size-[22px]" strokeWidth={1.75} /> : <Search className="size-[22px]" strokeWidth={1.75} />}
+                </BotaoCabecalho>
+              )}
+
+              <BotaoCabecalho onClick={alternar} aria-label={tema === "dark" ? "Usar tema claro" : "Usar tema escuro"}>
+                {tema === "dark" ? <Sun className="size-[21px]" strokeWidth={1.75} /> : <Moon className="size-[21px]" strokeWidth={1.75} />}
+              </BotaoCabecalho>
+
+              {pathname !== "/avisos" && (
+                <Link
+                  href="/avisos"
+                  aria-label={naoLidos ? `Avisos, ${naoLidos} não lidos` : "Avisos"}
+                  className="relative grid size-10 place-items-center rounded-full text-on-header transition-colors duration-150 hover:bg-white/10"
+                >
+                  <Bell className="size-[21px]" strokeWidth={1.75} />
+                  {naoLidos > 0 && (
+                    <span className="absolute right-1.5 top-1.5 size-2.5 rounded-full bg-gold ring-2 ring-header" aria-hidden />
+                  )}
+                </Link>
               )}
             </div>
           </header>
 
           <main ref={scrollRef} id="app-scroll" className="app-scroll relative flex-1">
-            {children}
+            <div key={chaveSecao} className="animate-enter">
+              {children}
+            </div>
           </main>
 
           <BottomTabs />

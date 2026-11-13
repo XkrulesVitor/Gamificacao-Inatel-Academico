@@ -88,7 +88,7 @@ type BadgeTone = "neutral" | "accent" | "gold" | "danger";
 const badgeTones: Record<BadgeTone, string> = {
   neutral: "bg-surface-3 text-muted",
   accent: "bg-accent/15 text-accent",
-  gold: "bg-gold/15 text-gold",
+  gold: "bg-gold/15 text-gold-ink",
   danger: "bg-danger/15 text-danger",
 };
 
@@ -252,7 +252,7 @@ export function IconBubble({
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "border border-[#1e5fa0] bg-primary text-white enabled:hover:bg-primary-hover",
+  primary: "bg-primary text-on-primary shadow-sm enabled:hover:bg-primary-hover",
   secondary: "border border-line-strong bg-surface-2 text-fg enabled:hover:bg-surface-3",
   ghost: "text-accent enabled:hover:bg-accent/10",
 };
