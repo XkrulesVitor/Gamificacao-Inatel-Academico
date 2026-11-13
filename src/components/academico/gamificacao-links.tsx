@@ -1,35 +1,33 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import clsx from "clsx";
+import { Award, ChevronRight, Medal } from "lucide-react";
 
 /** Rota do módulo de gamificação onde as medalhas ligadas às telas acadêmicas aparecem. */
 export const ROTA_CONQUISTAS = "/gamificacao/conquistas";
 
-/** Selo dourado pequeno (ex.: "Medalha Nota 100") que leva às Conquistas. */
-export function SeloMedalha({ children, className }: { children: React.ReactNode; className?: string }) {
+/** Ícone de medalha ao lado de uma nota 100, leva às Conquistas. */
+export function SeloNota100() {
   return (
     <Link
       href={ROTA_CONQUISTAS}
-      className={clsx(
-        "inline-flex min-h-11 items-center gap-1.5 rounded-full border border-gold/40 bg-gold/15 px-3 text-sm font-semibold text-gold transition hover:bg-gold/25",
-        className,
-      )}
+      aria-label="Medalha Nota 100"
+      title="Medalha Nota 100"
+      className="-m-2 inline-grid size-8 shrink-0 place-items-center rounded-full p-2 text-gold transition-colors hover:bg-gold/15"
     >
-      <span aria-hidden>🏅</span>
-      {children}
+      <Award className="size-4" strokeWidth={1.75} aria-hidden />
     </Link>
   );
 }
 
-/** Faixa de link para as Conquistas, com texto e seta. */
+/** Link discreto para as Conquistas, com ícone de medalha dourado. */
 export function LinkConquista({ children }: { children: React.ReactNode }) {
   return (
     <Link
       href={ROTA_CONQUISTAS}
-      className="flex min-h-11 items-center justify-between gap-3 rounded-card border border-gold/30 bg-gold/10 px-4 py-3 text-sm font-medium text-fg transition hover:bg-gold/15"
+      className="inline-flex min-h-11 items-center gap-2 rounded-control pr-2 text-[15px] font-medium text-fg transition-colors hover:text-accent"
     >
-      <span className="min-w-0">{children}</span>
-      <ChevronRight className="size-5 shrink-0 text-gold" aria-hidden />
+      <Medal className="size-5 shrink-0 text-gold" strokeWidth={1.75} aria-hidden />
+      {children}
+      <ChevronRight className="size-4 text-muted" strokeWidth={1.75} aria-hidden />
     </Link>
   );
 }

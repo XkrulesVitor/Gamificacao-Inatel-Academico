@@ -1,106 +1,105 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Scale } from "lucide-react";
-import { DisputaCard } from "@/components/gamificacao/disputa-card";
-import { FiltroRanking } from "@/components/gamificacao/filtro-ranking";
-import { FormulaCard } from "@/components/gamificacao/formula-card";
-import { LinhaRanking } from "@/components/gamificacao/linha-ranking";
-import { Podio } from "@/components/gamificacao/podio";
-import { SectionTitle } from "@/components/ui/primitives";
-import { fmt1 } from "@/lib/format";
-import { MINHA_MATRICULA } from "@/lib/mock/gamificacao";
-import { carregarRanking, minhaEntrada, opcoesFiltro, rankingBruto } from "@/lib/ranking";
+import { Fragment, useMemo, useState } from "react";
+import { ChevronDown, FlaskConical } from "lucide-react";
+import { ListaRanking } from "@/components/gamificacao/lista-ranking";
+import { Calculo, Disputa, SuaPosicao } from "@/components/gamificacao/posicao-painel";
+import { Chip, ChipGroup, Page, Panel, SectionHeading, SplitLayout } from "@/components/ui/primitives";
+import { carregarRanking, minhaEntrada, opcoesFiltro } from "@/lib/ranking";
 
 export default function RankingPage() {
   const [filtroId, setFiltroId] = useState("geral");
+  const [calculoAberto, setCalculoAberto] = useState(false);
   const opcao = opcoesFiltro.find((o) => o.id === filtroId) ?? opcoesFiltro[0];
   const ranking = useMemo(() => carregarRanking(opcao.filtro), [opcao]);
   const eu = minhaEntrada(ranking);
-  const restantes = ranking.slice(3);
-  const listaRef = useRef<HTMLUListElement>(null);
+  const geral = opcao.filtro.tipo === "geral";
+  const lab = opcao.grupo === "Laboratórios";
 
-  // Posição sem normalização (só faz sentido no filtro geral)
-  const posicaoBruta = rankingBruto().findIndex((a) => a.matricula === MINHA_MATRICULA) + 1;
+  const main = (
+    <>
+      <ChipGroup label="Filtro do ranking" className="scroll-px-4 items-center">
+        {opcoesFiltro.map((o, i) => (
+          <Fragment key={o.id}>
+            {i > 0 && o.grupo !== opcoesFiltro[i - 1].grupo && (
+              <span aria-hidden className="mx-1 h-5 w-px shrink-0 self-center bg-line-strong" />
+            )}
+            <Chip
+              selected={o.id === filtroId}
+              onClick={(ev) => {
+                setFiltroId(o.id);
+                ev.currentTarget.scrollIntoView({ inline: "nearest", block: "nearest" });
+              }}
+            >
+              {o.grupo === "Laboratórios" && <FlaskConical className="size-3.5" strokeWidth={1.75} aria-hidden />}
+              {o.label}
+            </Chip>
+          </Fragment>
+        ))}
+      </ChipGroup>
+      <p className="mt-2 h-4 text-xs text-muted">{lab ? opcao.descricao : ""}</p>
 
-  // Ao trocar o filtro, garante que a linha do usuário continue visível (container: #app-scroll)
-  // (compara com o filtro anterior em vez de um flag "primeira vez", que falha no StrictMode)
-  const filtroAnterior = useRef(filtroId);
-  useEffect(() => {
-    if (filtroAnterior.current === filtroId) return;
-    filtroAnterior.current = filtroId;
-    const t = setTimeout(() => {
-      listaRef.current?.querySelector('[data-eu="true"]')?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-    }, 120);
-    return () => clearTimeout(t);
-  }, [filtroId]);
-
-  return (
-    <div className="animate-fade-up px-4 pt-4">
-      <div className="space-y-3">
-        <FiltroRanking valor={opcao} onChange={setFiltroId} />
-        <FormulaCard eu={eu} />
-      </div>
+      <Panel className="mt-3 p-4 lg:hidden">
+        <SuaPosicao eu={eu} total={ranking.length} compacto />
+        <div className="mt-2">
+          <Disputa ranking={ranking} eu={eu} />
+        </div>
+      </Panel>
 
       {ranking.length === 0 ? (
-        <p className="mt-6 rounded-card border border-line bg-surface-1 p-4 text-center text-muted">
-          Nenhum aluno neste filtro.
-        </p>
+        <p className="py-10 text-center text-sm text-muted">Nenhum aluno neste filtro</p>
       ) : (
-        <>
-          <SectionTitle className="mt-6">Pódio</SectionTitle>
-          <div className="pt-5">
-            <Podio entradas={ranking} />
-          </div>
-
-          {eu && (
-            <div className="mt-5">
-              <DisputaCard ranking={ranking} eu={eu} />
-            </div>
-          )}
-
-          {filtroId === "geral" && eu && posicaoBruta > 0 && (
-            <div className="mt-3 flex items-start gap-3 rounded-card border border-xp/40 bg-xp/10 p-3.5">
-              <Scale className="mt-0.5 size-5 shrink-0 text-xp" aria-hidden />
-              <p className="text-sm leading-snug text-muted">
-                <strong className="font-semibold text-fg">Justiça na disputa: </strong>
-                {posicaoBruta === eu.posicao ? (
-                  <>sua posição é a mesma com ou sem normalização ({eu.posicao}º).</>
-                ) : (
-                  <>
-                    sem normalização você estaria em{" "}
-                    <strong className="text-fg">{posicaoBruta}º</strong>; ao considerar créditos e presença em labs, você
-                    está em <strong className="text-fg">{eu.posicao}º</strong>.
-                  </>
-                )}
-              </p>
-            </div>
-          )}
-
-          <SectionTitle>Classificação</SectionTitle>
-          <ul ref={listaRef} className="space-y-2" aria-label={`Classificação — ${opcao.label}`}>
-            {restantes.map((e) => (
-              <LinhaRanking key={e.aluno.matricula} e={e} />
-            ))}
-          </ul>
-        </>
+        <div className="mt-5">
+          <ListaRanking entradas={ranking} />
+        </div>
       )}
 
-      <div className="sticky bottom-0 z-10 -mx-4 mt-4 border-t border-line-strong bg-surface-2 px-4 py-3 shadow-[0_-8px_24px_rgba(0,0,0,0.6)]">
-        {eu ? (
-          <p className="flex items-center justify-between gap-2 text-sm text-muted" aria-live="polite">
-            <span>
-              Sua posição ·{" "}
-              <strong className="text-base font-bold text-fg">
-                {eu.posicao}º de {ranking.length}
-              </strong>
-            </span>
-            <strong className="text-base font-extrabold text-gold">{fmt1(eu.pontuacao)} pts</strong>
-          </p>
-        ) : (
-          <p className="text-sm text-muted">Você não aparece neste filtro.</p>
+      <section className="mt-6 border-t border-line pt-2 lg:hidden">
+        <button
+          type="button"
+          onClick={() => setCalculoAberto((v) => !v)}
+          aria-expanded={calculoAberto}
+          className="flex h-11 w-full items-center justify-between text-[15px] font-semibold text-fg"
+        >
+          Cálculo
+          <ChevronDown
+            className={`size-5 text-muted transition-transform duration-200 ${calculoAberto ? "rotate-180" : ""}`}
+            strokeWidth={1.75}
+          />
+        </button>
+        {calculoAberto && (
+          <div className="pb-3 pt-1">
+            <Calculo eu={eu} geral={geral} />
+          </div>
         )}
+      </section>
+    </>
+  );
+
+  const aside = (
+    <Panel className="divide-y divide-line">
+      <div className="p-5">
+        <SectionHeading>Sua posição</SectionHeading>
+        <SuaPosicao eu={eu} total={ranking.length} />
       </div>
-    </div>
+      {eu && (
+        <div className="px-5 pb-2 pt-4">
+          <SectionHeading className="mb-1">Disputa</SectionHeading>
+          <Disputa ranking={ranking} eu={eu} />
+        </div>
+      )}
+      {eu && (
+        <div className="p-5">
+          <SectionHeading>Cálculo</SectionHeading>
+          <Calculo eu={eu} geral={geral} />
+        </div>
+      )}
+    </Panel>
+  );
+
+  return (
+    <Page className="pt-4 lg:pt-6">
+      <SplitLayout main={main} aside={aside} asideClassName="hidden lg:block lg:top-[72px]" />
+    </Page>
   );
 }

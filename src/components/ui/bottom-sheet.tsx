@@ -10,14 +10,13 @@ interface BottomSheetProps {
   onClose: () => void;
   /** Título acessível (exibido no topo do sheet) */
   title: string;
-  /** Esconde o título visualmente (mantém para leitores de tela) */
   hideTitle?: boolean;
   children: React.ReactNode;
 }
 
 /**
- * Cartão explicativo que sobe da base da tela (padrão mobile).
- * Fica preso à moldura do app (#app-frame). Fecha com ESC, toque no fundo ou botão X.
+ * Detalhe que sobe da base da tela. Uso: MOBILE. No desktop prefira um painel lateral
+ * (SplitLayout) e não abra o sheet (veja useIsDesktop). Fecha com ESC, fundo, X ou arrastar.
  */
 export function BottomSheet({ open, onClose, title, hideTitle, children }: BottomSheetProps) {
   useEffect(() => {
@@ -27,7 +26,6 @@ export function BottomSheet({ open, onClose, title, hideTitle, children }: Botto
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
-  // Fecha se o componente for desmontado/oculto (navegação). Ref evita depender de onClose estável.
   const onCloseRef = useRef(onClose);
   useLayoutEffect(() => {
     onCloseRef.current = onClose;
@@ -38,22 +36,23 @@ export function BottomSheet({ open, onClose, title, hideTitle, children }: Botto
     <Portal>
       <AnimatePresence>
         {open && (
-          <div className="absolute inset-0 z-50 flex items-end" role="dialog" aria-modal="true" aria-label={title}>
+          <div className="fixed inset-0 z-50 flex items-end justify-center" role="dialog" aria-modal="true" aria-label={title}>
             <motion.button
               type="button"
               aria-label="Fechar"
-              className="absolute inset-0 bg-black/70 backdrop-blur-[2px]"
+              className="absolute inset-0 bg-black/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}
               onClick={onClose}
             />
             <motion.div
-              className="app-scroll relative max-h-[88%] w-full rounded-t-[28px] border-t border-line-strong bg-surface-2 px-5 pb-[calc(24px+env(safe-area-inset-bottom))] pt-3 shadow-2xl"
+              className="app-scroll relative max-h-[88dvh] w-full max-w-lg rounded-t-[22px] border-t border-line-strong bg-surface-2 px-5 pb-[calc(24px+env(safe-area-inset-bottom))] pt-2.5"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 320 }}
+              transition={{ type: "spring", damping: 34, stiffness: 380 }}
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
               dragElastic={{ top: 0, bottom: 0.6 }}
@@ -61,16 +60,16 @@ export function BottomSheet({ open, onClose, title, hideTitle, children }: Botto
                 if (info.offset.y > 120 || info.velocity.y > 600) onClose();
               }}
             >
-              <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-line-strong" aria-hidden />
-              <div className="mb-2 flex items-start justify-between gap-3">
-                <h2 className={hideTitle ? "sr-only" : "text-lg font-bold text-fg"}>{title}</h2>
+              <div className="mx-auto mb-2 h-1 w-9 rounded-full bg-line-strong" aria-hidden />
+              <div className="mb-3 flex min-h-9 items-center justify-between gap-3">
+                <h2 className={hideTitle ? "sr-only" : "text-base font-semibold text-fg"}>{title}</h2>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="-mr-1 ml-auto grid size-9 place-items-center rounded-full bg-surface-3 text-muted transition hover:text-fg"
+                  className="-mr-2 ml-auto grid size-9 place-items-center rounded-full text-muted transition-colors hover:bg-surface-3 hover:text-fg"
                   aria-label="Fechar"
                 >
-                  <X className="size-4" />
+                  <X className="size-5" strokeWidth={1.75} />
                 </button>
               </div>
               {children}

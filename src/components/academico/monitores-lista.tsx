@@ -1,56 +1,77 @@
 "use client";
 
 import { useState } from "react";
-import clsx from "clsx";
-import { monitores } from "@/lib/mock/aluno";
+import { Chip, ChipGroup, Panel } from "@/components/ui/primitives";
+import { getDisciplina, monitores } from "@/lib/mock/aluno";
 
 const codigos = [...new Set(monitores.map((m) => m.disciplina))].sort();
 
-/** Lista de monitores com chips de filtro por disciplina, no layout do print "Monitores". */
+/** Monitores: tabela no desktop, lista agrupada por disciplina no mobile. Filtro por chips. */
 export function MonitoresLista() {
   const [filtro, setFiltro] = useState<string>("Todas");
   const lista = filtro === "Todas" ? monitores : monitores.filter((m) => m.disciplina === filtro);
-  const opcoes = ["Todas", ...codigos];
+  const grupos = codigos
+    .map((codigo) => ({ codigo, nome: getDisciplina(codigo)?.nome ?? codigo, itens: lista.filter((m) => m.disciplina === codigo) }))
+    .filter((g) => g.itens.length > 0);
 
   return (
-    <div className="space-y-4">
-      <div role="group" aria-label="Filtrar por disciplina" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {opcoes.map((op) => {
-          const ativo = op === filtro;
-          return (
-            <button
-              key={op}
-              type="button"
-              aria-pressed={ativo}
-              onClick={() => setFiltro(op)}
-              className={clsx(
-                "min-h-11 shrink-0 rounded-full border px-4 text-sm font-semibold transition",
-                ativo ? "border-primary-strong bg-primary text-white" : "border-line bg-surface-2 text-muted hover:text-fg",
-              )}
-            >
-              {op}
-            </button>
-          );
-        })}
-      </div>
+    <div className="space-y-5">
+      <ChipGroup label="Filtrar por disciplina">
+        {["Todas", ...codigos].map((op) => (
+          <Chip key={op} selected={op === filtro} onClick={() => setFiltro(op)}>
+            {op}
+          </Chip>
+        ))}
+      </ChipGroup>
 
-      <div className="space-y-3">
-        {lista.map((m, i) => (
-          <article key={`${m.disciplina}-${m.nome}-${m.dia}-${i}`} className="overflow-hidden rounded-md bg-surface-2">
-            <header className="px-4 py-3 text-center">
-              <p className="text-[17px] text-fg">{m.disciplina}</p>
-              <p className="text-[17px] text-fg">{m.nome}</p>
+      <Panel className="hidden overflow-hidden lg:block">
+        <table className="w-full text-left text-[15px]">
+          <caption className="sr-only">Monitores</caption>
+          <thead className="text-xs font-medium text-muted">
+            <tr className="border-b border-line">
+              <th scope="col" className="px-5 py-3 font-medium">Disciplina</th>
+              <th scope="col" className="px-3 py-3 font-medium">Monitor</th>
+              <th scope="col" className="px-3 py-3 font-medium">Dia</th>
+              <th scope="col" className="px-3 py-3 font-medium">Horário</th>
+              <th scope="col" className="px-5 py-3 font-medium">Local</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lista.map((m, i) => (
+              <tr key={`${m.disciplina}-${m.nome}-${m.dia}-${i}`} className="border-t border-line transition-colors hover:bg-surface-2">
+                <th scope="row" className="px-5 py-3.5 text-left font-normal">
+                  <span className="num block text-xs text-muted">{m.disciplina}</span>
+                  <span className="block font-medium text-fg">{getDisciplina(m.disciplina)?.nome ?? m.disciplina}</span>
+                </th>
+                <td className="px-3 py-3.5 text-fg">{m.nome}</td>
+                <td className="px-3 py-3.5 text-muted">{m.dia}</td>
+                <td className="num px-3 py-3.5 text-muted">{m.horario}</td>
+                <td className="px-5 py-3.5 text-muted">{m.local}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Panel>
+
+      <div className="space-y-4 lg:hidden">
+        {grupos.map((g) => (
+          <Panel key={g.codigo} className="overflow-hidden">
+            <header className="border-b border-line px-4 py-3">
+              <p className="text-sm font-semibold text-fg">
+                <span className="num">{g.codigo}</span> · {g.nome}
+              </p>
             </header>
-            <div className="grid grid-cols-3 gap-px bg-line-strong text-center">
-              <div className="bg-surface-3 py-2 text-sm font-bold text-fg">Dia</div>
-              <div className="bg-surface-3 py-2 text-sm font-bold text-fg">Horário</div>
-              <div className="bg-surface-3 py-2 text-sm font-bold text-fg">Local</div>
-
-              <div className="flex items-center justify-center bg-teal px-1 py-3 text-sm text-white">{m.dia}</div>
-              <div className="flex items-center justify-center bg-cell px-1 py-3 text-sm text-white">{m.horario}</div>
-              <div className="flex items-center justify-center bg-cell px-1 py-3 text-sm text-white">{m.local}</div>
-            </div>
-          </article>
+            <ul className="divide-y divide-line">
+              {g.itens.map((m, i) => (
+                <li key={`${m.nome}-${m.dia}-${i}`} className="px-4 py-3">
+                  <p className="font-medium text-fg">{m.nome}</p>
+                  <p className="mt-0.5 text-sm text-muted">
+                    {m.dia.replace("-feira", "")} · <span className="num">{m.horario}</span> · {m.local}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Panel>
         ))}
       </div>
     </div>

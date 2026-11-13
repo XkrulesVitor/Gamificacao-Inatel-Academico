@@ -1,176 +1,197 @@
 <div align="center">
 
-<img src="docs/screenshots/capa.png" alt="Capa do projeto: três celulares mostrando Avisos, Conquistas e Ranking do App Acadêmico Inatel com Gamificação" width="100%">
+<img src="docs/screenshots/v2/d04-ranking.png" alt="Ranking na versão desktop: sidebar, pódio, tabela e painel Sua posição" width="100%">
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="docs/screenshots/v2/m03-avisos.png" width="200" alt="Avisos no celular"></td>
+    <td align="center"><img src="docs/screenshots/v2/m05-conquistas.png" width="200" alt="Conquistas no celular"></td>
+    <td align="center"><img src="docs/screenshots/v2/m08-ranking.png" width="200" alt="Ranking no celular"></td>
+  </tr>
+</table>
 
 # App Acadêmico Inatel + Gamificação
 
-**Protótipo mobile de conquistas por medalhas e ranking proporcional por créditos e presença em laboratórios, dentro da navegação padrão do app Acadêmico.**
+**Conquistas por medalhas e ranking proporcional por créditos e presença em laboratórios, dentro da navegação do app Acadêmico. Versão 2, com desktop real.**
 
 <br>
 
-![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-0F172A?style=for-the-badge&logo=tailwindcss&logoColor=38BDF8)
-![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js_16-111111?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-2F5D95?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-1E293B?style=flat-square&logo=tailwindcss&logoColor=38BDF8)
+![PWA](https://img.shields.io/badge/PWA-3F3F46?style=flat-square&logo=pwa&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-111111?style=flat-square&logo=vercel&logoColor=white)
 
 <br>
 
-### [📱 Abrir o app online](https://gamificacao-inatel-academico.vercel.app) &nbsp;·&nbsp; [💻 Ver código](https://github.com/XkrulesVitor/Gamificacao-Inatel-Academico)
+### [Abrir o app](https://gamificacao-inatel-academico.vercel.app) &nbsp;·&nbsp; [Código](https://github.com/XkrulesVitor/Gamificacao-Inatel-Academico)
 
-<sub>Trabalho de **S05 / S205 · Interface Homem-Máquina** · Engenharia de Software · Inatel</sub>
+<sub>S05 / S205 · Interface Homem-Máquina · Engenharia de Software · Inatel</sub>
 
 </div>
 
 ---
 
-## 📑 Sumário
+## Sumário
 
-1. [Sobre](#-sobre)
-2. [Acesse online](#-acesse-online)
-3. [Telas](#-telas)
-4. [User Story](#-user-story)
-5. [HTA → implementação](#-hta--implementação)
-6. [Diagrama de Classes](#-diagrama-de-classes)
-7. [Ranking justo](#-ranking-justo)
-8. [Medalhas e níveis](#-medalhas-e-níveis)
-9. [Navegação: o que mudou no menu](#-navegação-o-que-mudou-no-menu)
-10. [Heurísticas de Nielsen](#-heurísticas-de-nielsen)
-11. [PWA](#-pwa)
-12. [Tecnologias e arquitetura](#-tecnologias-e-arquitetura)
-13. [Rodando localmente](#-rodando-localmente)
-14. [Como foi feito](#-como-foi-feito)
-15. [Aviso](#-aviso)
-16. [Autor](#-autor)
-
----
-
-## 🎯 Sobre
-
-Projeto da disciplina **S05 / S205 — Interface Homem-Máquina** (Inatel, Engenharia de Software). O tema da turma foi **"O que mudar no aplicativo acadêmico"**. O eixo escolhido foi **Suporte Estudantil → Gamificação e engajamento acadêmico**, com foco na integração e na gamificação entre alunos.
-
-O resultado é um **protótipo mobile mocado**, sem backend e sem banco de dados. Ele segue a navegação padrão do app Acadêmico da Inatel (tema escuro, cabeçalho azul-marinho, menu lateral dividido em seções). Algumas opções do menu foram removidas, e as telas idealizadas nos artefatos da disciplina (User Story, HTA e Diagrama de Classes) foram adicionadas.
-
-O que o protótipo entrega:
-
-- **Conquistas**: 12 medalhas (6 conquistadas, 6 bloqueadas) em quatro raridades, com regra de desbloqueio e progresso percentual visíveis.
-- **Ranking proporcional**: a pontuação considera créditos matriculados e presença em laboratórios, para a comparação ser justa entre quem cursa cargas diferentes.
-- **Filtro por curso, período ou laboratório**, com a posição do usuário destacada.
-- **Dimensão social**: card "Disputa" (quem está logo acima e abaixo), pódio, medalhas de colaboração e preferência de privacidade.
-- **Telas acadêmicas** (Notas, Frequência, Coeficientes, Provas, Horários, Monitores) para o módulo viver dentro de um app completo.
-- **PWA instalável** com funcionamento offline básico.
+1. [Sobre](#sobre)
+2. [Acesse](#acesse)
+3. [Telas](#telas)
+4. [O que mudou na v2](#o-que-mudou-na-v2)
+5. [User Story](#user-story)
+6. [HTA → implementação](#hta--implementação)
+7. [Diagrama de Classes](#diagrama-de-classes)
+8. [Ranking justo](#ranking-justo)
+9. [Medalhas e níveis](#medalhas-e-níveis)
+10. [Navegação](#navegação)
+11. [Design system](#design-system)
+12. [Heurísticas de Nielsen](#heurísticas-de-nielsen)
+13. [PWA](#pwa)
+14. [Tecnologias e arquitetura](#tecnologias-e-arquitetura)
+15. [Rodando localmente](#rodando-localmente)
+16. [Como foi feito](#como-foi-feito)
+17. [Aviso](#aviso)
+18. [Autor](#autor)
 
 ---
 
-## 🌐 Acesse online
+## Sobre
+
+Trabalho da disciplina S05 / S205 Interface Homem-Máquina. Tema da turma: "O que mudar no aplicativo acadêmico". Eixo escolhido: Suporte Estudantil, com gamificação e engajamento entre alunos.
+
+| Item | Detalhe |
+|---|---|
+| Tipo | Protótipo navegável, 100% mockado |
+| Backend e banco | Não há. Páginas estáticas, sessão fake no `localStorage` |
+| Base visual | App Acadêmico da Inatel: fundo preto, cabeçalho azul-marinho, menu cinza por seções |
+| Artefatos de origem | User Story, HTA e Diagrama de Classes |
+| Plataformas | Celular (PWA) e desktop |
+
+Entregas:
+
+- **Conquistas:** 12 medalhas (6 conquistadas, 6 bloqueadas) em quatro raridades, com regra e progresso.
+- **Ranking proporcional:** pontos divididos por créditos e ponderados pela presença em laboratórios.
+- **Filtros:** geral, curso, período e três laboratórios, com a posição do aluno destacada.
+- **Social:** pódio, Disputa (quem está acima e abaixo), medalhas de colaboração, privacidade do nome.
+- **Telas acadêmicas:** Notas, Frequência, Coeficientes, Provas, Horários de Aula e Monitores.
+- **PWA** instalável com offline básico.
+
+---
+
+## Acesse
 
 <div align="center">
 
-<a href="https://gamificacao-inatel-academico.vercel.app"><img src="docs/screenshots/qrcode.png" alt="QR code para abrir o app online" width="180"></a>
+<a href="https://gamificacao-inatel-academico.vercel.app"><img src="docs/screenshots/qrcode.png" alt="QR code para abrir o app" width="160"></a>
 
-**[https://gamificacao-inatel-academico.vercel.app](https://gamificacao-inatel-academico.vercel.app)**
-
-<sub>Aponte a câmera do celular para o QR code. Deploy automático a cada push na branch `main`.</sub>
+**[gamificacao-inatel-academico.vercel.app](https://gamificacao-inatel-academico.vercel.app)**
 
 </div>
 
-### 🔑 Conta demo
+### Conta demo
 
-1. Na tela **Perfis Salvos**, toque em **Lucas Andrade Ferreira · GES-412**.
-   Alternativa: toque em **Outro Usuário**, escolha **Engenharia de Software** e informe a matrícula **412**.
-2. Digite **qualquer senha**.
+1. Em **Perfis Salvos**, toque em **Lucas Andrade Ferreira · GES-412**.
+   Alternativa: **Outro Usuário**, curso **Engenharia de Software**, matrícula **412**.
+2. Digite qualquer senha.
 
 > [!WARNING]
-> **Não digite sua senha real.** Nada é enviado a servidor. A "sessão" é apenas um flag no `localStorage` do navegador e qualquer senha é aceita.
-
-> [!TIP]
-> No celular, instale o app (veja [PWA](#-pwa)). No desktop, ele aparece dentro de uma moldura de celular.
+> Não digite sua senha real. Nada é enviado a servidor. A sessão é um flag no `localStorage` e qualquer senha é aceita.
 
 ---
 
-## 📸 Telas
+## Telas
 
-### 🚪 Entrada
+### Desktop (1440 px)
 
 <table align="center">
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/01-perfis-salvos.png" width="240" alt="Perfis Salvos"><br><sub><b>Perfis Salvos</b><br>escolha do perfil</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/02-login.png" width="240" alt="Login"><br><sub><b>Login</b><br>com validação e mensagens de erro</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/03-avisos-home.png" width="240" alt="Avisos"><br><sub><b>Avisos (home)</b><br>com atalho para Conquistas e Ranking</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d01-perfis-salvos.png" width="420" alt="Perfis Salvos no desktop"><br><sub><b>Perfis Salvos</b><br>entrada</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d02-avisos.png" width="420" alt="Avisos no desktop"><br><sub><b>Avisos</b><br>caixa de entrada com leitor</sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/04-menu-lateral.png" width="240" alt="Menu lateral"><br><sub><b>Menu lateral</b><br>enxuto, com o item novo</sub></td>
-    <td></td>
-    <td></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d03-conquistas.png" width="420" alt="Conquistas no desktop"><br><sub><b>Conquistas</b><br>grade e painel da medalha</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d04-ranking.png" width="420" alt="Ranking no desktop"><br><sub><b>Ranking</b><br>pódio, tabela, Sua posição, Cálculo</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d05-ranking-lab.png" width="420" alt="Ranking filtrado por laboratório"><br><sub><b>Ranking por laboratório</b><br>chip de laboratório ativo</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d06-notas.png" width="420" alt="Notas no desktop"><br><sub><b>Notas</b><br>tabela</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d07-frequencia.png" width="420" alt="Frequência no desktop"><br><sub><b>Frequência</b><br>tabela</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d08-coeficientes.png" width="420" alt="Coeficientes no desktop"><br><sub><b>Coeficientes</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d09-provas.png" width="420" alt="Provas no desktop"><br><sub><b>Provas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d10-horarios.png" width="420" alt="Horários de Aula no desktop"><br><sub><b>Horários de Aula</b><br>grade e painel da aula</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d11-monitores.png" width="420" alt="Monitores no desktop"><br><sub><b>Monitores</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/d12-configuracoes.png" width="420" alt="Configurações no desktop"><br><sub><b>Configurações</b><br>privacidade e sobre</sub></td>
   </tr>
 </table>
 
-### 🏅 Gamificação — Conquistas
+### Mobile (390 px)
 
 <table align="center">
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/05-conquistas.png" width="240" alt="Conquistas"><br><sub><b>Conquistas</b><br>resumo de nível e abas</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/06-conquistas-grade.png" width="240" alt="Grade de medalhas"><br><sub><b>Grade de medalhas</b><br>filtro Todas / Conquistadas / Bloqueadas</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/07-medalha-bloqueada.png" width="240" alt="Medalha bloqueada"><br><sub><b>Medalha bloqueada</b><br>regra pendente e % de progresso</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m01-perfis-salvos.png" width="200" alt="Perfis Salvos"><br><sub><b>Perfis Salvos</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m02-login.png" width="200" alt="Login"><br><sub><b>Login</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m03-avisos.png" width="200" alt="Avisos"><br><sub><b>Avisos</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m04-menu.png" width="200" alt="Menu lateral"><br><sub><b>Menu lateral</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/08-medalha-conquistada.png" width="240" alt="Medalha conquistada"><br><sub><b>Medalha conquistada</b><br>data e origem da conquista</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m05-conquistas.png" width="200" alt="Conquistas"><br><sub><b>Conquistas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m06-medalha-bloqueada.png" width="200" alt="Medalha bloqueada"><br><sub><b>Medalha bloqueada</b><br>bottom sheet</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m07-medalha-conquistada.png" width="200" alt="Medalha conquistada"><br><sub><b>Medalha conquistada</b><br>bottom sheet</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m08-ranking.png" width="200" alt="Ranking"><br><sub><b>Ranking</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m09-ranking-lista.png" width="200" alt="Lista do ranking"><br><sub><b>Classificação</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m10-ranking-lab.png" width="200" alt="Ranking por laboratório"><br><sub><b>Por laboratório</b><br>E08 · L1</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m11-notas.png" width="200" alt="Notas"><br><sub><b>Notas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m12-frequencia.png" width="200" alt="Frequência"><br><sub><b>Frequência</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m13-coeficientes.png" width="200" alt="Coeficientes"><br><sub><b>Coeficientes</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m14-provas.png" width="200" alt="Provas"><br><sub><b>Provas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m15-horarios.png" width="200" alt="Horários de Aula"><br><sub><b>Horários</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m16-horario-detalhe.png" width="200" alt="Detalhe da aula"><br><sub><b>Detalhe da aula</b><br>bottom sheet</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m17-monitores.png" width="200" alt="Monitores"><br><sub><b>Monitores</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v2/m18-configuracoes.png" width="200" alt="Configurações"><br><sub><b>Configurações</b></sub></td>
     <td></td>
     <td></td>
-  </tr>
-</table>
-
-### 🏆 Gamificação — Ranking
-
-<table align="center">
-  <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/09-ranking.png" width="240" alt="Ranking"><br><sub><b>Ranking</b><br>pódio e classificação</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/10-ranking-formula.png" width="240" alt="Como é calculado"><br><sub><b>Como é calculado</b><br>fórmula com a conta do próprio aluno</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/11-ranking-filtro.png" width="240" alt="Filtro do ranking"><br><sub><b>Filtro</b><br>menu suspenso por visão e laboratório</sub></td>
-  </tr>
-  <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/12-ranking-lab.png" width="240" alt="Ranking por laboratório"><br><sub><b>Ranking por laboratório</b><br>lista recarregada com o peso do lab</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/13-ranking-disputa.png" width="240" alt="Disputa"><br><sub><b>Disputa</b><br>distância para quem está acima e abaixo</sub></td>
-    <td></td>
-  </tr>
-</table>
-
-### 📚 Telas acadêmicas
-
-<table align="center">
-  <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/14-notas.png" width="240" alt="Notas"><br><sub><b>Notas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/15-frequencia.png" width="240" alt="Frequência"><br><sub><b>Frequência</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/16-coeficientes.png" width="240" alt="Coeficientes"><br><sub><b>Coeficientes</b></sub></td>
-  </tr>
-  <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/17-provas.png" width="240" alt="Provas"><br><sub><b>Provas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/18-horarios.png" width="240" alt="Horários de Aula"><br><sub><b>Horários de Aula</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/19-monitores.png" width="240" alt="Horários de Monitores"><br><sub><b>Horários de Monitores</b></sub></td>
-  </tr>
-  <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/20-configuracoes.png" width="240" alt="Configurações"><br><sub><b>Configurações</b><br>privacidade e sobre o protótipo</sub></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-### 🖥️ Versão desktop
-
-No desktop o app é exibido dentro de uma moldura de celular.
-
-<table align="center">
-  <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/desktop-avisos.png" width="300" alt="Avisos no desktop"><br><sub><b>Avisos</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/desktop-conquistas.png" width="300" alt="Conquistas no desktop"><br><sub><b>Conquistas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/desktop-ranking.png" width="300" alt="Ranking no desktop"><br><sub><b>Ranking</b></sub></td>
   </tr>
 </table>
 
 ---
 
-## 📝 User Story
+## O que mudou na v2
+
+| Área | v1 | v2 |
+|---|---|---|
+| Desktop | Moldura de celular | Layout real: sidebar fixa (264 px, ou 232 px entre 1024 e 1279 px), barra superior azul-marinho, conteúdo em colunas com painel de detalhe |
+| Sidebar | Não existia | Mesmas seções do menu do app, cabeçalho do aluno em degradê azul |
+| Mobile | Menu lateral | Menu lateral do app real, barra inferior (Avisos, Conquistas, Ranking, Horários) e detalhes em bottom sheet |
+| Avisos | Lista | Caixa de entrada com leitor ao lado e resumo do aluno |
+| Conquistas | Grade de cards | Grade de emblemas SVG e painel da medalha com regra, progresso e atividade recente |
+| Ranking | Menu suspenso | Filtro em chips, pódio sóbrio, painéis Sua posição, Disputa e Cálculo |
+| Notas e Frequência | Cards | Tabelas |
+| Horários | Grade com sheet | Grade com painel da aula no desktop e bottom sheet no mobile |
+| Visual | Cores variadas | Design system enxuto (ver [Design system](#design-system)) |
+| Texto | Emojis nos títulos | Nenhum emoji, nenhum travessão |
+
+Detalhes:
+
+- **Medalhas:** emblema SVG próprio. Anel no metal da raridade. Bloqueadas em cinza, com cadeado e barra de progresso.
+- **Ranking:** chips Geral, Meu curso, 4º período, S05 · L1, E08 · L1 e F03 · L4. Equação do cálculo com rótulos. Comparação "Sem normalização 11º → 4º".
+- **Processo:** skill de design Impeccable, com `PRODUCT.md`, contrato de direção, detector sem achados e revisão final independente. Veja [Como foi feito](#como-foi-feito).
+
+---
+
+## User Story
 
 **Persona: Lucas**, estudante de Engenharia, 4º período, com rotina intensa de disciplinas e projetos práticos em laboratório.
 
@@ -180,9 +201,9 @@ No desktop o app é exibido dentro de uma moldura de celular.
 
 ---
 
-## 🌳 HTA → implementação
+## HTA → implementação
 
-A **Análise Hierárquica de Tarefas** (Annett & Duncan, 1967) descreve o "como será" do uso do módulo.
+A Análise Hierárquica de Tarefas (Annett & Duncan, 1967) descreve o "como será" do uso do módulo.
 
 ```text
 0. Acompanhar Desempenho Gamificado              plano 1 > 2 / 3
@@ -197,34 +218,31 @@ A **Análise Hierárquica de Tarefas** (Annett & Duncan, 1967) descreve o "como 
     └── 3.2 Filtrar Labs                          ○ opcional
 ```
 
-### Onde cada nó da HTA está no app
-
 | Nó da HTA | Onde está no app | Rota | Componente / arquivo |
 |---|---|---|---|
-| **0.** Acompanhar Desempenho Gamificado | Módulo com resumo de nível e duas abas | `/gamificacao` | `gamificacao/layout.tsx`, `resumo-nivel.tsx`, `abas.tsx` |
-| **1.1** Login no App | Perfis Salvos e Login, com validação | `/` e `/login` | `app/page.tsx`, `app/login/page.tsx`, `session-provider.tsx` |
-| **1.2** Abrir Menu | Menu lateral com a seção "Suporte Estudantil" e o item "Conquistas e Ranking" (selo *Novo*); também há atalho direto na home | `/avisos` | `shell/app-drawer.tsx`, `lib/nav.ts`, `avisos/atalho-gamificacao.tsx` |
-| **2.** Explorar Conquistas | Aba Conquistas com grade filtrável (Todas, Conquistadas, Bloqueadas) | `/gamificacao/conquistas` | `gamificacao/medalha-badge.tsx` |
-| **2.A** Ver Medalhas | Grade 3 por linha; bloqueadas em escala monocromática e desbotada | `/gamificacao/conquistas` | `medalha-badge.tsx`, `medalha-sheet.tsx` |
-| **2.B** Requisitos *(iteração)* | Bottom sheet da medalha com regra de desbloqueio, progresso percentual e regra pendente; "Como funciona?" explica o sistema | `/gamificacao/conquistas` | `medalha-sheet.tsx`, `ajuda-medalhas-sheet.tsx` |
-| **3.** Consultar Ranking | Aba Ranking com pódio, classificação, card Disputa e barra "Sua posição" | `/gamificacao/ranking` | `podio.tsx`, `linha-ranking.tsx`, `disputa-card.tsx`, `lib/ranking.ts` |
-| **3.1** Ver Pontos | Pontuação ponderada por aluno e card "Como é calculado" com a conta do próprio usuário | `/gamificacao/ranking` | `linha-ranking.tsx`, `formula-card.tsx` |
-| **3.2** Filtrar Labs *(opcional)* | Menu suspenso por visão (geral, curso, período) e por laboratório; recarrega na hora e destaca a posição do usuário | `/gamificacao/ranking` | `filtro-ranking.tsx`, `opcoesFiltro` em `lib/ranking.ts` |
+| **0.** Acompanhar Desempenho Gamificado | Resumo de nível e duas abas no topo do módulo | `/gamificacao` | `gamificacao/nivel-resumo.tsx`, `abas.tsx` |
+| **1.1** Login no App | Perfis Salvos e Login com validação | `/` e `/login` | `app/page.tsx`, `app/login/page.tsx`, `session-provider.tsx` |
+| **1.2** Abrir Menu | Sidebar fixa no desktop. No mobile, menu lateral e barra inferior com Conquistas e Ranking. Seção Suporte Estudantil com selo de novidade | `/avisos` | `shell/sidebar.tsx`, `shell/app-drawer.tsx`, `shell/bottom-tabs.tsx`, `shell/nav-list.tsx`, `lib/nav.ts` |
+| **2.** Explorar Conquistas | Grade com filtro Todas, Conquistadas, Bloqueadas | `/gamificacao/conquistas` | `gamificacao/medal-emblem.tsx` |
+| **2.A** Ver Medalhas | Emblemas por raridade. Bloqueadas em cinza com cadeado | `/gamificacao/conquistas` | `medal-emblem.tsx` |
+| **2.B** Requisitos *(iteração)* | Painel lateral no desktop e bottom sheet no mobile, com regra, progresso e pendência. O botão de ajuda explica o sistema | `/gamificacao/conquistas` | `medal-detail.tsx`, `ajuda-medalhas.tsx`, `ui/bottom-sheet.tsx` |
+| **3.** Consultar Ranking | Pódio, tabela, painel Sua posição e Disputa | `/gamificacao/ranking` | `podio.tsx`, `lista-ranking.tsx`, `posicao-painel.tsx`, `lib/ranking.ts` |
+| **3.1** Ver Pontos | Pontuação ponderada por aluno e Cálculo com a conta do próprio usuário | `/gamificacao/ranking` | `lista-ranking.tsx`, `posicao-painel.tsx` |
+| **3.2** Filtrar Labs *(opcional)* | Chips de visão e de laboratório. A lista recarrega e destaca o aluno | `/gamificacao/ranking` | `lib/ranking.ts` (`opcoesFiltro`, `carregarRanking`) |
 
-### Recomendações da HTA que foram implementadas
+Recomendações da HTA implementadas:
 
-- Cálculo normalizado do ranking (por créditos e presença).
-- Atalho direto na home para o módulo.
-- Medalhas bloqueadas em escala monocromática e desbotada.
-- Cartão explicativo com progresso percentual e regra pendente.
-- Filtro por curso e laboratório em menu suspenso, com recarregamento instantâneo e destaque da posição do usuário.
-- Peso maior para a assiduidade em laboratórios.
+- Cálculo normalizado do ranking (créditos e presença).
+- Atalho para o módulo na home, na barra inferior e na sidebar.
+- Medalhas bloqueadas em cinza, com progresso percentual e regra pendente.
+- Filtro por curso, período e laboratório, com recarregamento instantâneo.
+- Peso maior para assiduidade em laboratórios.
 
 ---
 
-## 🧩 Diagrama de Classes
+## Diagrama de Classes
 
-Diagrama do **Fluxo de Informações** do módulo de gamificação, reproduzido em Mermaid.
+Fluxo de informações do módulo, reproduzido em Mermaid.
 
 ```mermaid
 classDiagram
@@ -265,38 +283,34 @@ classDiagram
     Ranking "1" --> "0..1" Laboratorio : filtra por
 ```
 
-### Como virou código
-
 | Diagrama | Implementação |
 |---|---|
-| Classes `Aluno`, `Medalha`, `Laboratorio` | Interfaces `Aluno`, `Medalha`, `Laboratorio` em `src/lib/types.ts`, estendidas com o que as telas acadêmicas precisam. |
-| `Ranking.carregar()` e `Ranking.filtrar(filtro)` | Uma função: `carregarRanking(filtro)` em `src/lib/ranking.ts`. Sem argumento carrega o ranking geral; com `FiltroRanking` (geral, curso, período ou laboratório) filtra. |
-| `Ranking` ◆ `ModuloGamificacao` (composição) | A aba Ranking existe só dentro do módulo: rotas `/gamificacao/ranking` e `/gamificacao/conquistas` compartilham o mesmo `layout.tsx`. |
-| `ModuloGamificacao.abaAtiva`, `abrirConquistas()`, `abrirRanking()` | Rotas `/gamificacao/*` com abas (`abas.tsx`); a aba ativa é a rota atual. |
-| `ModuloGamificacao` ◇ `Medalha` (agregação) | A grade de medalhas é exibida pelo módulo, mas as medalhas existem independentemente (`mock/gamificacao.ts`). |
-| `Medalha.verRequisitos()` | Bottom sheet com o campo `requisito` e a regra pendente (`medalha-sheet.tsx`). |
-| `Aluno.autenticar()` | Sessão mock em `session-provider.tsx`: um flag no `localStorage`, sem servidor. |
-| `Laboratorio.peso` | Campo `peso` em `Laboratorio` (S05·L1 ×1,2; E08·L1 ×1,5; F03·L4 ×1,3), multiplicador do ranking filtrado por laboratório. |
+| `Aluno`, `Medalha`, `Laboratorio` | Interfaces em `src/lib/types.ts`, estendidas para as telas acadêmicas |
+| `Ranking.carregar()` e `filtrar(filtro)` | Função única `carregarRanking(filtro)` em `src/lib/ranking.ts` |
+| `Ranking` ◆ `ModuloGamificacao` | A aba Ranking só existe no módulo. Ranking e Conquistas compartilham `gamificacao/layout.tsx` |
+| `abaAtiva`, `abrirConquistas()`, `abrirRanking()` | Rotas `/gamificacao/*` com abas (`abas.tsx`). A aba ativa é a rota atual |
+| `ModuloGamificacao` ◇ `Medalha` | O módulo exibe as medalhas, mas elas existem à parte (`mock/gamificacao.ts`) |
+| `Medalha.verRequisitos()` | Painel ou bottom sheet em `medal-detail.tsx` |
+| `Aluno.autenticar()` | Sessão fake em `session-provider.tsx`, flag no `localStorage` |
+| `Laboratorio.peso` | S05 · L1 ×1,2, E08 · L1 ×1,5, F03 · L4 ×1,3 |
 
 ---
 
-## ⚖️ Ranking justo
+## Ranking justo
 
-Ranking por pontos brutos favorece quem cursa mais matérias. O protótipo normaliza a pontuação:
+Ranking por pontos brutos favorece quem cursa mais matérias. O protótipo normaliza:
 
 ```text
 Pontos Ponderados = (Total de Pontos ÷ Créditos Matriculados) × Fator de Presença em Labs
 
-Fator de Presença = 0,5 + presença        (varia de 0,5 a 1,5)
+Fator de Presença = 0,5 + presença        (de 0,5 a 1,5)
 ```
 
-- A divisão por créditos evita favorecer quem cursa mais matérias.
-- O fator de presença dá peso maior à assiduidade nos laboratórios práticos.
-- **Filtro por laboratório:** usa os pontos, créditos e presença *daquele laboratório* e multiplica pelo **peso do lab** (S05·L1 ×1,2; E08·L1 ×1,5; F03·L4 ×1,3).
+- Dividir por créditos evita favorecer quem cursa mais matérias.
+- O fator de presença dá peso à assiduidade nos laboratórios práticos.
+- Filtro por laboratório: usa pontos, créditos e presença daquele laboratório e multiplica pelo peso do lab.
 
-**Exemplo com os dados do protótipo:** Lucas → (1.420 ÷ 24) × 1,47 = **87,0** → 4º lugar geral.
-
-### Bruto × normalizado
+Exemplo: Lucas → (1.420 ÷ 24) × 1,47 = **87,0** → 4º geral.
 
 | Aluno | Pontos brutos | Créditos | Presença em labs | Posição só por pontos | Pontos ponderados | Posição no ranking |
 |---|---:|---:|---:|:---:|---:|:---:|
@@ -306,23 +320,23 @@ Fator de Presença = 0,5 + presença        (varia de 0,5 a 1,5)
 | Ana Júlia Prado | 2.050 | 32 | 80% | 1º | **83,3** | **6º** |
 | Isabela Duarte | 1.980 | 30 | 70% | 2º | **79,2** | **7º** |
 
-Sem normalização, Lucas ficaria em 11º. Com créditos e presença, ele sobe para 4º. O card **"Justiça na disputa"** da aba Ranking mostra essa diferença ao usuário.
+Sem normalização, Lucas ficaria em 11º. No painel Cálculo do desktop, a linha "Sem normalização 11º → 4º" mostra essa diferença.
 
 ---
 
-## 🏅 Medalhas e níveis
+## Medalhas e níveis
 
-São **12 medalhas**: 6 conquistadas e 6 bloqueadas. Cada raridade vale pontos ao desbloquear.
+12 medalhas: 6 conquistadas e 6 bloqueadas. Cada raridade vale pontos ao desbloquear.
 
 | Raridade | Pontos |
 |---|---:|
-| 🥉 Bronze | 50 |
-| 🥈 Prata | 100 |
-| 🥇 Ouro | 200 |
-| 💎 Platina | 400 |
+| Bronze | 50 |
+| Prata | 100 |
+| Ouro | 200 |
+| Platina | 400 |
 
 <details>
-<summary><b>Ver todas as 12 medalhas</b></summary>
+<summary><b>Ver as 12 medalhas</b></summary>
 
 <br>
 
@@ -350,8 +364,6 @@ São **12 medalhas**: 6 conquistadas e 6 bloqueadas. Cada raridade vale pontos a
 
 </details>
 
-### Níveis
-
 | Nível | Título | Pontos mínimos |
 |:---:|---|---:|
 | 1 | Calouro | 0 |
@@ -364,26 +376,26 @@ São **12 medalhas**: 6 conquistadas e 6 bloqueadas. Cada raridade vale pontos a
 | 8 | Referência | 2.100 |
 | 9 | Lenda do Inatel | 2.600 |
 
-### Dimensão social
-
-- **Disputa:** card que mostra quem está logo acima e logo abaixo de você e a distância em pontos (ex.: "Gabriel está a 0,3 pts de você").
-- **Pódio** com os três primeiros.
-- **Medalhas de colaboração:** monitoria e avaliação de colegas.
-- **Privacidade:** preferência "Exibir meu nome no ranking" em Configurações.
+Dimensão social: Disputa (distância para quem está acima e abaixo), pódio, medalhas de colaboração e a preferência "Exibir meu nome no ranking" em Configurações.
 
 ---
 
-## 🧭 Navegação: o que mudou no menu
+## Navegação
 
-O menu mantém as **seções do app real**, mas ficou enxuto, com foco no que o aluno usa no dia a dia (heurística 8, design estético e minimalista).
+O menu mantém as seções do app real, sem os itens de baixo uso (heurística 8).
 
-| Seção | Itens mantidos |
+| Seção | Itens |
 |---|---|
 | Mensagens Acadêmicas | Avisos |
-| **Suporte Estudantil** | **Conquistas e Ranking** (*Novo*) |
+| **Suporte Estudantil** | **Conquistas**, **Ranking** (novos) |
 | Aproveitamento Escolar | Notas, Frequência, Coeficientes |
 | Calendários e Horários | Provas, Horários de Aula, Horários de Monitores |
 | Outras Opções | Configurações, Sair |
+
+| Plataforma | Estrutura |
+|---|---|
+| Desktop (a partir de 1024 px) | Sidebar fixa com todas as seções |
+| Mobile | Menu lateral com todas as seções e barra inferior com Avisos, Conquistas, Ranking e Horários |
 
 <details>
 <summary><b>Itens removidos do menu original (14)</b></summary>
@@ -405,75 +417,97 @@ O menu mantém as **seções do app real**, mas ficou enxuto, com foco no que o 
 - Central de Cópias
 - Requerimentos
 
-A lista está em `itensRemovidos`, em `src/lib/nav.ts`.
+Lista em `itensRemovidos`, `src/lib/nav.ts`.
 
 </details>
 
 ---
 
-## 🧠 Heurísticas de Nielsen
+## Design system
 
-| # | Heurística | Exemplo concreto no app |
+Paleta enxuta, definida como tokens em `@theme` no `src/app/globals.css`.
+
+| Token | Valor | Papel |
+|---|---|---|
+| `--color-bg` | `#000000` | Fundo do app, como no app real |
+| `--color-surface-1` a `-4` | `#0f0f11` a `#2c2c31` | Superfícies grafite: painéis, linhas, chips |
+| `--color-drawer` | `#2b2b2e` | Fundo do menu lateral e da sidebar |
+| `--color-line`, `--color-line-strong` | `#232327`, `#36363b` | Divisórias finas no lugar de cards |
+| `--color-fg`, `--color-muted`, `--color-subtle` | `#f4f4f6`, `#a3a3aa`, `#6f6f77` | Texto principal, secundário e terciário |
+| `--color-header` | `#1d3b5a` | Barra superior azul-marinho |
+| `--color-brand`, `--color-primary` | `#1f6fd1`, `#0b5cbf` | Único azul de ação: botão, seleção, foco |
+| `--color-gold` | `#e5b443` | Somente conquista: nível, pontos ganhos, selo |
+| `--color-bronze`, `-silver`, `-platinum` | `#c08a5a`, `#b9c0cb`, `#a9d6e5` | Metais dessaturados só para raridade e pódio |
+| `--color-danger`, `--color-success` | `#ff6b5e`, `#4cc38a` | Estados de erro e de aprovação |
+
+Regras de craft:
+
+- Ícones lucide, traço 1.75.
+- Números tabulares em pontos, notas e horas.
+- Listas e tabelas no lugar de cards aninhados.
+- Pódio com degraus neutros, sem degradê.
+- Alvos de toque de 44 px, foco visível, `prefers-reduced-motion` respeitado.
+- Nenhum emoji, nenhum travessão.
+
+---
+
+## Heurísticas de Nielsen
+
+| # | Heurística | Exemplo no app |
 |:---:|---|---|
-| 1 | Visibilidade do status do sistema | Resumo de nível com barra de progresso, barra fixa "Sua posição · 4º de 20" e progresso percentual nas medalhas. |
-| 2 | Correspondência com o mundo real | Linguagem do aluno (créditos, presença, laboratório, NP1/NP2) e grade de horários igual à do app. |
-| 3 | Controle e liberdade do usuário | Bottom sheets fecham com X, ESC ou arrastando; botão de voltar e navegação por abas. |
-| 4 | Consistência e padrões | Mesma navegação e mesmas seções do app oficial (Lei de Jakob). |
-| 5 | Prevenção de erros | Validação dos campos no login e confirmação ao sair. |
-| 6 | Reconhecimento em vez de memorização | Regra de desbloqueio visível no cartão da medalha; fórmula exibida com o próprio cálculo do aluno. |
-| 7 | Flexibilidade e eficiência de uso | Atalho para Conquistas e Ranking na home; atalhos do PWA na tela inicial do celular. |
-| 8 | Design estético e minimalista | Menu enxuto, sem os 14 itens de baixo uso. |
-| 9 | Ajudar a reconhecer e recuperar de erros | Mensagens construtivas no login. |
-| 10 | Ajuda e documentação | "Como funciona?" nas medalhas e "Como é calculado" no ranking. |
+| 1 | Visibilidade do status do sistema | Resumo de nível com barra de progresso, painel Sua posição (4º de 20), progresso nas medalhas bloqueadas |
+| 2 | Correspondência com o mundo real | Créditos, presença, laboratório, NP1 e NP2. Grade de horários como a do app |
+| 3 | Controle e liberdade do usuário | Bottom sheets fecham com X, ESC ou arrastando. Chips de filtro reversíveis |
+| 4 | Consistência e padrões | Mesmas seções e identidade do app oficial (Lei de Jakob) |
+| 5 | Prevenção de erros | Validação dos campos no login e confirmação ao sair |
+| 6 | Reconhecimento em vez de memorização | Regra visível no painel da medalha. Cálculo exibido com os números do aluno |
+| 7 | Flexibilidade e eficiência | Barra inferior com 4 atalhos, sidebar fixa no desktop, atalhos do PWA |
+| 8 | Design estético e minimalista | Menu sem 14 itens de baixo uso, paleta enxuta, dados no lugar de frases |
+| 9 | Recuperação de erros | Mensagens construtivas no login |
+| 10 | Ajuda e documentação | Botão de ajuda nas medalhas e painel Cálculo no ranking |
 
 ---
 
-## 📲 PWA
+## PWA
 
-O protótipo é um **Progressive Web App** instalável.
+- **Manifest** (`src/app/manifest.ts`): ícones `any` e `maskable`, atalhos para Conquistas, Ranking e Avisos.
+- **Service worker próprio** (`public/sw.js`), sem dependências, registrado só em produção.
+- Safe-areas do iPhone respeitadas.
 
-- **Manifest** (`src/app/manifest.ts`): ícones `any` e `maskable` e atalhos para **Conquistas**, **Ranking** e **Avisos**.
-- **Service worker próprio** (`public/sw.js`), sem dependências:
-
-  | Tipo de requisição | Estratégia |
-  |---|---|
-  | Navegação | *network-first*, com fallback para cache e, por fim, `public/offline.html` |
-  | Estáticos (`/_next/static/`, `/icons/`) | *cache-first* |
-  | Demais da mesma origem | *stale-while-revalidate* |
-
-- O service worker só é registrado em **produção**.
-- **Safe-areas do iPhone** respeitadas no layout.
-
-### Como instalar
-
-| Plataforma | Passo a passo |
+| Tipo de requisição | Estratégia |
 |---|---|
-| 🤖 **Android** (Chrome) | Menu **⋮** → **Instalar app** |
-| 🍎 **iPhone** (Safari) | **Compartilhar** → **Adicionar à Tela de Início** |
-| 🖥️ **Desktop** | O app abre dentro de uma moldura de celular |
+| Navegação | network-first, fallback para cache e depois `public/offline.html` |
+| Estáticos (`/_next/static/`, `/icons/`) | cache-first |
+| Demais da mesma origem | stale-while-revalidate |
+
+| Plataforma | Instalação |
+|---|---|
+| Android (Chrome) | Menu ⋮, Instalar app |
+| iPhone (Safari) | Compartilhar, Adicionar à Tela de Início |
+| Desktop | Abre no layout desktop, com sidebar |
 
 ---
 
-## 🛠️ Tecnologias e arquitetura
+## Tecnologias e arquitetura
 
 | Camada | Tecnologia |
 |---|---|
-| Framework | **Next.js 16.4** (App Router, Turbopack, páginas estáticas) |
-| UI | **React 19.3** |
-| Linguagem | **TypeScript 5** |
-| Estilo | **Tailwind CSS 4.3**, com tokens de design em `@theme` no `globals.css` |
-| Animações | **motion 14** (animações, bottom sheets, abas) |
-| Ícones e utilitários | **lucide-react**, **clsx** |
-| Hospedagem | **Vercel**, com deploy automático a cada push na `main` |
-
-### Estrutura de pastas
+| Framework | Next.js 16.4 (App Router, Turbopack, páginas estáticas) |
+| UI | React 19.3 |
+| Linguagem | TypeScript 5 |
+| Estilo | Tailwind CSS 4.3, tokens em `@theme` |
+| Animações | motion 14 |
+| Ícones | lucide-react, clsx |
+| Hospedagem | Vercel, deploy a cada push na `main` |
 
 ```text
 .
+├── PRODUCT.md                          # produto, usuários, princípios
+├── .impeccable/                        # surfaces/ (contrato de direção) e review/
 ├── src
 │   ├── app
 │   │   ├── page.tsx                    # / · Perfis Salvos
-│   │   ├── login/                      # /login
+│   │   ├── login/
 │   │   ├── (app)
 │   │   │   ├── avisos/
 │   │   │   ├── gamificacao/
@@ -486,11 +520,14 @@ O protótipo é um **Progressive Web App** instalável.
 │   │   │   ├── horarios/
 │   │   │   ├── monitores/
 │   │   │   └── configuracoes/
-│   │   └── manifest.ts                 # manifest do PWA
+│   │   ├── globals.css                 # tokens do design system
+│   │   └── manifest.ts
 │   ├── components
-│   │   ├── shell/                      # app-shell, app-drawer, device-frame
-│   │   ├── ui/                         # bottom-sheet, primitivos
-│   │   ├── gamificacao/                # medalhas, ranking, filtro, fórmula, pódio
+│   │   ├── shell/                      # app-shell, sidebar, nav-list, user-block,
+│   │   │                               # bottom-tabs, app-drawer
+│   │   ├── ui/                         # bottom-sheet, portal, primitives
+│   │   ├── gamificacao/                # medal-emblem, medal-detail, podio,
+│   │   │                               # lista-ranking, posicao-painel, nivel-resumo
 │   │   ├── avisos/
 │   │   ├── entrada/
 │   │   ├── academico/
@@ -498,94 +535,68 @@ O protótipo é um **Progressive Web App** instalável.
 │   └── lib
 │       ├── types.ts                    # modelo de dados (Diagrama de Classes)
 │       ├── ranking.ts                  # fórmula e carregarRanking(filtro)
+│       ├── nav.ts                      # menu, barra inferior, itens removidos
+│       ├── use-media.ts                # breakpoint desktop (1024 px)
 │       ├── format.ts
-│       ├── nav.ts                      # menu e itens removidos
-│       └── mock
-│           ├── aluno.ts
-│           └── gamificacao.ts
-├── public
-│   ├── sw.js                           # service worker
-│   ├── offline.html
-│   └── icons/
-├── scripts
-│   └── gerar-icones.mjs
-└── docs
-    └── screenshots/
+│       └── mock/                       # aluno.ts, gamificacao.ts
+├── public                              # sw.js, offline.html, icons/
+├── scripts/gerar-icones.mjs
+└── docs/screenshots/                   # qrcode.png e v2/ (d01 a d12, m01 a m18)
 ```
 
-### Dados mockados
-
-Disciplinas do semestre, com os códigos da grade real: **S05** Interface Homem-Máquina, **S01** Banco de Dados, **E08** Eletrônica Digital, **F03** Física III, **M05** Probabilidade e Estatística e **G04** Empreendedorismo e Inovação. Nomes, professores, notas e os alunos do ranking são **fictícios**.
+Dados mockados: disciplinas com os códigos da grade real (S05 Interface Homem-Máquina, S01 Banco de Dados, E08 Eletrônica Digital, F03 Física III, M05 Probabilidade e Estatística, G04 Empreendedorismo e Inovação). Nomes, professores, notas e alunos do ranking são fictícios.
 
 ---
 
-## 💻 Rodando localmente
+## Rodando localmente
 
-**Pré-requisito:** Node.js 20 ou superior.
+Pré-requisito: Node.js 20 ou superior.
 
 ```bash
-# clonar
 git clone https://github.com/XkrulesVitor/Gamificacao-Inatel-Academico.git
 cd Gamificacao-Inatel-Academico
-
-# instalar dependências
 npm install
-
-# modo desenvolvimento (http://localhost:3000)
 npm run dev
 ```
 
 | Comando | O que faz |
 |---|---|
-| `npm run dev` | Servidor de desenvolvimento em http://localhost:3000 |
-| `npm run build && npm start` | Build de produção e servidor (o service worker só funciona assim) |
-| `npm run lint` | Verificação com ESLint |
-| `node scripts/gerar-icones.mjs` | Regenera os ícones do PWA em `public/icons/` |
+| `npm run dev` | Desenvolvimento em http://localhost:3000 |
+| `npm run build && npm start` | Build de produção (o service worker só funciona assim) |
+| `npm run lint` | ESLint |
+| `node scripts/gerar-icones.mjs` | Regenera os ícones do PWA |
 
 ---
 
-## 🤖 Como foi feito
+## Como foi feito
 
-Desenvolvido com **Claude Code** em um modelo **gerente + subagentes**.
+Feito com Claude Code, em modelo diretor e subagentes. A v2 seguiu a skill de design **Impeccable**: `PRODUCT.md`, contrato de direção em `.impeccable/surfaces/src-app.md`, regras de craft, detector sem achados e revisão final independente.
 
-**Gerente e avaliador: Claude Opus 5.5.** Responsável por arquitetura, design system, modelo de dados e fórmula do ranking, shell de navegação, revisão de código, testes visuais com Chrome headless, correções, prints e deploy.
+**Claude Opus 5.5** foi diretor de design e revisor: base, shell responsivo, design system e validação por prints em 390 e 1440 px.
 
-| Subagente | Entrega |
+| Modelo | Entrega |
 |---|---|
-| Claude Sonnet 5.5 | Módulo **Conquistas e Ranking** |
-| Claude Sonnet 5.5 | **Perfis Salvos, Login, Avisos e Configurações** |
-| Claude Haiku 5.5 | **Telas acadêmicas** (Notas, Frequência, Coeficientes, Provas, Horários, Monitores) |
-| Claude Haiku 5.5 | **PWA** (manifest, service worker, ícones) |
-| Claude Sonnet 5.5 | Este **README** |
-
-<details>
-<summary><b>Correções feitas na revisão de código</b></summary>
-
-<br>
-
-- O login falhava em "Outro Usuário" (curso vazio).
-- O ranking rolava sozinho ao abrir (efeito duplicado do StrictMode).
-- Diferença "2,4 vs 2,3" por arredondamento nos dados.
-- Progresso enganoso da medalha Pódio.
-- Barra "Sua posição" semitransparente.
-- Área do indicador de home na moldura do celular.
-
-</details>
+| Claude Sonnet 5.5 | Conquistas e Ranking (v2) |
+| Claude Sonnet 5.5 | Perfis Salvos, Login, Avisos e Configurações (v2) |
+| Claude Haiku 5.5 | Telas acadêmicas (v2) |
+| Claude Sonnet 5.5 | Revisão final e este README |
+| Claude Haiku 5.5 | PWA: manifest, service worker, ícones (v1) |
 
 ---
 
-## ⚠️ Aviso
+## Aviso
 
-Este é um **protótipo acadêmico não oficial**, sem vínculo com o Inatel. A marca e o nome pertencem à instituição. **Todos os dados são fictícios.** Não digite senhas reais.
+Protótipo acadêmico não oficial, sem vínculo com o Inatel. Marca e nome pertencem à instituição. Todos os dados são fictícios. Não digite senhas reais.
 
 ---
 
-## 👤 Autor
+## Autor
 
-Feito por **[@XkrulesVitor](https://github.com/XkrulesVitor)** para a disciplina S05 / S205, Interface Homem-Máquina, Inatel.
+**Vitor Hugo Felipe Noronha**
 
-<div align="center">
-
-<sub>⭐ Se o projeto foi útil, deixe uma estrela no <a href="https://github.com/XkrulesVitor/Gamificacao-Inatel-Academico">repositório</a>.</sub>
-
-</div>
+| | |
+|---|---|
+| Matrícula | GES 708 |
+| Curso | Engenharia de Software, Inatel |
+| Disciplina | S05 Interface Homem-Máquina |
+| GitHub | [@XkrulesVitor](https://github.com/XkrulesVitor) |

@@ -4,38 +4,36 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
-import { Award, Trophy } from "lucide-react";
 
 const abas = [
-  { href: "/gamificacao/conquistas", rotulo: "Conquistas", Icone: Award },
-  { href: "/gamificacao/ranking", rotulo: "Ranking", Icone: Trophy },
+  { href: "/gamificacao/conquistas", rotulo: "Conquistas" },
+  { href: "/gamificacao/ranking", rotulo: "Ranking" },
 ] as const;
 
-/** Abas superiores (sticky) com indicador animado. */
+/** Abas superiores sticky com indicador sublinhado. */
 export function AbasGamificacao() {
   const pathname = usePathname();
   return (
-    <nav aria-label="Seções de gamificação" className="sticky top-0 z-10 border-b border-line bg-bg">
-      <ul className="grid grid-cols-2">
-        {abas.map(({ href, rotulo, Icone }) => {
+    <nav aria-label="Seções de gamificação" className="sticky top-0 z-20 border-b border-line bg-bg">
+      <ul className="mx-auto flex max-w-[1240px] px-4 lg:px-8">
+        {abas.map(({ href, rotulo }) => {
           const ativa = pathname.startsWith(href);
           return (
-            <li key={href}>
+            <li key={href} className="flex-1 lg:flex-none">
               <Link
                 href={href}
                 aria-current={ativa ? "page" : undefined}
                 className={clsx(
-                  "relative flex h-12 items-center justify-center gap-2 text-[15px] font-semibold outline-none transition-colors focus-visible:bg-surface-2 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand",
+                  "relative flex h-12 items-center justify-center text-[15px] font-medium transition-colors duration-150 lg:px-6",
                   ativa ? "text-fg" : "text-muted hover:text-fg",
                 )}
               >
-                <Icone className="size-4" aria-hidden />
                 {rotulo}
                 {ativa && (
                   <motion.span
                     layoutId="aba-gamificacao"
-                    className="absolute inset-x-6 bottom-0 h-[3px] rounded-t-full bg-brand"
-                    transition={{ type: "spring", stiffness: 500, damping: 36 }}
+                    className="absolute inset-x-0 bottom-0 h-0.5 bg-accent"
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 )}
               </Link>

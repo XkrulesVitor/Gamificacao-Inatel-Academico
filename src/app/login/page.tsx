@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import { CircleAlert, Info, LoaderCircle } from "lucide-react";
 import clsx from "clsx";
 import { useSession } from "@/components/session-provider";
-import { BarraEntrada, PERFIL_KEY } from "@/components/entrada/entrada-layout";
-import { PrimaryButton } from "@/components/ui/primitives";
+import { EntradaLayout, PERFIL_KEY } from "@/components/entrada/entrada-layout";
+import { Button } from "@/components/ui/primitives";
 import { aluno as alunoMock, cursos } from "@/lib/mock/aluno";
 
 const campo =
-  "h-[52px] w-full rounded-md border border-[#c8c8cc] bg-bg px-3 text-center text-[16px] text-white placeholder:text-subtle focus:border-brand focus:outline-2 focus:outline-offset-2 focus:outline-brand";
+  "h-[52px] w-full rounded-control border border-line-strong bg-bg px-3 text-center text-[16px] text-fg placeholder:text-subtle transition-colors duration-150 hover:border-subtle focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40 disabled:opacity-60 aria-[invalid=true]:border-danger";
 
 const subscribeNada = () => () => {};
 /** Perfil escolhido em "Perfis Salvos" (sessionStorage), lido sem setState em effect. */
@@ -37,7 +37,7 @@ export default function Credenciais() {
   const senhaRef = useRef<HTMLInputElement>(null);
   const id = useId();
 
-  // "".split("-") devolve [""] — usar || para cair no padrão quando não há perfil salvo
+  // "".split("-") devolve [""], então usa || para cair no padrão sem perfil salvo
   const curso = cursoEd ?? (siglaPerfil || "GES");
   const matricula = matEd ?? (matPerfil || "");
 
@@ -66,10 +66,10 @@ export default function Credenciais() {
   function autenticar(e: React.FormEvent) {
     e.preventDefault();
     if (carregando) return;
-    if (!matricula.trim()) return setErro("Informe o número da matrícula.");
-    if (!senha) return setErro("Informe a senha para continuar.");
+    if (!matricula.trim()) return setErro("Informe a matrícula.");
+    if (!senha) return setErro("Informe a senha.");
     if (curso !== alunoMock.siglaCurso || matricula.trim() !== alunoMock.numeroMatricula) {
-      return setErro("Matrícula não encontrada para este curso. Na demo use Engenharia de Software · 412.");
+      return setErro("Matrícula não encontrada. Na demonstração use 412.");
     }
     setErro(null);
     setCarregando(true);
@@ -80,109 +80,98 @@ export default function Credenciais() {
   }
 
   return (
-    <div className="flex flex-1 flex-col overflow-hidden bg-bg">
-      <BarraEntrada voltar="/" />
-      <main className="app-scroll flex flex-1 flex-col px-6 pb-6">
-        <form onSubmit={autenticar} noValidate className="my-auto flex flex-col gap-4 py-6" aria-busy={carregando}>
-          <h1 className="mb-2 text-center text-lg text-[#b5b5ba]">Entre com suas credenciais.</h1>
+    <EntradaLayout voltar="/">
+      <form onSubmit={autenticar} noValidate className="flex flex-col gap-4" aria-busy={carregando}>
+        <h1 className="mb-2 text-center text-lg text-muted">Entre com suas credenciais.</h1>
 
-          <label htmlFor={`${id}-curso`} className="sr-only">
-            Curso
-          </label>
-          <select
-            id={`${id}-curso`}
-            value={curso}
-            onChange={(e) => {
-              setCursoEd(e.target.value);
-              setErro(null);
-            }}
-            disabled={carregando}
-            className={clsx(campo, "appearance-none text-center [text-align-last:center]")}
-          >
-            {cursos.map((c) => (
-              <option key={c.sigla} value={c.sigla}>
-                {c.nome}
-              </option>
-            ))}
-          </select>
+        <label htmlFor={`${id}-curso`} className="sr-only">
+          Curso
+        </label>
+        <select
+          id={`${id}-curso`}
+          value={curso}
+          onChange={(e) => {
+            setCursoEd(e.target.value);
+            setErro(null);
+          }}
+          disabled={carregando}
+          className={clsx(campo, "appearance-none [text-align-last:center]")}
+        >
+          {cursos.map((c) => (
+            <option key={c.sigla} value={c.sigla}>
+              {c.nome}
+            </option>
+          ))}
+        </select>
 
-          <label htmlFor={`${id}-mat`} className="sr-only">
-            Matrícula (somente números)
-          </label>
-          <input
-            id={`${id}-mat`}
-            inputMode="numeric"
-            pattern="[0-9]*"
-            autoComplete="off"
-            placeholder="Matrícula"
-            value={matricula}
-            onChange={(e) => {
-              setMatEd(e.target.value.replace(/\D/g, ""));
-              setErro(null);
-            }}
-            disabled={carregando}
-            aria-invalid={!!erro && !matricula}
-            className={campo}
-          />
+        <label htmlFor={`${id}-mat`} className="sr-only">
+          Matrícula
+        </label>
+        <input
+          id={`${id}-mat`}
+          inputMode="numeric"
+          pattern="[0-9]*"
+          autoComplete="off"
+          placeholder="Matrícula"
+          value={matricula}
+          onChange={(e) => {
+            setMatEd(e.target.value.replace(/\D/g, ""));
+            setErro(null);
+          }}
+          disabled={carregando}
+          aria-invalid={!!erro && !matricula}
+          className={campo}
+        />
 
-          <label htmlFor={`${id}-senha`} className="sr-only">
-            Senha
-          </label>
-          <input
-            id={`${id}-senha`}
-            ref={senhaRef}
-            type="password"
-            autoComplete="off"
-            placeholder="Senha"
-            value={senha}
-            onChange={(e) => {
-              setSenha(e.target.value);
-              setErro(null);
-            }}
-            disabled={carregando}
-            aria-invalid={!!erro && !senha}
-            className={campo}
-          />
+        <label htmlFor={`${id}-senha`} className="sr-only">
+          Senha
+        </label>
+        <input
+          id={`${id}-senha`}
+          ref={senhaRef}
+          type="password"
+          autoComplete="off"
+          placeholder="Senha"
+          value={senha}
+          onChange={(e) => {
+            setSenha(e.target.value);
+            setErro(null);
+          }}
+          disabled={carregando}
+          aria-invalid={!!erro && !senha}
+          className={campo}
+        />
 
-          {erro && (
-            <p
-              role="alert"
-              className="flex items-start gap-2 rounded-md border border-danger/40 bg-danger/10 px-3 py-2.5 text-sm text-[#ff8a82]"
-            >
-              <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
-              {erro}
-            </p>
+        {erro && (
+          <p role="alert" className="flex items-start gap-2 text-sm text-danger">
+            <CircleAlert className="mt-0.5 size-4 shrink-0" strokeWidth={1.75} aria-hidden />
+            {erro}
+          </p>
+        )}
+
+        <Button type="submit" disabled={carregando} className="h-14 w-full">
+          {carregando ? (
+            <>
+              <LoaderCircle className="size-5 animate-spin" strokeWidth={1.75} aria-hidden /> Autenticando
+            </>
+          ) : (
+            "Autenticar"
           )}
+        </Button>
 
-          <PrimaryButton type="submit" disabled={carregando} className="h-14">
-            {carregando ? (
-              <>
-                <LoaderCircle className="size-5 animate-spin" aria-hidden /> Autenticando...
-              </>
-            ) : (
-              "Autenticar"
-            )}
-          </PrimaryButton>
-
-          <div className="mt-2 rounded-md border border-gold/30 bg-gold/10 p-3.5 text-[13px] leading-relaxed text-[#e9d9a6]">
-            <p className="flex items-start gap-2">
-              <Info className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden />
-              <span>
-                <strong className="font-semibold text-gold">Conta de demonstração:</strong> Engenharia de Software ·
-                matrícula 412 · qualquer senha. É um protótipo — não digite sua senha real.
-              </span>
-            </p>
-            <button
-              type="button"
-              onClick={preencherDemo}
-              disabled={carregando}
-              className="mt-3 h-11 w-full rounded-md border border-gold/50 text-[14px] font-medium text-gold transition active:bg-gold/15 enabled:hover:bg-gold/10 disabled:opacity-50"
-            >
-              Preencher conta demo
-            </button>
-          </div>
-        </form>
-      </main>
-    </div>
+        <div className="mt-2 flex items-center gap-2 text-[13px] text-subtle">
+          <Info className="size-4 shrink-0" strokeWidth={1.75} aria-hidden />
+          <p className="min-w-0 flex-1">Conta de demonstração</p>
+          <button
+            type="button"
+            onClick={preencherDemo}
+            disabled={carregando}
+            className="-mr-2 inline-flex h-11 shrink-0 items-center rounded-control px-2 font-medium text-accent transition-colors duration-150 enabled:hover:bg-accent/10 disabled:opacity-50"
+          >
+            Preencher
+          </button>
+        </div>
+      </form>
+    </EntradaLayout>
   );
 }

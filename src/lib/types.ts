@@ -81,8 +81,6 @@ export interface Aviso {
   id: string;
   /** Remetente exibido no topo, ex.: "CRA" */
   remetente: string;
-  /** Cor do avatar circular (classe tailwind bg-*) */
-  cor: "accent" | "brand" | "gold" | "teal" | "xp";
   titulo: string;
   resumo: string;
   corpo: string;
@@ -175,8 +173,6 @@ export interface AlunoRanking {
   /** Presença geral em laboratórios (0..1) */
   presencaLab: number;
   labs: Partial<Record<string, DesempenhoLab>>;
-  /** Iniciais/cor do avatar */
-  avatarCor: string;
 }
 
 export interface Aluno {

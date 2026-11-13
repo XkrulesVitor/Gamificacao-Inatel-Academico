@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   // App 100% client-side com dados mockados: sem Cache Components / PPR.
   turbopack: {
     rules: {

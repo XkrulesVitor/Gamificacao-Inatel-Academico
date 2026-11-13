@@ -1,67 +1,61 @@
 @import "tailwindcss";
 
 /*
- * Design tokens — derivados dos prints do app "Acadêmico" da Inatel (tema escuro).
- * Use SEMPRE as classes utilitárias geradas (bg-bg, bg-surface-2, text-muted, bg-header,
- * text-gold, border-line ...) em vez de cores hex soltas.
+ * Design system v2. Identidade do app Acadêmico Inatel (prints): preto, grafite,
+ * azul-marinho no cabeçalho, menu cinza. Paleta restrita:
+ *   azul  = ação, link, seleção, estado ativo
+ *   ouro  = conquista (pontos, medalha desbloqueada, 1º lugar)
+ *   metais (bronze, prata, ouro, platina) = só raridade de medalha e pódio
+ *   danger = erro e limite estourado
+ * Nada de roxo, verde-água, laranja ou cores por pessoa.
  */
 @theme {
-  /* Base */
+  /* Superfícies */
   --color-bg: #000000;
-  --color-surface-1: #121214;
-  --color-surface-2: #1c1c1f;
-  --color-surface-3: #2a2a2d;
-  --color-drawer: #323232;
-  --color-line: #2c2c2e;
-  --color-line-strong: #48484a;
+  --color-surface-1: #0f0f11;
+  --color-surface-2: #17171a;
+  --color-surface-3: #222226;
+  --color-surface-4: #2c2c31;
+  --color-drawer: #2b2b2e;
+  --color-line: #232327;
+  --color-line-strong: #36363b;
 
   /* Texto */
-  --color-fg: #ffffff;
-  --color-muted: #a1a1a6;
-  --color-subtle: #6e6e73;
+  --color-fg: #f4f4f6;
+  --color-muted: #a3a3aa;
+  --color-subtle: #6f6f77;
 
-  /* Marca / app real */
-  --color-status: #141a2e;
+  /* Marca */
+  --color-status: #121a2b;
   --color-header: #1d3b5a;
-  --color-primary: #04478a;
-  --color-primary-strong: #0b5cbf;
+  --color-header-2: #18324d;
+  --color-navy-deep: #0d3f73;
   --color-brand: #1f6fd1;
-  --color-accent: #e08a00;
-  --color-teal: #4a7a85;
-  --color-cell: #6f6f73;
-  --color-hour: #04478a;
+  --color-accent: #4b8fe8;
+  --color-primary: #0b5cbf;
+  --color-primary-hover: #1468d1;
 
-  /* Feedback */
-  --color-success: #30d158;
-  --color-danger: #ff453a;
-  --color-warning: #ffd60a;
+  /* Conquista e metais (mesma família: saturação e luminosidade próximas) */
+  --color-gold: #e5b443;
+  --color-bronze: #c08a5a;
+  --color-silver: #b9c0cb;
+  --color-platinum: #a9d6e5;
 
-  /* Gamificação */
-  --color-gold: #f5b301;
-  --color-silver: #c9ced6;
-  --color-bronze: #cd7f32;
-  --color-platinum: #7fd8e8;
-  --color-xp: #8b7bff;
+  /* Estado */
+  --color-danger: #ff6b5e;
+  --color-success: #4cc38a;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  --radius-card: 14px;
+  --radius-card: 12px;
+  --radius-control: 10px;
 
-  --animate-shimmer: shimmer 2.4s linear infinite;
-  --animate-pop: pop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
-  --animate-fade-up: fade-up 0.35s ease-out both;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-enter: enter 0.22s var(--ease-out-expo) both;
 
-  @keyframes shimmer {
-    from { background-position: -200% 0; }
-    to { background-position: 200% 0; }
-  }
-  @keyframes pop {
-    0% { transform: scale(0.6); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-  @keyframes fade-up {
-    from { transform: translateY(8px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+  @keyframes enter {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
   }
 }
 
@@ -78,32 +72,53 @@ body {
 
 body {
   font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
 }
 
-/* Scroll interno do app sem barra visível (sensação nativa) */
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 45%, transparent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+input,
+select,
+textarea {
+  caret-color: var(--color-accent);
+}
+
+/* Números de dados sempre tabulares */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rolagem interna */
 .app-scroll {
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-4) transparent;
 }
 .app-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.app-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-surface-4);
+  border-radius: 10px;
+  border: 3px solid var(--color-bg);
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
   display: none;
-}
-
-/* Medalha bloqueada: escala monocromática/desbotada (recomendação da HTA) */
-.medal-locked {
-  filter: grayscale(1) brightness(0.55);
-  opacity: 0.75;
-}
-
-/* Brilho para medalhas desbloqueadas */
-.shine {
-  background-image: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
-  background-size: 200% 100%;
-  animation: var(--animate-shimmer);
 }
 
 @media (prefers-reduced-motion: reduce) {

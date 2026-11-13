@@ -19,7 +19,7 @@ export const medalhas: Medalha[] = [
   {
     id: "nota-100",
     nome: "Nota 100",
-    descricao: "Gabaritou uma avaliação. Desempenho máximo!",
+    descricao: "Nota máxima numa avaliação.",
     requisito: "Tire nota máxima (100) em qualquer prova ou avaliação do semestre.",
     categoria: "Notas",
     raridade: "ouro",
@@ -27,7 +27,7 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.ouro,
     desbloqueada: true,
     dataConquista: "2026-09-22",
-    origem: "NP1 de S05 — Interface Homem-Máquina",
+    origem: "NP1 de Interface Homem-Máquina",
     progresso: { atual: 1, meta: 1, unidade: "avaliação" },
   },
   {
@@ -46,7 +46,7 @@ export const medalhas: Medalha[] = [
       unidade: "aulas de lab",
     },
     pendente:
-      "Você faltou 1 aula de F03 · L4. Compareça à reposição de laboratório de Física III em 18/11 para recuperar a presença e desbloquear.",
+      "1 falta em F03 · L4. A reposição de 18/11 recupera a presença.",
   },
   {
     id: "cr-85",
@@ -59,12 +59,12 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.ouro,
     desbloqueada: false,
     progresso: { atual: 81.4, meta: 85, unidade: "de CR" },
-    pendente: "Faltam 3,6 pontos no CR. Notas de NP2 acima de 90 em E08 e F03 devem ser suficientes.",
+    pendente: "Faltam 3,6 pontos. NP2 acima de 90 em E08 e F03 resolve.",
   },
   {
     id: "largada-perfeita",
     nome: "Largada Perfeita",
-    descricao: "Começou o semestre com o pé direito.",
+    descricao: "Primeira semana sem faltas.",
     requisito: "Compareça a todas as aulas da primeira semana do semestre.",
     categoria: "Frequência",
     raridade: "bronze",
@@ -78,7 +78,7 @@ export const medalhas: Medalha[] = [
   {
     id: "madrugador",
     nome: "Madrugador",
-    descricao: "Nem o laboratório das 07:00 te segura.",
+    descricao: "Presença nas aulas das 07:00.",
     requisito: "Esteja presente em 12 aulas que começam às 07:00.",
     categoria: "Frequência",
     raridade: "prata",
@@ -114,7 +114,7 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.ouro,
     desbloqueada: false,
     progresso: { atual: 4, meta: 6, unidade: "semanas" },
-    pendente: "Sua sequência atual é de 4 semanas. Mais 2 semanas sem faltas e a medalha é sua.",
+    pendente: "Mais 2 semanas sem faltas.",
   },
   {
     id: "top10-curso",
@@ -127,7 +127,7 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.prata,
     desbloqueada: true,
     dataConquista: "2026-10-28",
-    origem: "Ranking GES — semana 12",
+    origem: "Ranking GES, semana 12",
     progresso: { atual: 1, meta: 1, unidade: "semana no Top 10" },
   },
   {
@@ -147,7 +147,7 @@ export const medalhas: Medalha[] = [
   {
     id: "parceiro-monitoria",
     nome: "Parceiro de Monitoria",
-    descricao: "Aprender junto também conta pontos.",
+    descricao: "Sessões de monitoria.",
     requisito: "Participe de 5 sessões de monitoria registradas no semestre.",
     categoria: "Colaboração",
     raridade: "bronze",
@@ -155,7 +155,7 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.bronze,
     desbloqueada: false,
     progresso: { atual: 3, meta: 5, unidade: "monitorias" },
-    pendente: "Faltam 2 monitorias. Há monitoria de E08 na segunda e quinta, 17:30, sala III-3.",
+    pendente: "Faltam 2. Monitoria de E08 seg e qui, 17:30, sala III-3.",
   },
   {
     id: "espirito-equipe",
@@ -168,7 +168,7 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.prata,
     desbloqueada: false,
     progresso: { atual: 2, meta: 3, unidade: "avaliações" },
-    pendente: "Falta 1 avaliação positiva. O projeto de G04 tem avaliação entre pares até 29/11.",
+    pendente: "Falta 1. Avaliação entre pares de G04 até 29/11.",
   },
   {
     id: "podio-geral",
@@ -181,7 +181,7 @@ export const medalhas: Medalha[] = [
     pontos: pontosPorRaridade.platina,
     desbloqueada: false,
     progresso: { atual: 0, meta: 1, unidade: "semana no Top 3" },
-    pendente: "Você está em 4º. Faltam 2,2 pontos ponderados para alcançar a 3ª posição.",
+    pendente: "2,2 pts para o 3º lugar.",
   },
 ];
 
@@ -206,7 +206,7 @@ export const historicoPontos: RegistroPontos[] = [
   { id: "h5", descricao: "Medalha Top 10 do Curso", pontos: 100, data: "2026-10-28", tipo: "medalha" },
   { id: "h6", descricao: "Monitoria de E08", pontos: 10, data: "2026-10-27", tipo: "colaboracao" },
   { id: "h7", descricao: "Medalha Madrugador", pontos: 100, data: "2026-10-20", tipo: "medalha" },
-  { id: "h8", descricao: "NP1 de S05 — nota 100", pontos: 80, data: "2026-09-22", tipo: "nota" },
+  { id: "h8", descricao: "Nota 100 na NP1 de S05", pontos: 80, data: "2026-09-22", tipo: "nota" },
 ];
 
 /** Matrícula do usuário logado (usada para destacar "Você" no ranking). */
@@ -227,7 +227,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 980,
     creditosMatriculados: 14,
     presencaLab: 1,
-    avatarCor: "#e0679a",
     labs: { "s05-l1": { pontos: 170, presenca: 1 }, "f03-l4": { pontos: 150, presenca: 1 } },
   },
   {
@@ -238,7 +237,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1520,
     creditosMatriculados: 22,
     presencaLab: 0.95,
-    avatarCor: "#4f9dff",
     labs: {
       "s05-l1": { pontos: 175, presenca: 1 },
       "e08-l1": { pontos: 150, presenca: 0.91 },
@@ -253,7 +251,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1688,
     creditosMatriculados: 28,
     presencaLab: 0.98,
-    avatarCor: "#f2a541",
     labs: { "e08-l1": { pontos: 185, presenca: 1 }, "f03-l4": { pontos: 140, presenca: 0.95 } },
   },
   {
@@ -264,7 +261,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1420,
     creditosMatriculados,
     presencaLab: 0.97,
-    avatarCor: "#1f6fd1",
     labs: {
       "s05-l1": { pontos: 180, presenca: 1 },
       "e08-l1": { pontos: 165, presenca: 1 },
@@ -279,7 +275,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1710,
     creditosMatriculados: 28,
     presencaLab: 0.92,
-    avatarCor: "#34c3a0",
     labs: {
       "s05-l1": { pontos: 160, presenca: 0.92 },
       "e08-l1": { pontos: 170, presenca: 0.91 },
@@ -294,7 +289,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 2050,
     creditosMatriculados: 32,
     presencaLab: 0.8,
-    avatarCor: "#b583ff",
     labs: { "e08-l1": { pontos: 190, presenca: 0.82 } },
   },
   {
@@ -305,7 +299,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1980,
     creditosMatriculados: 30,
     presencaLab: 0.7,
-    avatarCor: "#ff7a59",
     labs: { "s05-l1": { pontos: 140, presenca: 0.75 } },
   },
   {
@@ -316,7 +309,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1600,
     creditosMatriculados: 28,
     presencaLab: 0.88,
-    avatarCor: "#5ec8f2",
     labs: { "s05-l1": { pontos: 150, presenca: 0.92 }, "f03-l4": { pontos: 110, presenca: 0.82 } },
   },
   {
@@ -327,7 +319,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1380,
     creditosMatriculados: 24,
     presencaLab: 0.83,
-    avatarCor: "#f06292",
     labs: {
       "s05-l1": { pontos: 155, presenca: 0.83 },
       "e08-l1": { pontos: 140, presenca: 0.82 },
@@ -342,7 +333,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1650,
     creditosMatriculados: 28,
     presencaLab: 0.78,
-    avatarCor: "#9ccc65",
     labs: { "e08-l1": { pontos: 160, presenca: 0.82 }, "f03-l4": { pontos: 120, presenca: 0.73 } },
   },
   {
@@ -353,7 +343,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1450,
     creditosMatriculados: 26,
     presencaLab: 0.85,
-    avatarCor: "#ffb74d",
     labs: { "e08-l1": { pontos: 150, presenca: 0.91 }, "f03-l4": { pontos: 105, presenca: 0.82 } },
   },
   {
@@ -364,7 +353,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1100,
     creditosMatriculados: 20,
     presencaLab: 0.86,
-    avatarCor: "#4dd0e1",
     labs: { "f03-l4": { pontos: 135, presenca: 0.91 } },
   },
   {
@@ -375,7 +363,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1260,
     creditosMatriculados: 24,
     presencaLab: 0.89,
-    avatarCor: "#ce93d8",
     labs: {
       "s05-l1": { pontos: 150, presenca: 0.92 },
       "e08-l1": { pontos: 130, presenca: 0.91 },
@@ -390,7 +377,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1520,
     creditosMatriculados: 30,
     presencaLab: 0.82,
-    avatarCor: "#7986cb",
     labs: { "s05-l1": { pontos: 130, presenca: 0.83 }, "e08-l1": { pontos: 135, presenca: 0.82 } },
   },
   {
@@ -401,7 +387,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1320,
     creditosMatriculados: 26,
     presencaLab: 0.8,
-    avatarCor: "#a1887f",
     labs: { "e08-l1": { pontos: 125, presenca: 0.82 }, "f03-l4": { pontos: 100, presenca: 0.73 } },
   },
   {
@@ -412,7 +397,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 1750,
     creditosMatriculados: 32,
     presencaLab: 0.68,
-    avatarCor: "#90a4ae",
     labs: { "e08-l1": { pontos: 120, presenca: 0.64 } },
   },
   {
@@ -423,7 +407,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 720,
     creditosMatriculados: 18,
     presencaLab: 0.95,
-    avatarCor: "#ff8a65",
     labs: { "f03-l4": { pontos: 95, presenca: 0.91 } },
   },
   {
@@ -434,7 +417,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 640,
     creditosMatriculados: 16,
     presencaLab: 0.92,
-    avatarCor: "#aed581",
     labs: { "f03-l4": { pontos: 90, presenca: 0.91 } },
   },
   {
@@ -445,7 +427,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 980,
     creditosMatriculados: 24,
     presencaLab: 0.75,
-    avatarCor: "#64b5f6",
     labs: {
       "s05-l1": { pontos: 110, presenca: 0.75 },
       "e08-l1": { pontos: 95, presenca: 0.73 },
@@ -460,7 +441,6 @@ export const alunosRanking: AlunoRanking[] = [
     pontos: 900,
     creditosMatriculados: 22,
     presencaLab: 0.72,
-    avatarCor: "#4db6ac",
     labs: { "e08-l1": { pontos: 100, presenca: 0.73 } },
   },
 ];

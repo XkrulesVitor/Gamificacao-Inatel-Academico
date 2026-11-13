@@ -230,24 +230,23 @@ export const provas: Prova[] = [
 
 /** Monitores (nomes fictícios), no formato da tela "Monitores" do app. */
 export const monitores: Monitor[] = [
-  { disciplina: "E08", nome: "Caio Henrique Moraes", dia: "Segunda-feira", horario: "17:30-19:30", local: "III-3" },
-  { disciplina: "E08", nome: "Juliana Prates Viana", dia: "Quinta-feira", horario: "17:30-19:30", local: "III-3" },
-  { disciplina: "F03", nome: "Rodrigo Lemos Furtado", dia: "Segunda-feira", horario: "17:30-19:30", local: "Teams" },
-  { disciplina: "F03", nome: "Rodrigo Lemos Furtado", dia: "Quarta-feira", horario: "13:30-15:00", local: "II-7" },
-  { disciplina: "M05", nome: "Paula Cristina Assunção", dia: "Terça-feira", horario: "15:30-17:30", local: "II-2" },
-  { disciplina: "S01", nome: "Henrique Salles Prado", dia: "Quarta-feira", horario: "19:30-21:00", local: "Lab. 5" },
-  { disciplina: "S05", nome: "Marcela Toledo Reis", dia: "Sexta-feira", horario: "10:00-12:00", local: "Lab. 3" },
+  { disciplina: "E08", nome: "Caio Henrique Moraes", dia: "Segunda-feira", horario: "17:30 às 19:30", local: "III-3" },
+  { disciplina: "E08", nome: "Juliana Prates Viana", dia: "Quinta-feira", horario: "17:30 às 19:30", local: "III-3" },
+  { disciplina: "F03", nome: "Rodrigo Lemos Furtado", dia: "Segunda-feira", horario: "17:30 às 19:30", local: "Teams" },
+  { disciplina: "F03", nome: "Rodrigo Lemos Furtado", dia: "Quarta-feira", horario: "13:30 às 15:00", local: "II-7" },
+  { disciplina: "M05", nome: "Paula Cristina Assunção", dia: "Terça-feira", horario: "15:30 às 17:30", local: "II-2" },
+  { disciplina: "S01", nome: "Henrique Salles Prado", dia: "Quarta-feira", horario: "19:30 às 21:00", local: "Lab. 5" },
+  { disciplina: "S05", nome: "Marcela Toledo Reis", dia: "Sexta-feira", horario: "10:00 às 12:00", local: "Lab. 3" },
 ];
 
 export const avisos: Aviso[] = [
   {
     id: "av-gami-1",
     remetente: "Suporte Estudantil",
-    cor: "gold",
-    titulo: "Nova medalha desbloqueada: Maratona de Labs 🏅",
-    resumo: "Você entregou 10 relatórios de laboratório no prazo.",
+    titulo: "Medalha Maratona de Labs desbloqueada",
+    resumo: "10 relatórios de laboratório entregues no prazo.",
     corpo:
-      "Parabéns, Lucas! Você desbloqueou a medalha Maratona de Labs (+100 pts) por entregar 10 relatórios de laboratório dentro do prazo. Confira seu progresso na aba Conquistas.",
+      "Você ganhou 100 pts com a medalha Maratona de Labs por entregar 10 relatórios de laboratório no prazo.",
     data: "2026-11-04T18:42:00",
     importante: false,
     lido: false,
@@ -256,11 +255,10 @@ export const avisos: Aviso[] = [
   {
     id: "av-gami-2",
     remetente: "Suporte Estudantil",
-    cor: "xp",
     titulo: "Ranking do semestre atualizado",
-    resumo: "Você subiu para a 4ª posição no ranking geral normalizado.",
+    resumo: "Você está em 4º no ranking geral.",
     corpo:
-      "O ranking agora é calculado de forma proporcional: Pontos Ponderados = (Total de Pontos ÷ Créditos Matriculados) × Fator de Presença em Laboratórios. Assim, quem cursa menos disciplinas não fica em desvantagem.",
+      "O ranking passou a ser proporcional aos créditos matriculados e à presença em laboratórios. Pontos Ponderados = (Total de Pontos ÷ Créditos Matriculados) × Fator de Presença em Labs.",
     data: "2026-11-03T08:00:00",
     importante: false,
     lido: false,
@@ -269,9 +267,8 @@ export const avisos: Aviso[] = [
   {
     id: "av-cra-1",
     remetente: "CRA",
-    cor: "accent",
-    titulo: "TRANSFERÊNCIA INTERNA DE CURSO/TURNO - 1º2027",
-    resumo: "Prezados(as) alunos(as),",
+    titulo: "TRANSFERÊNCIA INTERNA DE CURSO/TURNO 1º2027",
+    resumo: "Pedidos pelo portal até 28/11/2026.",
     corpo:
       "Prezados(as) alunos(as), estão abertas as solicitações de transferência interna de curso/turno para o 1º semestre de 2027. Os pedidos devem ser feitos pelo portal até 28/11/2026.",
     data: "2026-10-17T16:21:00",
@@ -281,9 +278,8 @@ export const avisos: Aviso[] = [
   {
     id: "av-cra-2",
     remetente: "CRA",
-    cor: "accent",
     titulo: "Calendário de NP2 publicado",
-    resumo: "Prezados(as) alunos(as),",
+    resumo: "Datas de NP2 disponíveis em Provas.",
     corpo:
       "Prezados(as) alunos(as), o calendário de provas NP2 do 2º semestre de 2026 já está disponível na opção Provas do aplicativo.",
     data: "2026-10-10T10:36:00",
@@ -293,7 +289,6 @@ export const avisos: Aviso[] = [
   {
     id: "av-fablab",
     remetente: "Fab Lab",
-    cor: "teal",
     titulo: "Horário estendido do Fab Lab na semana de provas",
     resumo: "O Fab Lab funcionará das 07h às 23h.",
     corpo:

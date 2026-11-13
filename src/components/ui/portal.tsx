@@ -5,14 +5,11 @@ import { createPortal } from "react-dom";
 
 const noop = () => () => {};
 
-/**
- * Renderiza dentro de #app-frame (o "viewport" do app — moldura do celular no desktop).
- * Filhos devem usar `absolute inset-0` (NÃO `fixed`), para ficarem presos à moldura.
- */
+/** Renderiza no <body>. Overlays usam `fixed inset-0`. */
 export function Portal({ children }: { children: React.ReactNode }) {
   const target = useSyncExternalStore(
     noop,
-    () => document.getElementById("app-frame"),
+    () => document.body,
     () => null,
   );
   if (!target) return null;

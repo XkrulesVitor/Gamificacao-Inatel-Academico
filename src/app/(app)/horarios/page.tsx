@@ -1,10 +1,10 @@
 import { Page } from "@/components/ui/primitives";
-import { GradeHorarios } from "@/components/academico/grade-horarios";
+import { HorariosGrade } from "@/components/academico/horarios-grade";
 
 export default function HorariosPage() {
   return (
     <Page>
-      <GradeHorarios />
+      <HorariosGrade />
     </Page>
   );
 }

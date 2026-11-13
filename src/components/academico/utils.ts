@@ -17,19 +17,9 @@ export const MESES_LONGOS = [
 
 export const MESES_CURTOS = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"] as const;
 
-/** Cor do texto de uma nota: >= 80 verde, 60–79 amarelo, < 60 vermelho. null = não lançada. */
-export function corNota(valor: number | null): string {
-  if (valor === null) return "text-subtle";
-  if (valor >= 80) return "text-success";
-  if (valor >= 60) return "text-warning";
-  return "text-danger";
-}
-
-/** Nível de uso do limite de faltas: < 50% verde, < 80% amarelo, >= 80% vermelho. */
-export function nivelUso(razao: number): "success" | "warning" | "danger" {
-  if (razao < 0.5) return "success";
-  if (razao < 0.8) return "warning";
-  return "danger";
+/** Nota abaixo de 60 em vermelho; as demais em texto normal. */
+export function classeNota(valor: number | null): string {
+  return valor !== null && valor < 60 ? "text-danger" : "text-fg";
 }
 
 /** Turma começando com "L" = laboratório (ex.: "L1", "L4"). */
@@ -37,7 +27,7 @@ export function isLaboratorio(turma: string): boolean {
   return turma.startsWith("L");
 }
 
-/** "2026-11-24" -> { dia: "24", mesCurto: "nov", ano: "2026", mesLongo: "Novembro" } */
+/** "2026-11-24" -> { dia: "24", mesCurto: "nov", ano: "2026", mesLongo: "Novembro", chaveMes: "2026-11" } */
 export function partesData(iso: string) {
   const mes = Number(iso.slice(5, 7)) - 1;
   return {

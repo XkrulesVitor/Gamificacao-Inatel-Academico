@@ -1,10 +1,10 @@
 import { AbasGamificacao } from "@/components/gamificacao/abas";
-import { ResumoNivel } from "@/components/gamificacao/resumo-nivel";
+import { NivelResumo } from "@/components/gamificacao/nivel-resumo";
 
 export default function GamificacaoLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <ResumoNivel />
+      <NivelResumo />
       <AbasGamificacao />
       {children}
     </div>
