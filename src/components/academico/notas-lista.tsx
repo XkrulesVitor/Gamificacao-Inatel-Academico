@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Award, ChevronRight, Clock } from "lucide-react";
 import { Panel, SplitLayout } from "@/components/ui/primitives";
 import { fmt1, fmtDiaMes } from "@/lib/format";
+import { useCountUp } from "@/lib/use-count-up";
+import { BarraAnimada } from "./barra-animada";
 import { getDisciplina, provas } from "@/lib/mock/aluno";
 import type { NotaDisciplina, Prova } from "@/lib/types";
 import { classeNota } from "./utils";
@@ -20,7 +22,7 @@ function proximaProva(disciplina: string, campo: Campo): Prova | undefined {
     .sort((a, b) => a.data.localeCompare(b.data))[0];
 }
 
-/** Nota não lançada: relógio e, se houver prova marcada, a data dela. */
+/** Nota NP2/NP3 pendente: relógio e, se houver prova marcada, a data dela. */
 function SemNota({ prova }: { prova?: Prova }) {
   return (
     <span className="inline-flex items-center justify-end gap-1.5 text-subtle">
@@ -32,10 +34,16 @@ function SemNota({ prova }: { prova?: Prova }) {
   );
 }
 
+/** NL só existe em disciplina com laboratório. */
+const temLab = (disciplina: string) => Boolean(getDisciplina(disciplina)?.laboratorioId);
+
 /** Valor de uma nota: `num`, vermelho abaixo de 60, medalha ao lado do 100. */
 function NotaCampo({ nota, campo }: { nota: NotaDisciplina; campo: Campo }) {
+  if (campo === "nl" && !temLab(nota.disciplina)) return null;
   const valor = nota[campo];
-  if (valor === null) return <SemNota prova={proximaProva(nota.disciplina, campo)} />;
+  if (valor === null) {
+    return campo === "np2" ? <SemNota prova={proximaProva(nota.disciplina, campo)} /> : null;
+  }
   return (
     <span className="inline-flex items-center justify-end gap-1">
       <span className={`num ${classeNota(valor)}`}>{valor}</span>
@@ -50,6 +58,12 @@ function mediaDe(n: NotaDisciplina): number | null {
   return lancadas.length ? lancadas.reduce((s, v) => s + v, 0) / lancadas.length : null;
 }
 
+/** Média com contagem no primeiro render. */
+function MediaNum({ valor, className }: { valor: number; className?: string }) {
+  const v = useCountUp(valor);
+  return <span className={`num tracking-tight ${className ?? ""}`}>{fmt1(v)}</span>;
+}
+
 function Identidade({ codigo, nome }: { codigo: string; nome: string }) {
   return (
     <span className="block min-w-0">
@@ -60,6 +74,7 @@ function Identidade({ codigo, nome }: { codigo: string; nome: string }) {
 }
 
 function Par({ rotulo, campo, nota }: { rotulo: string; campo: Campo; nota: NotaDisciplina }) {
+  if (campo === "nl" && !temLab(nota.disciplina)) return null;
   const vazia = nota[campo] === null;
   return (
     <span className={`inline-flex items-center gap-1.5 ${vazia ? "text-subtle" : ""}`}>
@@ -78,14 +93,14 @@ function DetalheNota({ nota }: { nota: NotaDisciplina }) {
   const campos: { campo: Campo; rotulo: string }[] = [
     { campo: "np1", rotulo: "NP1" },
     { campo: "np2", rotulo: "NP2" },
-    { campo: "nl", rotulo: "NL (laboratório)" },
+    ...(temLab(nota.disciplina) ? [{ campo: "nl" as const, rotulo: "NL (laboratório)" }] : []),
   ];
 
   return (
-    <Panel className="space-y-4 p-5">
+    <Panel className="space-y-4 p-5 shadow-card">
       <div>
         <p className="num text-xs text-muted">{nota.disciplina}</p>
-        <p className="text-lg font-semibold text-fg">{d?.nome ?? nota.disciplina}</p>
+        <p className="text-lg font-semibold tracking-tight text-fg">{d?.nome ?? nota.disciplina}</p>
         {d && <p className="mt-0.5 text-sm text-muted">{d.professor}</p>}
       </div>
 
@@ -100,16 +115,17 @@ function DetalheNota({ nota }: { nota: NotaDisciplina }) {
         ))}
         <div className="flex items-center justify-between gap-3 py-3">
           <dt className="text-sm text-muted">Média parcial</dt>
-          <dd className="num text-[15px] font-semibold text-fg">{media === null ? <SemNota /> : fmt1(media)}</dd>
+          <dd className="text-[15px] font-semibold text-fg">{media === null ? null : <MediaNum valor={media} />}</dd>
         </div>
       </dl>
+      {media !== null && <BarraAnimada key={nota.disciplina} value={media} max={100} label="Média parcial" />}
 
       {tem100 && (
         <Link
           href={ROTA_CONQUISTAS}
           className="flex min-h-11 items-center gap-2 text-[15px] font-medium text-fg transition-colors hover:text-accent"
         >
-          <Award className="size-5 shrink-0 text-gold" strokeWidth={1.75} aria-hidden />
+          <Award className="size-5 shrink-0 text-gold-ink" strokeWidth={1.75} aria-hidden />
           <span className="min-w-0 flex-1">Medalha Nota 100</span>
           <ChevronRight className="size-4 text-muted" strokeWidth={1.75} aria-hidden />
         </Link>
@@ -127,7 +143,7 @@ export function NotasLista({ notas }: { notas: NotaDisciplina[] }) {
       <div className="hidden lg:block">
         <SplitLayout
           main={
-            <Panel className="overflow-hidden">
+            <Panel className="overflow-hidden shadow-card">
               <table className="w-full text-left text-[15px]">
                 <caption className="sr-only">Notas por disciplina</caption>
                 <thead className="text-xs font-medium text-muted">
@@ -148,7 +164,7 @@ export function NotasLista({ notas }: { notas: NotaDisciplina[] }) {
                     return (
                       <tr
                         key={n.disciplina}
-                        className={`border-t border-line transition-colors hover:bg-surface-2 ${ativa ? "bg-surface-2" : ""}`}
+                        className={`border-t border-line transition-colors duration-150 hover:bg-surface-2 ${ativa ? "bg-surface-2 shadow-[inset_2px_0_0_var(--accent)]" : ""}`}
                       >
                         <th scope="row" className="px-5 py-3.5 text-left font-normal">
                           <button
@@ -165,7 +181,7 @@ export function NotasLista({ notas }: { notas: NotaDisciplina[] }) {
                         <td className="px-3 py-3.5 text-right"><NotaCampo nota={n} campo="np2" /></td>
                         <td className="px-3 py-3.5 text-right"><NotaCampo nota={n} campo="nl" /></td>
                         <td className="px-5 py-3.5 text-right font-semibold">
-                          {media === null ? <SemNota /> : <span className="num text-fg">{fmt1(media)}</span>}
+                          {media === null ? null : <MediaNum valor={media} className="text-fg" />}
                         </td>
                       </tr>
                     );
@@ -179,7 +195,7 @@ export function NotasLista({ notas }: { notas: NotaDisciplina[] }) {
         />
       </div>
 
-      <Panel className="lg:hidden">
+      <Panel className="shadow-card lg:hidden">
         <ul className="divide-y divide-line">
           {notas.map((n) => {
             const d = getDisciplina(n.disciplina);
@@ -189,20 +205,27 @@ export function NotasLista({ notas }: { notas: NotaDisciplina[] }) {
                 <div className="flex items-start justify-between gap-4">
                   <Identidade codigo={n.disciplina} nome={d?.nome ?? n.disciplina} />
                   <div className="shrink-0 text-right">
-                    {media === null ? (
-                      <SemNota />
-                    ) : (
-                      <p className="num text-2xl font-semibold leading-none text-fg">{fmt1(media)}</p>
+                    {media === null ? null : (
+                      <p className="text-2xl font-semibold leading-none text-fg">
+                        <MediaNum valor={media} />
+                      </p>
                     )}
                     <p className="mt-1 text-xs text-muted">Média</p>
                   </div>
                 </div>
                 <p className="mt-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm text-muted">
-                  <Par rotulo="NP1" campo="np1" nota={n} />
-                  <span aria-hidden className="text-subtle">·</span>
-                  <Par rotulo="NP2" campo="np2" nota={n} />
-                  <span aria-hidden className="text-subtle">·</span>
-                  <Par rotulo="NL" campo="nl" nota={n} />
+                  {(["np1", "np2", "nl"] as const)
+                    .filter((c) => c !== "nl" || temLab(n.disciplina))
+                    .map((c, i) => (
+                      <Fragment key={c}>
+                        {i > 0 && (
+                          <span aria-hidden className="text-subtle">
+                            ·
+                          </span>
+                        )}
+                        <Par rotulo={c.toUpperCase()} campo={c} nota={n} />
+                      </Fragment>
+                    ))}
                 </p>
               </li>
             );

@@ -2,20 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import { CircleHelp } from "lucide-react";
+import { MoedaMetal } from "@/components/gamificacao/metal";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { useIsDesktop } from "@/lib/use-media";
 import { pontosPorRaridade, raridadeLabel } from "@/lib/mock/gamificacao";
-
-const metalTexto = { bronze: "text-bronze", prata: "text-silver", ouro: "text-gold", platina: "text-platinum" } as const;
 
 function Conteudo() {
   return (
     <div>
       <dl className="grid grid-cols-4 gap-2 text-center">
         {(Object.keys(pontosPorRaridade) as (keyof typeof pontosPorRaridade)[]).map((r) => (
-          <div key={r} className="rounded-control bg-surface-3 py-2.5">
-            <dt className={`text-[13px] font-semibold ${metalTexto[r]}`}>{raridadeLabel[r]}</dt>
-            <dd className="num mt-0.5 text-[15px] text-fg">{pontosPorRaridade[r]}</dd>
+          <div key={r} className="flex flex-col items-center rounded-control bg-surface-2 px-1 py-3">
+            <MoedaMetal raridade={r} className="size-7" />
+            <dt className="mt-2 text-[13px] font-medium text-fg">{raridadeLabel[r]}</dt>
+            <dd className="num text-[13px] text-muted">{pontosPorRaridade[r]} pts</dd>
           </div>
         ))}
       </dl>
@@ -53,12 +53,12 @@ export function AjudaMedalhas() {
         aria-label="Como funcionam as medalhas"
         aria-expanded={aberto}
         onClick={() => setAberto((v) => !v)}
-        className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg lg:size-9"
+        className="-my-2 grid size-10 place-items-center rounded-full text-muted transition-colors duration-150 hover:bg-surface-2 hover:text-fg"
       >
         <CircleHelp className="size-5" strokeWidth={1.75} />
       </button>
       {desktop && aberto && (
-        <div className="absolute right-0 top-11 z-30 w-[340px] rounded-card border border-line-strong bg-surface-2 p-4">
+        <div className="absolute right-0 top-10 z-30 w-[340px] animate-enter rounded-card border border-line bg-surface-1 p-4 shadow-pop">
           <Conteudo />
         </div>
       )}

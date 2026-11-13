@@ -78,10 +78,10 @@ function FaixaAula({ aula }: { aula: Aula }) {
     ["Quando", <span key="q" className="num">{`${dia}, ${aula.hora}`}</span>],
   ];
   return (
-    <Panel className="mb-4 hidden items-center gap-8 px-5 py-4 lg:flex" aria-live="polite">
+    <Panel className="mb-4 hidden items-center gap-8 px-5 py-4 shadow-card lg:flex" aria-live="polite">
       <div className="min-w-0 shrink-0">
         <p className="num text-xs text-muted">{aula.disciplina}</p>
-        <p className="text-base font-semibold text-fg">{disciplina?.nome ?? aula.disciplina}</p>
+        <p className="text-base font-semibold tracking-tight text-fg">{disciplina?.nome ?? aula.disciplina}</p>
       </div>
       <dl className="flex min-w-0 flex-1 flex-wrap gap-x-8 gap-y-2 border-l border-line pl-8">
         {fatos.map(([rotulo, valor]) => (
@@ -116,24 +116,25 @@ export function HorariosGrade() {
     <>
       {exibida && <FaixaAula aula={exibida} />}
       <div
-          className="-mx-4 grid grid-cols-[52px_repeat(6,minmax(0,1fr))] gap-[2px] bg-black lg:mx-0 lg:grid-cols-[96px_repeat(6,minmax(0,1fr))] lg:overflow-hidden lg:rounded-card">
-            <div className="flex h-10 items-center justify-center bg-black text-xs font-bold text-fg lg:text-[13px]">HORA</div>
+          className="-mx-4 grid grid-cols-[52px_repeat(6,minmax(0,1fr))] gap-[2px] bg-line-strong lg:mx-0 lg:grid-cols-[96px_repeat(6,minmax(0,1fr))] lg:overflow-hidden lg:rounded-card lg:border lg:border-line-strong lg:shadow-card">
+            <div className="flex h-10 items-center justify-center bg-header text-xs font-bold text-on-header lg:text-[13px]">HORA</div>
             {diasGrade.map((d) => {
               const eHoje = d.id === hoje;
               return (
                 <div
                   key={d.id}
-                  className={`flex h-10 items-center justify-center bg-black text-[11px] font-bold lg:text-[13px] ${eHoje ? "text-accent" : "text-fg"}`}
+                  className="relative flex h-10 items-center justify-center bg-header text-[11px] font-bold text-on-header lg:text-[13px]"
                 >
                   <span aria-hidden>{DIA_CURTO[d.id]}</span>
                   <span className="sr-only">{d.longo}</span>
+                  {eHoje && <span aria-hidden className="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-gold" />}
                 </div>
               );
             })}
 
             {horariosGrade.map((hora) => (
               <Fragment key={hora}>
-                <div className="flex h-12 items-center justify-center bg-navy-deep text-xs font-semibold text-white lg:h-16 lg:text-[13px]">
+                <div className="flex h-12 items-center justify-center bg-navy-deep text-xs font-semibold text-on-header lg:h-16 lg:text-[13px]">
                   {hora}
                 </div>
                 {diasGrade.map((d) => {
@@ -154,7 +155,7 @@ export function HorariosGrade() {
                       onClick={() => selecionar(aula)}
                       aria-label={`${aula.disciplina} ${aula.turma}, ${d.longo}, ${hora}`}
                       aria-pressed={ativa}
-                      className={`flex h-12 w-full flex-col items-center justify-center overflow-hidden bg-surface-4 px-0.5 text-center transition-colors hover:bg-surface-3 focus-visible:z-10 lg:h-16 lg:items-start lg:justify-center lg:px-2 lg:text-left ${
+                      className={`flex h-12 w-full flex-col items-center justify-center overflow-hidden bg-surface-1 px-0.5 text-center transition-colors duration-150 hover:bg-surface-2 dark:bg-surface-4 dark:hover:bg-surface-3 focus-visible:z-10 lg:h-16 lg:items-start lg:justify-center lg:px-2 lg:text-left ${
                         ativa ? "ring-2 ring-inset ring-accent" : ""
                       }`}
                     >

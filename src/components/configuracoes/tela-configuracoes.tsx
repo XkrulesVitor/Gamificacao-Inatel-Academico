@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { LogOut, Smartphone } from "lucide-react";
+import { LogOut, Monitor, Moon, Smartphone, Sun } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import clsx from "clsx";
 import { useSession } from "@/components/session-provider";
+import { useTheme } from "@/components/theme-provider";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import {
   Button,
@@ -59,12 +61,73 @@ function Switch({
         >
           <span
             className={clsx(
-              "absolute left-0.5 top-0.5 size-6 rounded-full bg-white transition-transform duration-200",
+              "absolute left-0.5 top-0.5 size-6 rounded-full bg-white shadow-sm transition-transform duration-200",
               checked && "translate-x-5",
             )}
           />
         </span>
       </button>
+    </div>
+  );
+}
+
+const TEMAS = [
+  { valor: "sistema", rotulo: "Sistema", Icone: Monitor },
+  { valor: "claro", rotulo: "Claro", Icone: Sun },
+  { valor: "escuro", rotulo: "Escuro", Icone: Moon },
+] as const;
+
+/** Seletor segmentado de tema: o indicador desliza entre as opções. */
+function SeletorTema() {
+  const { preferencia, definir } = useTheme();
+  const reduzir = useReducedMotion();
+
+  function aoTeclar(e: React.KeyboardEvent<HTMLDivElement>) {
+    const i = TEMAS.findIndex((t) => t.valor === preferencia);
+    let n = i;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % TEMAS.length;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + TEMAS.length) % TEMAS.length;
+    else return;
+    e.preventDefault();
+    definir(TEMAS[n].valor);
+    (e.currentTarget.children[n] as HTMLElement).focus();
+  }
+
+  return (
+    <div
+      role="radiogroup"
+      aria-label="Tema"
+      onKeyDown={aoTeclar}
+      className="grid grid-cols-3 gap-1 rounded-control bg-surface-3 p-1"
+    >
+      {TEMAS.map(({ valor, rotulo, Icone }) => {
+        const ativo = preferencia === valor;
+        return (
+          <button
+            key={valor}
+            type="button"
+            role="radio"
+            aria-checked={ativo}
+            tabIndex={ativo ? 0 : -1}
+            onClick={() => definir(valor)}
+            className={clsx(
+              "relative flex h-11 items-center justify-center gap-2 rounded-[8px] text-[14px] font-medium transition-colors duration-150",
+              ativo ? "text-fg" : "text-muted hover:text-fg",
+            )}
+          >
+            {ativo && (
+              <motion.span
+                layoutId="tema-ativo"
+                aria-hidden
+                transition={reduzir ? { duration: 0 } : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 rounded-[8px] border border-line bg-surface-1 shadow-card"
+              />
+            )}
+            <Icone className={clsx("relative size-4", ativo && "text-accent")} strokeWidth={1.75} aria-hidden />
+            <span className="relative">{rotulo}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -83,7 +146,7 @@ function Linha({ rotulo, valor }: { rotulo: string; valor: string }) {
 const opcoes: { chave: keyof Prefs; label: string; descricao?: string }[] = [
   { chave: "notificarMedalhas", label: "Notificar medalhas" },
   { chave: "exibirNome", label: "Mostrar meu nome no ranking" },
-  { chave: "mostrarAtalho", label: "Atalho nos Avisos" },
+  { chave: "mostrarAtalho", label: "Gamificação no Início" },
 ];
 
 export function TelaConfiguracoes() {
@@ -101,26 +164,35 @@ export function TelaConfiguracoes() {
   return (
     <Page>
       <div className="grid gap-x-8 gap-y-6 lg:grid-cols-2 lg:items-start">
-        <section>
-          <SectionHeading>Perfil</SectionHeading>
-          <Panel as="div">
-            <dl className="divide-y divide-line">
-              <Linha rotulo="Nome" valor={aluno.nome} />
-              <Linha rotulo="Matrícula" valor={aluno.matricula} />
-              <Linha rotulo="Curso" valor={aluno.curso} />
-              <Linha rotulo="E-mail" valor={aluno.email} />
-              <Linha
-                rotulo="Período"
-                valor={`${aluno.periodo}º · ${aluno.semestre}`}
-              />
-            </dl>
-          </Panel>
-        </section>
+        <div className="space-y-6">
+          <section>
+            <SectionHeading>Aparência</SectionHeading>
+            <Panel as="div" className="p-3 shadow-card">
+              <SeletorTema />
+            </Panel>
+          </section>
+
+          <section>
+            <SectionHeading>Perfil</SectionHeading>
+            <Panel as="div" className="shadow-card">
+              <dl className="divide-y divide-line">
+                <Linha rotulo="Nome" valor={aluno.nome} />
+                <Linha rotulo="Matrícula" valor={aluno.matricula} />
+                <Linha rotulo="Curso" valor={aluno.curso} />
+                <Linha rotulo="E-mail" valor={aluno.email} />
+                <Linha
+                  rotulo="Período"
+                  valor={`${aluno.periodo}º · ${aluno.semestre}`}
+                />
+              </dl>
+            </Panel>
+          </section>
+        </div>
 
         <div className="space-y-6">
           <section>
             <SectionHeading>Gamificação</SectionHeading>
-            <Panel as="div" className="divide-y divide-line">
+            <Panel as="div" className="divide-y divide-line shadow-card">
               {opcoes.map((o) => (
                 <Switch
                   key={o.chave}
@@ -136,7 +208,7 @@ export function TelaConfiguracoes() {
 
           <section>
             <SectionHeading>Instalar como app</SectionHeading>
-            <Panel as="div" className="divide-y divide-line">
+            <Panel as="div" className="divide-y divide-line shadow-card">
               {[
                 ["Android", "Menu do navegador, Instalar app"],
                 ["iPhone", "Compartilhar, Adicionar à Tela de Início"],

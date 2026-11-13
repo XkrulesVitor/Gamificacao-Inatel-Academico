@@ -57,7 +57,7 @@ export function Panel({
   as?: "div" | "section" | "article" | "aside";
 } & React.HTMLAttributes<HTMLElement>) {
   return (
-    <As {...rest} className={clsx("rounded-card border border-line bg-surface-1", className)}>
+    <As {...rest} className={clsx("rounded-card border border-line bg-surface-1 shadow-card", className)}>
       {children}
     </As>
   );
@@ -217,7 +217,7 @@ export function Avatar({
       aria-hidden
       className={clsx(
         "grid shrink-0 place-items-center rounded-full font-semibold",
-        eu ? "bg-primary text-white" : "bg-surface-3 text-muted",
+        eu ? "bg-primary text-on-primary" : "bg-surface-3 text-muted",
         sizes[size],
         className,
       )}

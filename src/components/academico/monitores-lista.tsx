@@ -24,7 +24,7 @@ export function MonitoresLista() {
         ))}
       </ChipGroup>
 
-      <Panel className="hidden overflow-hidden lg:block">
+      <Panel className="hidden overflow-hidden shadow-card lg:block">
         <table className="w-full text-left text-[15px]">
           <caption className="sr-only">Monitores</caption>
           <thead className="text-xs font-medium text-muted">
@@ -38,7 +38,7 @@ export function MonitoresLista() {
           </thead>
           <tbody>
             {lista.map((m, i) => (
-              <tr key={`${m.disciplina}-${m.nome}-${m.dia}-${i}`} className="border-t border-line transition-colors hover:bg-surface-2">
+              <tr key={`${m.disciplina}-${m.nome}-${m.dia}-${i}`} className="border-t border-line transition-colors duration-150 hover:bg-surface-2">
                 <th scope="row" className="px-5 py-3.5 text-left font-normal">
                   <span className="num block text-xs text-muted">{m.disciplina}</span>
                   <span className="block font-medium text-fg">{getDisciplina(m.disciplina)?.nome ?? m.disciplina}</span>
@@ -55,8 +55,8 @@ export function MonitoresLista() {
 
       <div className="space-y-4 lg:hidden">
         {grupos.map((g) => (
-          <Panel key={g.codigo} className="overflow-hidden">
-            <header className="border-b border-line px-4 py-3">
+          <Panel key={g.codigo} className="overflow-hidden shadow-card">
+            <header className="border-b border-line bg-surface-2 px-4 py-3">
               <p className="text-sm font-semibold text-fg">
                 <span className="num">{g.codigo}</span> · {g.nome}
               </p>

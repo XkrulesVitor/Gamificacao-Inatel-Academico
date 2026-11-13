@@ -37,6 +37,8 @@ export interface Aula {
   disciplina: string;
   /** "A" (teoria) ou "L1", "L4" (laboratório) */
   turma: string;
+  /** Sala ou laboratório */
+  local?: string;
 }
 
 export interface NotaDisciplina {

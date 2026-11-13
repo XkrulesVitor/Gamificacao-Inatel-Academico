@@ -32,7 +32,7 @@ function DetalheProva({ prova }: { prova: Prova }) {
     <div className="space-y-4">
       <div>
         <p className="num text-xs text-muted">{prova.disciplina}</p>
-        <p className="text-lg font-semibold text-fg">{d?.nome ?? prova.disciplina}</p>
+        <p className="text-lg font-semibold tracking-tight text-fg">{d?.nome ?? prova.disciplina}</p>
       </div>
       <dl className="divide-y divide-line">
         <Linha rotulo="Tipo">
@@ -74,7 +74,7 @@ export function ProvasLista({ provas }: { provas: Prova[] }) {
           {grupos.map((grupo) => (
             <section key={grupo.chave}>
               <SectionHeading>{grupo.titulo}</SectionHeading>
-              <Panel className="overflow-hidden">
+              <Panel className="overflow-hidden shadow-card">
                 <ul className="divide-y divide-line">
                   {grupo.itens.map((prova) => {
                     const d = getDisciplina(prova.disciplina);
@@ -88,13 +88,18 @@ export function ProvasLista({ provas }: { provas: Prova[] }) {
                           aria-pressed={ativa}
                           onClick={() => setSelecionada(chaveProva(prova))}
                           className={clsx(
-                            "flex w-full items-center gap-4 px-4 py-3.5 text-left transition-colors hover:bg-surface-2 lg:px-5",
+                            "flex w-full items-center gap-4 px-4 py-3.5 text-left transition-colors duration-150 hover:bg-surface-2 lg:px-5",
                             ativa && "bg-surface-2",
                           )}
                         >
-                          <span className="grid w-14 shrink-0 place-items-center rounded-control bg-surface-2 py-2">
-                            <span className="num text-2xl font-bold leading-none text-fg">{dia}</span>
-                            <span className="mt-1 text-xs text-muted">{mesCurto}</span>
+                          <span
+                            className={clsx(
+                              "grid w-14 shrink-0 place-items-center rounded-control py-2",
+                              destaque ? "bg-primary text-on-primary" : "bg-surface-2",
+                            )}
+                          >
+                            <span className={clsx("num text-2xl font-bold leading-none tracking-tight", !destaque && "text-fg")}>{dia}</span>
+                            <span className={clsx("mt-1 text-xs", destaque ? "text-on-primary/80" : "text-muted")}>{mesCurto}</span>
                           </span>
 
                           <span className="min-w-0 flex-1">
@@ -139,7 +144,7 @@ export function ProvasLista({ provas }: { provas: Prova[] }) {
           ))}
         </div>
       }
-      aside={<Panel className="p-5">{exibida && <DetalheProva prova={exibida} />}</Panel>}
+      aside={<Panel className="p-5 shadow-card">{exibida && <DetalheProva prova={exibida} />}</Panel>}
       asideClassName="hidden self-start lg:block"
     />
   );

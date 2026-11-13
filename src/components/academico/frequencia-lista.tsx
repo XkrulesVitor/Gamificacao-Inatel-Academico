@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight, FlaskConical, Medal } from "lucide-react";
-import { Panel, ProgressBar } from "@/components/ui/primitives";
+import { Panel } from "@/components/ui/primitives";
+import { useCountUp } from "@/lib/use-count-up";
+import { BarraAnimada } from "./barra-animada";
 import { ROTA_CONQUISTAS } from "./gamificacao-links";
 import { fmtPct } from "@/lib/format";
 import { getDisciplina, presencaLabConsolidada } from "@/lib/mock/aluno";
@@ -11,22 +15,23 @@ type Lab = NonNullable<FrequenciaDisciplina["lab"]>;
 /** Painel de presença em laboratórios: total, percentual, barra e link para a medalha. */
 export function LabsPainel() {
   const { dadas, presencas, taxa } = presencaLabConsolidada;
+  const contado = Math.round(useCountUp(presencas));
   return (
-    <Panel className="space-y-4 p-5">
+    <Panel className="space-y-4 p-5 shadow-card">
       <div className="flex items-baseline justify-between gap-3">
         <h2 className="text-[15px] font-semibold text-fg lg:text-base">Laboratórios</h2>
         <span className="num text-sm text-muted">{fmtPct(taxa)}</span>
       </div>
-      <p className="num text-4xl font-bold leading-none text-fg">
-        {presencas}
+      <p className="num text-4xl font-bold leading-none tracking-tight text-fg">
+        {contado}
         <span className="text-muted">/{dadas}</span>
       </p>
-      <ProgressBar value={presencas} max={dadas} label={`Presença em laboratórios: ${presencas} de ${dadas}`} />
+      <BarraAnimada value={presencas} max={dadas} label={`Presença em laboratórios: ${presencas} de ${dadas}`} />
       <Link
         href={ROTA_CONQUISTAS}
         className="flex min-h-11 items-center gap-2 text-[15px] font-medium text-fg transition-colors hover:text-accent"
       >
-        <Medal className="size-5 shrink-0 text-gold" strokeWidth={1.75} aria-hidden />
+        <Medal className="size-5 shrink-0 text-gold-ink" strokeWidth={1.75} aria-hidden />
         <span className="min-w-0 flex-1">Frequência Plena em Labs</span>
         <ChevronRight className="size-4 text-muted" strokeWidth={1.75} aria-hidden />
       </Link>
@@ -61,7 +66,7 @@ function LabPresenca({ lab }: { lab: Lab }) {
 export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
   return (
     <>
-      <Panel className="hidden overflow-hidden lg:block">
+      <Panel className="hidden overflow-hidden shadow-card lg:block">
         <table className="w-full text-left text-[15px]">
           <caption className="sr-only">Faltas por disciplina</caption>
           <thead className="text-xs font-medium text-muted">
@@ -74,7 +79,7 @@ export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
           </thead>
           <tbody>
             {itens.map((item) => (
-              <tr key={item.disciplina} className="border-t border-line transition-colors hover:bg-surface-2">
+              <tr key={item.disciplina} className="border-t border-line transition-colors duration-150 hover:bg-surface-2">
                 <th scope="row" className="px-5 py-3.5 text-left font-normal">
                   <Identidade codigo={item.disciplina} />
                 </th>
@@ -83,7 +88,7 @@ export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
                   <span className="text-muted">/{item.limiteFaltas}</span>
                 </td>
                 <td className="px-3 py-3.5">
-                  <ProgressBar
+                  <BarraAnimada
                     value={item.faltas}
                     max={item.limiteFaltas}
                     tone={tomUso(item.faltas, item.limiteFaltas)}
@@ -98,7 +103,7 @@ export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
         </table>
       </Panel>
 
-      <Panel className="lg:hidden">
+      <Panel className="shadow-card lg:hidden">
         <ul className="divide-y divide-line">
           {itens.map((item) => (
             <li key={item.disciplina} className="space-y-3 px-4 py-3.5">
@@ -109,7 +114,7 @@ export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
                   <span className="font-normal text-muted">/{item.limiteFaltas}</span>
                 </p>
               </div>
-              <ProgressBar
+              <BarraAnimada
                 value={item.faltas}
                 max={item.limiteFaltas}
                 tone={tomUso(item.faltas, item.limiteFaltas)}

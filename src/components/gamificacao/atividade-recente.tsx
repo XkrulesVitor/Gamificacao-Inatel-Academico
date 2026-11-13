@@ -12,6 +12,7 @@ const iconePorTipo: Record<RegistroPontos["tipo"], LucideIcon> = {
   colaboracao: Users,
 };
 
+/** Extrato curto de pontos. */
 export function AtividadeRecente({ limite = 6 }: { limite?: number }) {
   return (
     <ul className="divide-y divide-line">
@@ -19,14 +20,14 @@ export function AtividadeRecente({ limite = 6 }: { limite?: number }) {
         const Icone = iconePorTipo[r.tipo];
         return (
           <li key={r.id} className="flex items-center gap-3 py-2.5">
-            <IconBubble className="size-8">
+            <IconBubble tone={r.tipo === "medalha" ? "gold" : "neutral"} className="size-8">
               <Icone className="size-4" strokeWidth={1.75} />
             </IconBubble>
             <div className="min-w-0 flex-1">
-              <p className="line-clamp-2 text-[13px] leading-snug text-fg">{r.descricao}</p>
+              <p className="line-clamp-2 text-[14px] leading-snug text-fg">{r.descricao}</p>
               <p className="num text-xs text-subtle">{fmtDiaMes(r.data)}</p>
             </div>
-            <span className="num text-[13px] font-semibold text-gold">+{r.pontos}</span>
+            <span className="num text-[14px] font-semibold text-gold-ink">+{r.pontos}</span>
           </li>
         );
       })}

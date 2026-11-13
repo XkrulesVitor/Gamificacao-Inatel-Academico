@@ -1,10 +1,5 @@
-import { Page } from "@/components/ui/primitives";
+import { TelaInicio } from "@/components/inicio/tela-inicio";
 
-// PLACEHOLDER: substituído pelo subagente da tela Início.
 export default function InicioPage() {
-  return (
-    <Page>
-      <p className="text-muted">Início em construção.</p>
-    </Page>
-  );
+  return <TelaInicio />;
 }
