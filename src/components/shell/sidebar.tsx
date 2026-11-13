@@ -7,7 +7,7 @@ import { NavList } from "@/components/shell/nav-list";
 import { UserBlock } from "@/components/shell/user-block";
 import { InatelLogo } from "@/components/ui/primitives";
 
-/** Sidebar fixa do desktop: o menu do app real sempre aberto. */
+/** Sidebar fixa do desktop: o menu do app real sempre aberto, com "Sair" como último item da lista. */
 export function Sidebar() {
   const router = useRouter();
   const { sair } = useSession();
@@ -23,18 +23,20 @@ export function Sidebar() {
       <div className="app-scroll flex-1">
         <UserBlock />
         <NavList compact />
+        <div className="py-1.5">
+          <button
+            type="button"
+            onClick={() => {
+              sair();
+              router.replace("/");
+            }}
+            className="flex h-10 w-full items-center gap-4 px-5 text-left text-[14px] text-[#e4e4e7] transition-colors hover:bg-white/[0.04] xl:gap-5 xl:text-[15px]"
+          >
+            <Power className="size-5 text-[#c9c9cf]" strokeWidth={1.75} aria-hidden />
+            Sair
+          </button>
+        </div>
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          sair();
-          router.replace("/");
-        }}
-        className="flex h-12 shrink-0 items-center gap-5 border-t border-white/[0.07] px-5 text-left text-[15px] text-[#e4e4e7] transition-colors hover:bg-white/[0.04]"
-      >
-        <Power className="size-5 text-[#c9c9cf]" strokeWidth={1.75} aria-hidden />
-        Sair
-      </button>
     </aside>
   );
 }

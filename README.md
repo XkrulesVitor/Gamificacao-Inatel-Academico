@@ -425,6 +425,8 @@ Lista em `itensRemovidos`, `src/lib/nav.ts`.
 
 ## Design system
 
+Especificação completa (tokens, tipografia, layout, componentes e regras) em [DESIGN.md](DESIGN.md), gerada com a skill Impeccable a partir do app construído.
+
 Paleta enxuta, definida como tokens em `@theme` no `src/app/globals.css`.
 
 | Token | Valor | Papel |

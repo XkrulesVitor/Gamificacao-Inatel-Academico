@@ -82,7 +82,6 @@ export function ListaRanking({ entradas }: { entradas: EntradaRanking[] }) {
               <span className="flex items-center gap-2">
                 <span className="truncate text-[15px] font-medium text-fg">{e.aluno.nome}</span>
                 {e.posicao === 1 && <Crown className="size-3.5 shrink-0 text-gold" strokeWidth={1.75} aria-label="Primeiro lugar" />}
-                {e.souEu && <Badge tone="accent">Você</Badge>}
                 {e.souEu && !prefs.exibirNome && (
                   <EyeOff
                     className="size-4 shrink-0 text-subtle"
@@ -91,8 +90,16 @@ export function ListaRanking({ entradas }: { entradas: EntradaRanking[] }) {
                   />
                 )}
               </span>
-              <span className="block truncate text-xs text-subtle">
-                {e.aluno.curso} · {e.aluno.periodo}º período
+              {/* O selo "Você" fica na linha de metadados para o nome não ser cortado */}
+              <span className="flex min-w-0 items-center gap-1.5 text-xs text-subtle">
+                {e.souEu && (
+                  <Badge tone="accent" className="h-5 px-2 text-[11px]">
+                    Você
+                  </Badge>
+                )}
+                <span className="truncate">
+                  {e.aluno.curso} · {e.aluno.periodo}º período
+                </span>
               </span>
             </span>
             <span role="cell" className="num hidden text-right text-sm text-muted xl:block">
