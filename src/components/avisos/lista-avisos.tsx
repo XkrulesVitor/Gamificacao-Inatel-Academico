@@ -104,11 +104,14 @@ function Linha({
       aria-current={ativo || undefined}
       aria-label={`${naoLido ? "Não lido. " : ""}${aviso.importante ? "Importante. " : ""}${aviso.remetente}, ${fmtDataHora(aviso.data)}. ${aviso.titulo}`}
       className={clsx(
-        "relative flex w-full items-start gap-3.5 px-4 py-3.5 text-left transition-colors duration-150 lg:px-5",
+        "flex w-full items-start gap-3 px-4 py-3.5 text-left transition-colors duration-150 lg:px-5",
         ativo ? "bg-accent/[0.09]" : "hover:bg-surface-2 active:bg-surface-3",
       )}
     >
-      {naoLido && <span aria-hidden className="absolute left-[5px] top-[30px] size-2 rounded-full bg-accent lg:left-[7px]" />}
+      {/* Coluna do ponto de não lido: começa no respiro padrão de 16px e mantém o texto alinhado */}
+      <span aria-hidden className="-mr-1 flex h-10 w-2 shrink-0 items-center">
+        {naoLido && <span className="size-2 rounded-full bg-accent" />}
+      </span>
       <SeloRemetente nome={aviso.remetente} />
       <span className="min-w-0 flex-1" aria-hidden>
         <span className="flex items-center gap-1.5">

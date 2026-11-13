@@ -5,7 +5,7 @@ import { useSession } from "@/components/session-provider";
 import { usePrefs } from "@/components/configuracoes/prefs";
 import { AulasHoje } from "./aulas-hoje";
 import { AvisosRecentes } from "./avisos-recentes";
-import { CartaoGamificacao } from "./cartao-gamificacao";
+import { CartaoGamificacao, FaixaGamificacao } from "./cartao-gamificacao";
 import { Saudacao } from "./saudacao";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -39,6 +39,11 @@ export function TelaInicio() {
         <motion.div variants={item}>
           <Saudacao nome={aluno.primeiroNome} />
         </motion.div>
+        {prefs.mostrarAtalho && (
+          <motion.div variants={item} className="-mt-3 lg:hidden">
+            <FaixaGamificacao />
+          </motion.div>
+        )}
         <motion.div variants={item}>
           <AulasHoje />
         </motion.div>

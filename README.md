@@ -1,18 +1,19 @@
 <div align="center">
 
-<img src="docs/screenshots/v2/d04-ranking.png" alt="Ranking na versão desktop: sidebar, pódio, tabela e painel Sua posição" width="100%">
+<img src="docs/screenshots/v3/d-claro-03-inicio.png" alt="Tela Início no desktop, tema claro: sidebar, saudação, linha do tempo das aulas e cartão de nível" width="100%">
 
 <table align="center">
   <tr>
-    <td align="center"><img src="docs/screenshots/v2/m03-avisos.png" width="200" alt="Avisos no celular"></td>
-    <td align="center"><img src="docs/screenshots/v2/m05-conquistas.png" width="200" alt="Conquistas no celular"></td>
-    <td align="center"><img src="docs/screenshots/v2/m08-ranking.png" width="200" alt="Ranking no celular"></td>
+    <td align="center"><img src="docs/screenshots/v3/m-escuro-03-inicio.png" width="190" alt="Início no celular, tema escuro"></td>
+    <td align="center"><img src="docs/screenshots/v3/m-escuro-06-conquistas.png" width="190" alt="Conquistas no celular, tema escuro"></td>
+    <td align="center"><img src="docs/screenshots/v3/m-escuro-08-ranking.png" width="190" alt="Ranking no celular, tema escuro"></td>
+    <td align="center"><img src="docs/screenshots/v3/m-claro-08-ranking.png" width="190" alt="Ranking no celular, tema claro"></td>
   </tr>
 </table>
 
 # App Acadêmico Inatel + Gamificação
 
-**Conquistas por medalhas e ranking proporcional por créditos e presença em laboratórios, dentro da navegação do app Acadêmico. Versão 2, com desktop real.**
+**Conquistas por medalhas e ranking proporcional por créditos e presença em laboratórios, dentro da navegação do app Acadêmico. Versão 3, com temas claro e escuro, tela Início e menu de 6 itens.**
 
 <br>
 
@@ -38,7 +39,7 @@
 1. [Sobre](#sobre)
 2. [Acesse](#acesse)
 3. [Telas](#telas)
-4. [O que mudou na v2](#o-que-mudou-na-v2)
+4. [O que mudou na v3](#o-que-mudou-na-v3)
 5. [User Story](#user-story)
 6. [HTA → implementação](#hta--implementação)
 7. [Diagrama de Classes](#diagrama-de-classes)
@@ -64,18 +65,19 @@ Trabalho da disciplina S05 / S205 Interface Homem-Máquina. Tema da turma: "O qu
 |---|---|
 | Tipo | Protótipo navegável, 100% mockado |
 | Backend e banco | Não há. Páginas estáticas, sessão fake no `localStorage` |
-| Base visual | App Acadêmico da Inatel: fundo preto, cabeçalho azul-marinho, menu cinza por seções |
+| Base visual | App Acadêmico da Inatel: cabeçalho azul-marinho e identidade da marca, em tema claro e escuro |
 | Artefatos de origem | User Story, HTA e Diagrama de Classes |
 | Plataformas | Celular (PWA) e desktop |
 
 Entregas:
 
+- **Início:** aulas de hoje, próxima aula, avisos recentes e resumo de gamificação.
 - **Conquistas:** 12 medalhas (6 conquistadas, 6 bloqueadas) em quatro raridades, com regra e progresso.
 - **Ranking proporcional:** pontos divididos por créditos e ponderados pela presença em laboratórios.
 - **Filtros:** geral, curso, período e três laboratórios, com a posição do aluno destacada.
-- **Social:** pódio, Disputa (quem está acima e abaixo), medalhas de colaboração, privacidade do nome.
-- **Telas acadêmicas:** Notas, Frequência, Coeficientes, Provas, Horários de Aula e Monitores.
-- **PWA** instalável com offline básico.
+- **Social:** pódio, Disputa (quem está acima e abaixo), evolução semanal, medalhas de colaboração, privacidade do nome.
+- **Telas acadêmicas:** Notas, Frequência, Coeficientes, Horários, Provas e Monitores.
+- **Temas claro e escuro** e **PWA** instalável com offline básico.
 
 ---
 
@@ -102,65 +104,93 @@ Entregas:
 
 ## Telas
 
-### Desktop (1440 px)
+### Desktop, tema claro
 
 <table align="center">
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d01-perfis-salvos.png" width="420" alt="Perfis Salvos no desktop"><br><sub><b>Perfis Salvos</b><br>entrada</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d02-avisos.png" width="420" alt="Avisos no desktop"><br><sub><b>Avisos</b><br>caixa de entrada com leitor</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-01-perfis.png" width="420" alt="Perfis Salvos no desktop claro"><br><sub><b>Perfis Salvos</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-02-login.png" width="420" alt="Login no desktop claro"><br><sub><b>Login</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d03-conquistas.png" width="420" alt="Conquistas no desktop"><br><sub><b>Conquistas</b><br>grade e painel da medalha</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d04-ranking.png" width="420" alt="Ranking no desktop"><br><sub><b>Ranking</b><br>pódio, tabela, Sua posição, Cálculo</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-03-inicio.png" width="420" alt="Início no desktop claro"><br><sub><b>Início</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-05-avisos.png" width="420" alt="Avisos no desktop claro"><br><sub><b>Avisos</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d05-ranking-lab.png" width="420" alt="Ranking filtrado por laboratório"><br><sub><b>Ranking por laboratório</b><br>chip de laboratório ativo</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d06-notas.png" width="420" alt="Notas no desktop"><br><sub><b>Notas</b><br>tabela</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-06-conquistas.png" width="420" alt="Conquistas no desktop claro"><br><sub><b>Conquistas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-08-ranking.png" width="420" alt="Ranking no desktop claro"><br><sub><b>Ranking</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d07-frequencia.png" width="420" alt="Frequência no desktop"><br><sub><b>Frequência</b><br>tabela</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d08-coeficientes.png" width="420" alt="Coeficientes no desktop"><br><sub><b>Coeficientes</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-09-ranking-lab.png" width="420" alt="Ranking filtrado por laboratório no desktop claro"><br><sub><b>Ranking por laboratório</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-10-notas.png" width="420" alt="Notas no desktop claro"><br><sub><b>Notas</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d09-provas.png" width="420" alt="Provas no desktop"><br><sub><b>Provas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d10-horarios.png" width="420" alt="Horários de Aula no desktop"><br><sub><b>Horários de Aula</b><br>grade e painel da aula</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-11-frequencia.png" width="420" alt="Frequência no desktop claro"><br><sub><b>Frequência</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-12-coeficientes.png" width="420" alt="Coeficientes no desktop claro"><br><sub><b>Coeficientes</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d11-monitores.png" width="420" alt="Monitores no desktop"><br><sub><b>Monitores</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/d12-configuracoes.png" width="420" alt="Configurações no desktop"><br><sub><b>Configurações</b><br>privacidade e sobre</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-13-horarios.png" width="420" alt="Horários no desktop claro"><br><sub><b>Horários</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-14-provas.png" width="420" alt="Provas no desktop claro"><br><sub><b>Provas</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-15-monitores.png" width="420" alt="Monitores no desktop claro"><br><sub><b>Monitores</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-claro-16-configuracoes.png" width="420" alt="Configurações no desktop claro"><br><sub><b>Configurações</b></sub></td>
   </tr>
 </table>
 
-### Mobile (390 px)
+### Desktop, tema escuro
 
 <table align="center">
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m01-perfis-salvos.png" width="200" alt="Perfis Salvos"><br><sub><b>Perfis Salvos</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m02-login.png" width="200" alt="Login"><br><sub><b>Login</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m03-avisos.png" width="200" alt="Avisos"><br><sub><b>Avisos</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m04-menu.png" width="200" alt="Menu lateral"><br><sub><b>Menu lateral</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-escuro-03-inicio.png" width="420" alt="Início no desktop escuro"><br><sub><b>Início</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-escuro-06-conquistas.png" width="420" alt="Conquistas no desktop escuro"><br><sub><b>Conquistas</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m05-conquistas.png" width="200" alt="Conquistas"><br><sub><b>Conquistas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m06-medalha-bloqueada.png" width="200" alt="Medalha bloqueada"><br><sub><b>Medalha bloqueada</b><br>bottom sheet</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m07-medalha-conquistada.png" width="200" alt="Medalha conquistada"><br><sub><b>Medalha conquistada</b><br>bottom sheet</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m08-ranking.png" width="200" alt="Ranking"><br><sub><b>Ranking</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-escuro-08-ranking.png" width="420" alt="Ranking no desktop escuro"><br><sub><b>Ranking</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/d-escuro-09-ranking-lab.png" width="420" alt="Ranking por laboratório no desktop escuro"><br><sub><b>Ranking por laboratório</b></sub></td>
+  </tr>
+</table>
+
+### Mobile, tema escuro
+
+<table align="center">
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-01-perfis.png" width="190" alt="Perfis Salvos no celular, tema escuro"><br><sub><b>Perfis Salvos</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-02-login.png" width="190" alt="Login no celular, tema escuro"><br><sub><b>Login</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-03-inicio.png" width="190" alt="Início no celular, tema escuro"><br><sub><b>Início</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-04-menu.png" width="190" alt="Menu lateral no celular, tema escuro"><br><sub><b>Menu lateral</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m09-ranking-lista.png" width="200" alt="Lista do ranking"><br><sub><b>Classificação</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m10-ranking-lab.png" width="200" alt="Ranking por laboratório"><br><sub><b>Por laboratório</b><br>E08 · L1</sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m11-notas.png" width="200" alt="Notas"><br><sub><b>Notas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m12-frequencia.png" width="200" alt="Frequência"><br><sub><b>Frequência</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-05-avisos.png" width="190" alt="Avisos no celular, tema escuro"><br><sub><b>Avisos</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-06-conquistas.png" width="190" alt="Conquistas no celular, tema escuro"><br><sub><b>Conquistas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-07-medalha.png" width="190" alt="Medalha no celular, tema escuro"><br><sub><b>Medalha</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-08-ranking.png" width="190" alt="Ranking no celular, tema escuro"><br><sub><b>Ranking</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m13-coeficientes.png" width="200" alt="Coeficientes"><br><sub><b>Coeficientes</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m14-provas.png" width="200" alt="Provas"><br><sub><b>Provas</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m15-horarios.png" width="200" alt="Horários de Aula"><br><sub><b>Horários</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m16-horario-detalhe.png" width="200" alt="Detalhe da aula"><br><sub><b>Detalhe da aula</b><br>bottom sheet</sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-09-ranking-lab.png" width="190" alt="Ranking por laboratório no celular, tema escuro"><br><sub><b>Ranking por laboratório</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-10-notas.png" width="190" alt="Notas no celular, tema escuro"><br><sub><b>Notas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-11-frequencia.png" width="190" alt="Frequência no celular, tema escuro"><br><sub><b>Frequência</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-12-coeficientes.png" width="190" alt="Coeficientes no celular, tema escuro"><br><sub><b>Coeficientes</b></sub></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m17-monitores.png" width="200" alt="Monitores"><br><sub><b>Monitores</b></sub></td>
-    <td align="center" valign="top"><img src="docs/screenshots/v2/m18-configuracoes.png" width="200" alt="Configurações"><br><sub><b>Configurações</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-13-horarios.png" width="190" alt="Horários no celular, tema escuro"><br><sub><b>Horários</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-14-provas.png" width="190" alt="Provas no celular, tema escuro"><br><sub><b>Provas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-15-monitores.png" width="190" alt="Monitores no celular, tema escuro"><br><sub><b>Monitores</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-escuro-16-configuracoes.png" width="190" alt="Configurações no celular, tema escuro"><br><sub><b>Configurações</b></sub></td>
+  </tr>
+</table>
+
+### Mobile, tema claro
+
+<table align="center">
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-claro-03-inicio.png" width="190" alt="Início no celular, tema claro"><br><sub><b>Início</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-claro-06-conquistas.png" width="190" alt="Conquistas no celular, tema claro"><br><sub><b>Conquistas</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-claro-07-medalha.png" width="190" alt="Medalha no celular, tema claro"><br><sub><b>Medalha</b></sub></td>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-claro-08-ranking.png" width="190" alt="Ranking no celular, tema claro"><br><sub><b>Ranking</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="docs/screenshots/v3/m-claro-09-ranking-lab.png" width="190" alt="Ranking por laboratório no celular, tema claro"><br><sub><b>Ranking por laboratório</b></sub></td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -168,26 +198,33 @@ Entregas:
 
 ---
 
-## O que mudou na v2
+## O que mudou na v3
 
-| Área | v1 | v2 |
+| Área | v2 | v3 |
 |---|---|---|
-| Desktop | Moldura de celular | Layout real: sidebar fixa (264 px, ou 232 px entre 1024 e 1279 px), barra superior azul-marinho, conteúdo em colunas com painel de detalhe |
-| Sidebar | Não existia | Mesmas seções do menu do app, cabeçalho do aluno em degradê azul |
-| Mobile | Menu lateral | Menu lateral do app real, barra inferior (Avisos, Conquistas, Ranking, Horários) e detalhes em bottom sheet |
-| Avisos | Lista | Caixa de entrada com leitor ao lado e resumo do aluno |
-| Conquistas | Grade de cards | Grade de emblemas SVG e painel da medalha com regra, progresso e atividade recente |
-| Ranking | Menu suspenso | Filtro em chips, pódio sóbrio, painéis Sua posição, Disputa e Cálculo |
-| Notas e Frequência | Cards | Tabelas |
-| Horários | Grade com sheet | Grade com painel da aula no desktop e bottom sheet no mobile |
-| Visual | Cores variadas | Design system enxuto (ver [Design system](#design-system)) |
-| Texto | Emojis nos títulos | Nenhum emoji, nenhum travessão |
+| Tema | Só escuro, fundo preto | Claro e escuro compostos, não invertidos. Segue o sistema por padrão |
+| Troca de tema | Não havia | Botão no cabeçalho e seletor Sistema, Claro, Escuro em Configurações. Sem piscar ao carregar |
+| Cabeçalho | Barra azul-marinho com título | Degradê azul-marinho com título, data, troca de tema e sino de avisos com indicador |
+| Menu | 9 itens em 4 seções | 6 itens: Início, Avisos, Conquistas e Ranking, Desempenho, Agenda, Configurações |
+| Sidebar | Seções do app real | Cartão do aluno com anel de nível |
+| Mobile | Barra inferior com 4 atalhos | Barra inferior com 5 destinos. Avisos fica no sino |
+| Início | Não existia | Tela nova: saudação com alertas, aulas de hoje, próxima aula, gamificação, avisos recentes |
+| Conquistas | Grade de emblemas | Cartão de nível, Próxima conquista, vitrine com medalhas de fita e metal |
+| Ranking | Pódio, tabela, painéis | Sua posição como destaque com evolução semanal, Disputa em escada, moedas de metal, Cálculo como fração |
+| Notas, Frequência, Coeficientes | Três itens de menu | Seção Desempenho, com abas |
+| Horários, Provas, Monitores | Três itens de menu | Seção Agenda, com abas |
+| Movimento | Entradas simples | Um momento por tela, 150 a 300 ms nos estados, `prefers-reduced-motion` respeitado |
+| Prints do README | v2 | v3, em claro e escuro |
 
 Detalhes:
 
-- **Medalhas:** emblema SVG próprio. Anel no metal da raridade. Bloqueadas em cinza, com cadeado e barra de progresso.
-- **Ranking:** chips Geral, Meu curso, 4º período, S05 · L1, E08 · L1 e F03 · L4. Equação do cálculo com rótulos. Comparação "Sem normalização 11º → 4º".
-- **Processo:** skill de design Impeccable, com `PRODUCT.md`, contrato de direção, detector sem achados e revisão final independente. Veja [Como foi feito](#como-foi-feito).
+- **Paleta:** neutros com leve tom azul, no mesmo matiz do azul-marinho da marca. O azul-marinho é a única região grande de cor. Um azul de ação. Ouro só para conquista, com `gold-ink` legível nos dois temas. Metais só para raridade e top 3.
+- **Início:** aplica o wireframe da aula (S13, páginas 42 e 43). A linha do tempo mostra local, horário, faltas, média e faixa de prova de cada aula.
+- **Conquistas:** brasão dourado com barra de XP e marcos. Medalhas bloqueadas com anel de progresso.
+- **Ranking:** evolução de S7 a S12 (9º a 4º). Filtro em chips, com ícone de laboratório nos laboratórios.
+- **Movimento:** números contados, anéis e barras desenhando, entrada curta na Início.
+- **Documentação:** [DESIGN.md](DESIGN.md) descreve o design system v3.
+- **Processo:** skill de design Impeccable. Veja [Como foi feito](#como-foi-feito).
 
 ---
 
@@ -200,7 +237,6 @@ Detalhes:
 > **PARA QUE** eu mantenha a motivação ao longo do semestre, compreenda claramente os critérios para desbloqueio de novas badges e compita de forma justa com outros estudantes.
 
 ---
-
 ## HTA → implementação
 
 A Análise Hierárquica de Tarefas (Annett & Duncan, 1967) descreve o "como será" do uso do módulo.
@@ -220,21 +256,21 @@ A Análise Hierárquica de Tarefas (Annett & Duncan, 1967) descreve o "como ser�
 
 | Nó da HTA | Onde está no app | Rota | Componente / arquivo |
 |---|---|---|---|
-| **0.** Acompanhar Desempenho Gamificado | Resumo de nível e duas abas no topo do módulo | `/gamificacao` | `gamificacao/nivel-resumo.tsx`, `abas.tsx` |
+| **0.** Acompanhar Desempenho Gamificado | Tela Início com cartão de gamificação. Cartão de nível no topo do módulo, com duas abas | `/inicio` e `/gamificacao` | `inicio/tela-inicio.tsx`, `inicio/cartao-gamificacao.tsx`, `gamificacao/nivel-resumo.tsx`, `gamificacao/emblema-nivel.tsx`, `shell/section-tabs.tsx` |
 | **1.1** Login no App | Perfis Salvos e Login com validação | `/` e `/login` | `app/page.tsx`, `app/login/page.tsx`, `session-provider.tsx` |
-| **1.2** Abrir Menu | Sidebar fixa no desktop. No mobile, menu lateral e barra inferior com Conquistas e Ranking. Seção Suporte Estudantil com selo de novidade | `/avisos` | `shell/sidebar.tsx`, `shell/app-drawer.tsx`, `shell/bottom-tabs.tsx`, `shell/nav-list.tsx`, `lib/nav.ts` |
-| **2.** Explorar Conquistas | Grade com filtro Todas, Conquistadas, Bloqueadas | `/gamificacao/conquistas` | `gamificacao/medal-emblem.tsx` |
-| **2.A** Ver Medalhas | Emblemas por raridade. Bloqueadas em cinza com cadeado | `/gamificacao/conquistas` | `medal-emblem.tsx` |
-| **2.B** Requisitos *(iteração)* | Painel lateral no desktop e bottom sheet no mobile, com regra, progresso e pendência. O botão de ajuda explica o sistema | `/gamificacao/conquistas` | `medal-detail.tsx`, `ajuda-medalhas.tsx`, `ui/bottom-sheet.tsx` |
-| **3.** Consultar Ranking | Pódio, tabela, painel Sua posição e Disputa | `/gamificacao/ranking` | `podio.tsx`, `lista-ranking.tsx`, `posicao-painel.tsx`, `lib/ranking.ts` |
-| **3.1** Ver Pontos | Pontuação ponderada por aluno e Cálculo com a conta do próprio usuário | `/gamificacao/ranking` | `lista-ranking.tsx`, `posicao-painel.tsx` |
-| **3.2** Filtrar Labs *(opcional)* | Chips de visão e de laboratório. A lista recarrega e destaca o aluno | `/gamificacao/ranking` | `lib/ranking.ts` (`opcoesFiltro`, `carregarRanking`) |
+| **1.2** Abrir Menu | Sidebar fixa no desktop. No mobile, menu lateral e barra inferior com 5 destinos. Sino de avisos no cabeçalho | `/inicio` | `shell/sidebar.tsx`, `shell/app-drawer.tsx`, `shell/bottom-tabs.tsx`, `shell/nav-list.tsx`, `lib/nav.ts` |
+| **2.** Explorar Conquistas | Cartão de nível, Próxima conquista e vitrine com filtro | `/gamificacao/conquistas` | `gamificacao/proxima-conquista.tsx`, `gamificacao/vitrine.tsx` |
+| **2.A** Ver Medalhas | Medalhas de fita e metal por raridade. Bloqueadas com anel de progresso e cadeado | `/gamificacao/conquistas` | `gamificacao/vitrine.tsx`, `gamificacao/medal-emblem.tsx`, `gamificacao/metal.tsx` |
+| **2.B** Requisitos *(iteração)* | Painel lateral no desktop e bottom sheet no mobile, com regra, progresso e atividade recente. O botão de ajuda explica o sistema | `/gamificacao/conquistas` | `gamificacao/medal-detail.tsx`, `gamificacao/atividade-recente.tsx`, `gamificacao/ajuda-medalhas.tsx`, `ui/bottom-sheet.tsx` |
+| **3.** Consultar Ranking | Sua posição, top 3, tabela e Disputa | `/gamificacao/ranking` | `gamificacao/posicao-heroi.tsx`, `gamificacao/podio.tsx`, `gamificacao/lista-ranking.tsx`, `lib/ranking.ts` |
+| **3.1** Ver Pontos | Evolução semanal e Cálculo com a conta do próprio usuário | `/gamificacao/ranking` | `gamificacao/grafico-evolucao.tsx`, `gamificacao/calculo.tsx` |
+| **3.2** Filtrar Labs *(opcional)* | Chips de visão e de laboratório. A lista recarrega e destaca o aluno | `/gamificacao/ranking` | `lib/ranking.ts` (`opcoesFiltro`, `carregarRanking`), `gamificacao/lista-ranking.tsx` |
 
 Recomendações da HTA implementadas:
 
 - Cálculo normalizado do ranking (créditos e presença).
-- Atalho para o módulo na home, na barra inferior e na sidebar.
-- Medalhas bloqueadas em cinza, com progresso percentual e regra pendente.
+- Atalho para o módulo na Início, na barra inferior e na sidebar.
+- Medalhas bloqueadas com anel de progresso e regra pendente.
 - Filtro por curso, período e laboratório, com recarregamento instantâneo.
 - Peso maior para assiduidade em laboratórios.
 
@@ -382,20 +418,21 @@ Dimensão social: Disputa (distância para quem está acima e abaixo), pódio, m
 
 ## Navegação
 
-O menu mantém as seções do app real, sem os itens de baixo uso (heurística 8).
+O menu reúne o que o aluno usa e agrupa telas relacionadas em abas (heurística 8). Eram 9 itens em 4 seções na v2.
 
-| Seção | Itens |
+| Item | Conteúdo |
 |---|---|
-| Mensagens Acadêmicas | Avisos |
-| **Suporte Estudantil** | **Conquistas**, **Ranking** (novos) |
-| Aproveitamento Escolar | Notas, Frequência, Coeficientes |
-| Calendários e Horários | Provas, Horários de Aula, Horários de Monitores |
-| Outras Opções | Configurações, Sair |
+| Início | Aulas de hoje, próxima aula, gamificação, avisos recentes |
+| Avisos | Caixa de entrada com leitor |
+| **Conquistas e Ranking** | Abas **Conquistas** e **Ranking** |
+| Desempenho | Abas Notas, Frequência, Coeficientes |
+| Agenda | Abas Horários, Provas, Monitores |
+| Configurações | Privacidade, tema, sobre. Sair no menu |
 
 | Plataforma | Estrutura |
 |---|---|
-| Desktop (a partir de 1024 px) | Sidebar fixa com todas as seções |
-| Mobile | Menu lateral com todas as seções e barra inferior com Avisos, Conquistas, Ranking e Horários |
+| Desktop (a partir de 1024 px) | Sidebar fixa com os 6 itens, cartão do aluno com anel de nível, cabeçalho com data, troca de tema e sino |
+| Mobile | Menu lateral com os 6 itens. Barra inferior com Início, Desempenho, Conquistas, Ranking e Agenda. Avisos no sino |
 
 <details>
 <summary><b>Itens removidos do menu original (14)</b></summary>
@@ -425,30 +462,36 @@ Lista em `itensRemovidos`, `src/lib/nav.ts`.
 
 ## Design system
 
-Especificação completa (tokens, tipografia, layout, componentes e regras) em [DESIGN.md](DESIGN.md), gerada com a skill Impeccable a partir do app construído.
+Especificação completa (tokens, tipografia, layout, componentes e regras) em [DESIGN.md](DESIGN.md).
 
-Paleta enxuta, definida como tokens em `@theme` no `src/app/globals.css`.
+Os tokens ficam em `src/app/globals.css`. Os nomes são os mesmos nos dois temas. O atributo `data-theme` troca os valores. Um script inline aplica o tema antes da primeira pintura.
 
-| Token | Valor | Papel |
-|---|---|---|
-| `--color-bg` | `#000000` | Fundo do app, como no app real |
-| `--color-surface-1` a `-4` | `#0f0f11` a `#2c2c31` | Superfícies grafite: painéis, linhas, chips |
-| `--color-drawer` | `#2b2b2e` | Fundo do menu lateral e da sidebar |
-| `--color-line`, `--color-line-strong` | `#232327`, `#36363b` | Divisórias finas no lugar de cards |
-| `--color-fg`, `--color-muted`, `--color-subtle` | `#f4f4f6`, `#a3a3aa`, `#6f6f77` | Texto principal, secundário e terciário |
-| `--color-header` | `#1d3b5a` | Barra superior azul-marinho |
-| `--color-brand`, `--color-primary` | `#1f6fd1`, `#0b5cbf` | Único azul de ação: botão, seleção, foco |
-| `--color-gold` | `#e5b443` | Somente conquista: nível, pontos ganhos, selo |
-| `--color-bronze`, `-silver`, `-platinum` | `#c08a5a`, `#b9c0cb`, `#a9d6e5` | Metais dessaturados só para raridade e pódio |
-| `--color-danger`, `--color-success` | `#ff6b5e`, `#4cc38a` | Estados de erro e de aprovação |
+| Token | Claro | Escuro | Papel |
+|---|---|---|---|
+| `--color-bg` | `#f2f4f8` | `#080b10` | Fundo do app |
+| `--color-surface-1` a `-4` | `#ffffff` a `#dde3eb` | `#0f141b` a `#28313e` | Superfícies: painéis, linhas, chips |
+| `--color-sidebar` | `#ffffff` | `#0b1017` | Fundo da sidebar e do menu lateral |
+| `--color-line`, `--color-line-strong` | `#e2e7ee`, `#cdd5e0` | `#1e2631`, `#2e3947` | Divisórias finas no lugar de cards |
+| `--color-fg` | `#0e1724` | `#eef2f7` | Texto principal |
+| `--color-muted`, `--color-subtle` | `#536074`, `#7f8ba0` | `#9ba7b6`, `#6c7889` | Texto secundário e terciário |
+| `--color-header`, `--color-header-2` | `#12345a`, `#1b4a7d` | `#0f2a47`, `#173d66` | Cabeçalho em degradê azul-marinho |
+| `--color-primary` | `#1a63c4` | `#1f6fd1` | Azul de ação: botão, seleção |
+| `--color-accent` | `#1a63c4` | `#5b9cf0` | Foco, links, gráficos |
+| `--color-gold` | `#dca42b` | `#e8b64a` | Somente conquista: nível, pontos, selo |
+| `--color-gold-ink` | `#8f6407` | `#f0c25e` | Texto de conquista, legível no tema |
+| `--color-bronze` | `#a8693c` | `#c99168` | Raridade e 3º lugar |
+| `--color-silver` | `#7f8a99` | `#c3cad6` | Raridade e 2º lugar |
+| `--color-platinum` | `#3f93ab` | `#a9dbe8` | Raridade platina |
+| `--color-danger` | `#d13b30` | `#ff6b61` | Erro |
+| `--color-success` | `#1d8a59` | `#45c58a` | Aprovação e subida no ranking |
 
 Regras de craft:
 
 - Ícones lucide, traço 1.75.
 - Números tabulares em pontos, notas e horas.
 - Listas e tabelas no lugar de cards aninhados.
-- Pódio com degraus neutros, sem degradê.
 - Alvos de toque de 44 px, foco visível, `prefers-reduced-motion` respeitado.
+- Estados com 150 a 300 ms. Um momento autoral de movimento por tela.
 - Nenhum emoji, nenhum travessão.
 
 ---
@@ -457,14 +500,14 @@ Regras de craft:
 
 | # | Heurística | Exemplo no app |
 |:---:|---|---|
-| 1 | Visibilidade do status do sistema | Resumo de nível com barra de progresso, painel Sua posição (4º de 20), progresso nas medalhas bloqueadas |
-| 2 | Correspondência com o mundo real | Créditos, presença, laboratório, NP1 e NP2. Grade de horários como a do app |
-| 3 | Controle e liberdade do usuário | Bottom sheets fecham com X, ESC ou arrastando. Chips de filtro reversíveis |
-| 4 | Consistência e padrões | Mesmas seções e identidade do app oficial (Lei de Jakob) |
+| 1 | Visibilidade do status do sistema | Data no cabeçalho, próxima aula com "Em 19 min", Sua posição (4º de 20) com variação "Subiu 2 desde S11", barra de XP e anel de progresso nas medalhas bloqueadas |
+| 2 | Correspondência com o mundo real | Créditos, presença, laboratório, NP1 e NP2. Linha do tempo das aulas como a grade do app |
+| 3 | Controle e liberdade do usuário | Bottom sheets fecham com X, ESC ou arrastando. Chips de filtro reversíveis. Tema Sistema, Claro ou Escuro |
+| 4 | Consistência e padrões | Cabeçalho azul-marinho e identidade do app oficial (Lei de Jakob). Mesmos tokens nos dois temas |
 | 5 | Prevenção de erros | Validação dos campos no login e confirmação ao sair |
-| 6 | Reconhecimento em vez de memorização | Regra visível no painel da medalha. Cálculo exibido com os números do aluno |
-| 7 | Flexibilidade e eficiência | Barra inferior com 4 atalhos, sidebar fixa no desktop, atalhos do PWA |
-| 8 | Design estético e minimalista | Menu sem 14 itens de baixo uso, paleta enxuta, dados no lugar de frases |
+| 6 | Reconhecimento em vez de memorização | Regra visível no painel da medalha. Cálculo exibido como fração com os números do aluno |
+| 7 | Flexibilidade e eficiência | Barra inferior com 5 destinos, sino de avisos e troca de tema no cabeçalho, sidebar fixa no desktop, atalhos do PWA |
+| 8 | Design estético e minimalista | Menu de 6 itens no lugar de 9, sem os 14 itens de baixo uso, paleta enxuta, dados no lugar de frases |
 | 9 | Recuperação de erros | Mensagens construtivas no login |
 | 10 | Ajuda e documentação | Botão de ajuda nas medalhas e painel Cálculo no ranking |
 
@@ -497,7 +540,7 @@ Regras de craft:
 | Framework | Next.js 16.4 (App Router, Turbopack, páginas estáticas) |
 | UI | React 19.3 |
 | Linguagem | TypeScript 5 |
-| Estilo | Tailwind CSS 4.3, tokens em `@theme` |
+| Estilo | Tailwind CSS 4.3, tokens por tema via `data-theme` |
 | Animações | motion 14 |
 | Ícones | lucide-react, clsx |
 | Hospedagem | Vercel, deploy a cada push na `main` |
@@ -505,45 +548,49 @@ Regras de craft:
 ```text
 .
 ├── PRODUCT.md                          # produto, usuários, princípios
+├── DESIGN.md                           # design system v3
 ├── .impeccable/                        # surfaces/ (contrato de direção) e review/
 ├── src
 │   ├── app
 │   │   ├── page.tsx                    # / · Perfis Salvos
 │   │   ├── login/
 │   │   ├── (app)
+│   │   │   ├── inicio/
 │   │   │   ├── avisos/
 │   │   │   ├── gamificacao/
 │   │   │   │   ├── conquistas/
 │   │   │   │   └── ranking/
-│   │   │   ├── notas/
-│   │   │   ├── frequencia/
-│   │   │   ├── coeficientes/
-│   │   │   ├── provas/
-│   │   │   ├── horarios/
-│   │   │   ├── monitores/
+│   │   │   ├── (desempenho)/           # notas, frequencia, coeficientes
+│   │   │   ├── (agenda)/               # horarios, provas, monitores
 │   │   │   └── configuracoes/
-│   │   ├── globals.css                 # tokens do design system
+│   │   ├── globals.css                 # tokens dos temas claro e escuro
 │   │   └── manifest.ts
 │   ├── components
 │   │   ├── shell/                      # app-shell, sidebar, nav-list, user-block,
-│   │   │                               # bottom-tabs, app-drawer
+│   │   │                               # bottom-tabs, app-drawer, section-tabs
 │   │   ├── ui/                         # bottom-sheet, portal, primitives
-│   │   ├── gamificacao/                # medal-emblem, medal-detail, podio,
-│   │   │                               # lista-ranking, posicao-painel, nivel-resumo
+│   │   ├── inicio/                     # tela-inicio, saudacao, aulas-hoje,
+│   │   │                               # cartao-gamificacao, avisos-recentes
+│   │   ├── gamificacao/                # emblema-nivel, vitrine, proxima-conquista,
+│   │   │                               # medal-emblem, medal-detail, metal,
+│   │   │                               # posicao-heroi, grafico-evolucao, podio,
+│   │   │                               # lista-ranking, calculo, nivel-resumo
 │   │   ├── avisos/
 │   │   ├── entrada/
 │   │   ├── academico/
-│   │   └── configuracoes/
+│   │   ├── configuracoes/
+│   │   └── theme-provider.tsx          # tema Sistema, Claro, Escuro
 │   └── lib
 │       ├── types.ts                    # modelo de dados (Diagrama de Classes)
 │       ├── ranking.ts                  # fórmula e carregarRanking(filtro)
-│       ├── nav.ts                      # menu, barra inferior, itens removidos
+│       ├── nav.ts                      # menu, abas, barra inferior, itens removidos
 │       ├── use-media.ts                # breakpoint desktop (1024 px)
+│       ├── use-count-up.ts             # números contados
 │       ├── format.ts
 │       └── mock/                       # aluno.ts, gamificacao.ts
 ├── public                              # sw.js, offline.html, icons/
 ├── scripts/gerar-icones.mjs
-└── docs/screenshots/                   # qrcode.png e v2/ (d01 a d12, m01 a m18)
+└── docs/screenshots/                   # qrcode.png e v3/ (desktop e mobile, claro e escuro)
 ```
 
 Dados mockados: disciplinas com os códigos da grade real (S05 Interface Homem-Máquina, S01 Banco de Dados, E08 Eletrônica Digital, F03 Física III, M05 Probabilidade e Estatística, G04 Empreendedorismo e Inovação). Nomes, professores, notas e alunos do ranking são fictícios.
@@ -572,17 +619,17 @@ npm run dev
 
 ## Como foi feito
 
-Feito com Claude Code, em modelo diretor e subagentes. A v2 seguiu a skill de design **Impeccable**: `PRODUCT.md`, contrato de direção em `.impeccable/surfaces/src-app.md`, regras de craft, detector sem achados e revisão final independente.
+Feito com Claude Code, em modelo diretor e subagentes. A skill de design **Impeccable** guiou o processo da v3.
 
-**Claude Opus 5.5** foi diretor de design e revisor: base, shell responsivo, design system e validação por prints em 390 e 1440 px.
+**Claude Opus 5.5** foi diretor de design e revisor: paleta, temas, cabeçalho, menu e base.
 
 | Modelo | Entrega |
 |---|---|
-| Claude Sonnet 5.5 | Conquistas e Ranking (v2) |
-| Claude Sonnet 5.5 | Perfis Salvos, Login, Avisos e Configurações (v2) |
-| Claude Haiku 5.5 | Telas acadêmicas (v2) |
-| Claude Sonnet 5.5 | Revisão final e este README |
-| Claude Haiku 5.5 | PWA: manifest, service worker, ícones (v1) |
+| Claude Opus 5.5 (diretor) | Paleta, temas claro e escuro, cabeçalho, menu, base |
+| Claude Opus 5.5 (subagentes) | Visual de Conquistas e Ranking |
+| Claude Opus 5.5 (subagentes) | Visual de Início, Avisos e entrada |
+| Claude Sonnet 5.5 | Telas acadêmicas e Configurações |
+| Claude Sonnet 5.5 | Revisão final independente, `DESIGN.md` e este README |
 
 ---
 
@@ -602,3 +649,4 @@ Protótipo acadêmico não oficial, sem vínculo com o Inatel. Marca e nome pert
 | Curso | Engenharia de Software, Inatel |
 | Disciplina | S05 Interface Homem-Máquina |
 | GitHub | [@XkrulesVitor](https://github.com/XkrulesVitor) |
+

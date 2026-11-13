@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
+import { FaixaPontuacao } from "@/components/gamificacao/faixa-pontuacao";
 import { GraficoEvolucao } from "@/components/gamificacao/grafico-evolucao";
 import { Avatar } from "@/components/ui/primitives";
 import { fmt1, iniciais } from "@/lib/format";
@@ -102,61 +103,6 @@ function Disputa({ ranking, eu }: { ranking: EntradaRanking[]; eu: EntradaRankin
         </>
       )}
     </ol>
-  );
-}
-
-/** Todas as pontuações do filtro numa régua: o Top 3 em dourado, você em azul. */
-function FaixaPontuacao({ ranking }: { ranking: EntradaRanking[] }) {
-  if (ranking.length < 2) return null;
-  const max = ranking[0].pontuacao;
-  const min = ranking[ranking.length - 1].pontuacao;
-  const x = (v: number) => (max === min ? 50 : ((v - min) / (max - min)) * 100);
-  const eu = ranking.find((e) => e.souEu);
-  const corte = ranking[Math.min(2, ranking.length - 1)].pontuacao;
-  return (
-    <div className="pt-2">
-      <div className="relative mx-2 h-[76px]">
-        <div
-          aria-hidden
-          className="absolute inset-y-[22px] rounded-control bg-gold/12 ring-1 ring-inset ring-gold/25"
-          style={{ left: `${x(corte)}%`, right: 0 }}
-        />
-        <span
-          className="absolute top-0 -translate-x-full whitespace-nowrap pr-1 text-[11px] font-medium text-gold-ink"
-          style={{ left: "100%" }}
-        >
-          Top 3
-        </span>
-        <div aria-hidden className="absolute inset-x-0 top-1/2 h-px bg-line-strong" />
-        {[...ranking].reverse().map((e) => (
-          <span
-            key={e.aluno.matricula}
-            aria-hidden
-            className={clsx(
-              "absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full",
-              e.souEu
-                ? "z-[2] size-3.5 bg-accent ring-4 ring-accent/20"
-                : e.posicao <= 3
-                  ? "z-[1] size-2.5 bg-gold ring-2 ring-surface-1"
-                  : "size-2 bg-subtle ring-2 ring-surface-1",
-            )}
-            style={{ left: `${x(e.pontuacao)}%` }}
-          />
-        ))}
-        {eu && (
-          <span
-            className="absolute bottom-0 -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-fg"
-            style={{ left: `${Math.min(88, Math.max(12, x(eu.pontuacao)))}%` }}
-          >
-            Você
-          </span>
-        )}
-      </div>
-      <div className="num mt-1 flex justify-between text-[11px] text-subtle">
-        <span>{fmt1(min)}</span>
-        <span>{fmt1(max)}</span>
-      </div>
-    </div>
   );
 }
 

@@ -141,7 +141,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 {tema === "dark" ? <Sun className="size-[21px]" strokeWidth={1.75} /> : <Moon className="size-[21px]" strokeWidth={1.75} />}
               </BotaoCabecalho>
 
-              {pathname !== "/avisos" && (
+              {(
                 <Link
                   href="/avisos"
                   aria-label={naoLidos ? `Avisos, ${naoLidos} não lidos` : "Avisos"}
@@ -149,7 +149,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 >
                   <Bell className="size-[21px]" strokeWidth={1.75} />
                   {naoLidos > 0 && (
-                    <span className="absolute right-1.5 top-1.5 size-2.5 rounded-full bg-gold ring-2 ring-header" aria-hidden />
+                    <span className="absolute right-1.5 top-1.5 size-2.5 rounded-full bg-danger ring-2 ring-header" aria-hidden />
                   )}
                 </Link>
               )}

@@ -39,9 +39,14 @@ export function LabsPainel() {
   );
 }
 
-/** Uso do limite de faltas: vermelho a partir de 80%, neutro antes. */
-function tomUso(faltas: number, limite: number): "danger" | "muted" {
-  return limite > 0 && faltas / limite >= 0.8 ? "danger" : "muted";
+/** Uso do limite de faltas: vermelho a partir de 80%, azul antes. */
+function tomUso(faltas: number, limite: number): "danger" | "accent" {
+  return limite > 0 && faltas / limite >= 0.8 ? "danger" : "accent";
+}
+
+/** "restam N" (limite menos faltas). */
+function Restam({ faltas, limite }: { faltas: number; limite: number }) {
+  return <span className="ml-2 text-xs font-normal text-muted">restam {Math.max(0, limite - faltas)}</span>;
 }
 
 function Identidade({ codigo }: { codigo: string }) {
@@ -86,6 +91,7 @@ export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
                 <td className="num px-3 py-3.5">
                   <span className="text-fg">{item.faltas}</span>
                   <span className="text-muted">/{item.limiteFaltas}</span>
+                  <Restam faltas={item.faltas} limite={item.limiteFaltas} />
                 </td>
                 <td className="px-3 py-3.5">
                   <BarraAnimada
@@ -112,6 +118,7 @@ export function FrequenciaLista({ itens }: { itens: FrequenciaDisciplina[] }) {
                 <p className="num shrink-0 text-base font-semibold text-fg">
                   {item.faltas}
                   <span className="font-normal text-muted">/{item.limiteFaltas}</span>
+                  <Restam faltas={item.faltas} limite={item.limiteFaltas} />
                 </p>
               </div>
               <BarraAnimada

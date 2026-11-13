@@ -116,7 +116,7 @@ export function HorariosGrade() {
     <>
       {exibida && <FaixaAula aula={exibida} />}
       <div
-          className="-mx-4 grid grid-cols-[52px_repeat(6,minmax(0,1fr))] gap-[2px] bg-line-strong lg:mx-0 lg:grid-cols-[96px_repeat(6,minmax(0,1fr))] lg:overflow-hidden lg:rounded-card lg:border lg:border-line-strong lg:shadow-card">
+          className="-mx-4 -mt-4 grid grid-cols-[52px_repeat(6,minmax(0,1fr))] gap-[2px] bg-line-strong lg:mx-0 lg:mt-0 lg:grid-cols-[96px_repeat(6,minmax(0,1fr))] lg:overflow-hidden lg:rounded-card lg:border lg:border-line-strong lg:shadow-card">
             <div className="flex h-10 items-center justify-center bg-header text-xs font-bold text-on-header lg:text-[13px]">HORA</div>
             {diasGrade.map((d) => {
               const eHoje = d.id === hoje;
@@ -132,9 +132,15 @@ export function HorariosGrade() {
               );
             })}
 
-            {horariosGrade.map((hora) => (
+            {horariosGrade.map((hora) => {
+              const vazia = !diasGrade.some((d) => aulaEm(d.id, hora));
+              return (
               <Fragment key={hora}>
-                <div className="flex h-12 items-center justify-center bg-navy-deep text-xs font-semibold text-on-header lg:h-16 lg:text-[13px]">
+                <div
+                  className={`flex items-center justify-center bg-navy-deep font-semibold text-on-header ${
+                    vazia ? "h-6 text-[11px] opacity-80 lg:h-8 lg:text-xs" : "h-12 text-xs lg:h-16 lg:text-[13px]"
+                  }`}
+                >
                   {hora}
                 </div>
                 {diasGrade.map((d) => {
@@ -142,7 +148,11 @@ export function HorariosGrade() {
                   const eHoje = d.id === hoje;
                   if (!aula) {
                     return (
-                      <div key={d.id} aria-hidden className={`h-12 lg:h-16 ${eHoje ? "bg-surface-3" : "bg-surface-2"}`} />
+                      <div
+                        key={d.id}
+                        aria-hidden
+                        className={vazia ? "h-6 bg-surface-1 lg:h-8" : `h-12 lg:h-16 ${eHoje ? "bg-surface-3" : "bg-surface-2"}`}
+                      />
                     );
                   }
                   const disciplina = getDisciplina(aula.disciplina);
@@ -171,7 +181,8 @@ export function HorariosGrade() {
                   );
                 })}
               </Fragment>
-            ))}
+              );
+            })}
       </div>
 
       <BottomSheet open={sheetAberto} onClose={() => setSheetAberto(false)} title="Detalhes da aula" hideTitle>

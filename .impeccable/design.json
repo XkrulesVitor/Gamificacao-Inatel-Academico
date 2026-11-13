@@ -1,367 +1,878 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-13T12:00:00Z",
+  "generatedAt": "2026-11-13T18:00:00Z",
   "title": "Design System: Acadêmico Inatel",
   "extensions": {
+    "themes": {
+      "mechanism": "[data-theme=\"dark\"|\"light\"] no <html>; escuro é o padrão em :root",
+      "preference": [
+        "sistema",
+        "claro",
+        "escuro"
+      ],
+      "storageKey": "inatel-academico:tema",
+      "noFlash": "Script inline no <head> (SCRIPT_TEMA) aplica data-theme antes da primeira pintura; sistema segue prefers-color-scheme.",
+      "note": "colorMeta traz canonical (escuro) e canonicalLight; tonalRamp é do escuro e tonalRampLight do claro quando o valor difere."
+    },
     "colorMeta": {
       "bg": {
         "role": "neutral",
-        "displayName": "Preto do app",
-        "canonical": "#000000",
+        "displayName": "Fundo da página",
+        "canonical": "#080b10",
+        "canonicalLight": "#f2f4f8",
         "tonalRamp": [
-          "#0b0b0b",
-          "#262626",
-          "#454545",
-          "#666666",
-          "#898989",
-          "#aeaeae",
-          "#d1d1d1",
-          "#eeeeee"
+          "#080b10",
+          "#22252b",
+          "#3e4249",
+          "#5d6168",
+          "#7e838a",
+          "#a1a5ad",
+          "#c5c9d1",
+          "#eaeff7"
+        ],
+        "tonalRampLight": [
+          "#0a0b0e",
+          "#242528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#eceef2"
         ]
       },
       "surface-1": {
         "role": "neutral",
-        "displayName": "Grafite 1 (painel)",
-        "canonical": "#0f0f11",
+        "displayName": "Superfície 1 (painel e lista)",
+        "canonical": "#0f141b",
+        "canonicalLight": "#ffffff",
         "tonalRamp": [
-          "#0b0b0d",
-          "#262628",
-          "#454547",
-          "#666668",
-          "#89898c",
-          "#adadb0",
-          "#d0d0d4",
-          "#eeeef1"
+          "#070b12",
+          "#20252d",
+          "#3d424b",
+          "#5b626b",
+          "#7c838c",
+          "#9fa6af",
+          "#c3cad4",
+          "#e8effa"
+        ],
+        "tonalRampLight": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
         ]
       },
       "surface-2": {
         "role": "neutral",
-        "displayName": "Grafite 2 (botão secundário e sheet)",
-        "canonical": "#17171a",
+        "displayName": "Superfície 2 (botão secundário, sheet, fórmula)",
+        "canonical": "#151b24",
+        "canonicalLight": "#f5f7fa",
         "tonalRamp": [
-          "#0b0b0e",
-          "#262629",
-          "#454548",
-          "#666669",
-          "#89898d",
-          "#adadb2",
-          "#d0d0d5",
-          "#eeeef2"
+          "#060b14",
+          "#1f252f",
+          "#3c424d",
+          "#5a626d",
+          "#7b838f",
+          "#9ea6b2",
+          "#c1cad6",
+          "#e7effc"
+        ],
+        "tonalRampLight": [
+          "#0a0b0d",
+          "#242527",
+          "#404244",
+          "#606164",
+          "#818285",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#edeff1"
         ]
       },
       "surface-3": {
         "role": "neutral",
-        "displayName": "Grafite 3 (trilho e avatar neutro)",
-        "canonical": "#222226",
+        "displayName": "Superfície 3 (trilho, avatar neutro, face bloqueada)",
+        "canonical": "#1d2530",
+        "canonicalLight": "#eaeef3",
         "tonalRamp": [
-          "#0b0b0e",
-          "#26262a",
-          "#444449",
-          "#65656a",
-          "#88888e",
-          "#adadb3",
-          "#d0d0d6",
-          "#eeeef3"
+          "#050b15",
+          "#1e2631",
+          "#3a434f",
+          "#59626f",
+          "#798391",
+          "#9ca6b4",
+          "#bfcad9",
+          "#e5f0ff"
+        ],
+        "tonalRampLight": [
+          "#090b0f",
+          "#222529",
+          "#3f4246",
+          "#5e6266",
+          "#7f8387",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#ebeff4"
         ]
       },
       "surface-4": {
         "role": "neutral",
-        "displayName": "Grafite 4 (rolagem e selo bloqueado)",
-        "canonical": "#2c2c31",
+        "displayName": "Superfície 4 (rolagem, anel bloqueado)",
+        "canonical": "#28313e",
+        "canonicalLight": "#dde3eb",
         "tonalRamp": [
-          "#0b0b0f",
-          "#26262b",
-          "#44444a",
-          "#65656b",
-          "#88888e",
-          "#adadb3",
-          "#d0d0d7",
-          "#eeeef4"
-        ]
-      },
-      "drawer": {
-        "role": "neutral",
-        "displayName": "Cinza do menu",
-        "canonical": "#2b2b2e",
-        "tonalRamp": [
-          "#0b0b0d",
-          "#262629",
-          "#454548",
-          "#666669",
-          "#89898c",
-          "#adadb1",
-          "#d0d0d4",
-          "#eeeef2"
+          "#050b16",
+          "#1d2632",
+          "#394350",
+          "#586271",
+          "#798393",
+          "#9ba6b6",
+          "#bfcadb",
+          "#e5effe"
+        ],
+        "tonalRampLight": [
+          "#080b10",
+          "#21252b",
+          "#3e4249",
+          "#5d6269",
+          "#7d838a",
+          "#a0a6ad",
+          "#c4cad1",
+          "#e9eff7"
         ]
       },
       "line": {
         "role": "neutral",
         "displayName": "Linha fina",
-        "canonical": "#232327",
+        "canonical": "#1e2631",
+        "canonicalLight": "#e2e7ee",
         "tonalRamp": [
-          "#0b0b0e",
-          "#26262a",
-          "#444449",
-          "#65656a",
-          "#88898e",
-          "#adadb2",
-          "#d0d0d6",
-          "#eeeef3"
+          "#050b15",
+          "#1e2631",
+          "#3a434f",
+          "#59626f",
+          "#798391",
+          "#9ca6b4",
+          "#bfcad9",
+          "#e5f0ff"
+        ],
+        "tonalRampLight": [
+          "#080b10",
+          "#22252a",
+          "#3e4248",
+          "#5d6268",
+          "#7e8389",
+          "#a1a5ac",
+          "#c5cad0",
+          "#eaeff6"
         ]
       },
       "line-strong": {
         "role": "neutral",
         "displayName": "Linha de contorno",
-        "canonical": "#36363b",
+        "canonical": "#2e3947",
+        "canonicalLight": "#cdd5e0",
         "tonalRamp": [
-          "#0b0b0f",
-          "#26262b",
-          "#44444a",
-          "#65656b",
-          "#88888e",
-          "#adadb3",
-          "#d0d0d7",
-          "#eeeef4"
+          "#040b17",
+          "#1b2633",
+          "#384351",
+          "#566272",
+          "#778494",
+          "#99a6b7",
+          "#bdcbdc",
+          "#e4f0fe"
+        ],
+        "tonalRampLight": [
+          "#070b13",
+          "#20262e",
+          "#3c434b",
+          "#5b626b",
+          "#7c838d",
+          "#9ea6b0",
+          "#c2cad5",
+          "#e7effa"
         ]
       },
       "fg": {
         "role": "neutral",
         "displayName": "Texto principal",
-        "canonical": "#f4f4f6",
+        "canonical": "#eef2f7",
+        "canonicalLight": "#0e1724",
         "tonalRamp": [
-          "#0b0b0c",
-          "#262628",
-          "#454546",
-          "#666667",
-          "#89898b",
-          "#aeaeaf",
-          "#d1d1d3",
-          "#eeeef0"
+          "#090b0e",
+          "#222529",
+          "#3f4246",
+          "#5e6266",
+          "#7f8387",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#ebeff4"
+        ],
+        "tonalRampLight": [
+          "#040b17",
+          "#1c2633",
+          "#384352",
+          "#576272",
+          "#778394",
+          "#9aa6b8",
+          "#bdcadd",
+          "#e5efff"
         ]
       },
       "muted": {
         "role": "neutral",
         "displayName": "Texto secundário",
-        "canonical": "#a3a3aa",
+        "canonical": "#9ba7b6",
+        "canonicalLight": "#536074",
         "tonalRamp": [
-          "#0b0b0f",
-          "#26262b",
-          "#44444a",
-          "#65656c",
-          "#88888f",
-          "#adadb4",
-          "#d0d0d7",
-          "#eeeef5"
+          "#040c16",
+          "#1c2631",
+          "#394350",
+          "#576270",
+          "#788492",
+          "#9aa6b5",
+          "#becada",
+          "#e4f0ff"
+        ],
+        "tonalRampLight": [
+          "#030b1a",
+          "#1a2537",
+          "#364355",
+          "#556276",
+          "#758398",
+          "#98a6bc",
+          "#bbcae1",
+          "#e5efff"
         ]
       },
       "subtle": {
         "role": "neutral",
-        "displayName": "Texto terciário e bloqueado",
-        "canonical": "#6f6f77",
+        "displayName": "Texto terciário",
+        "canonical": "#6c7889",
+        "canonicalLight": "#7f8ba0",
         "tonalRamp": [
-          "#0b0a10",
-          "#26262c",
-          "#44444c",
-          "#65656d",
-          "#888890",
-          "#adadb6",
-          "#d0d0d9",
-          "#ededf7"
+          "#040b18",
+          "#1c2634",
+          "#384352",
+          "#576273",
+          "#778395",
+          "#99a6b8",
+          "#bdcadd",
+          "#e5effe"
+        ],
+        "tonalRampLight": [
+          "#040b1a",
+          "#1c2536",
+          "#384255",
+          "#566275",
+          "#778398",
+          "#99a6bb",
+          "#bdcae0",
+          "#e6effe"
         ]
       },
       "header": {
         "role": "brand",
-        "displayName": "Azul-marinho do cabeçalho",
-        "canonical": "#1d3b5a",
+        "displayName": "Azul-marinho (início do degradê)",
+        "canonical": "#0f2a47",
+        "canonicalLight": "#12345a",
         "tonalRamp": [
-          "#000b1c",
-          "#092745",
-          "#294767",
-          "#49698b",
-          "#6c8cb0",
-          "#8fb1d7",
-          "#b2d5fb",
+          "#000b21",
+          "#0b2642",
+          "#284463",
+          "#476384",
+          "#6785a8",
+          "#89a8cc",
+          "#acccf2",
           "#e3f0ff"
+        ],
+        "tonalRampLight": [
+          "#000a21",
+          "#03254a",
+          "#21436a",
+          "#40638d",
+          "#6185b1",
+          "#83a8d6",
+          "#a6cdfc",
+          "#e4f0fe"
+        ]
+      },
+      "header-2": {
+        "role": "brand",
+        "displayName": "Azul-marinho 2 (fim do degradê)",
+        "canonical": "#173d66",
+        "canonicalLight": "#1b4a7d",
+        "tonalRamp": [
+          "#000b21",
+          "#00254c",
+          "#1e436d",
+          "#3d648f",
+          "#5d85b3",
+          "#7fa8d8",
+          "#a3cdff",
+          "#e3f0ff"
+        ],
+        "tonalRampLight": [
+          "#000a22",
+          "#01254a",
+          "#134375",
+          "#356398",
+          "#5585bd",
+          "#77a9e2",
+          "#a4cdfd",
+          "#e4f0fe"
+        ]
+      },
+      "on-header": {
+        "role": "brand",
+        "displayName": "Texto sobre o azul-marinho",
+        "canonical": "#ffffff",
+        "canonicalLight": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "on-header-muted": {
+        "role": "brand",
+        "displayName": "Texto secundário sobre o azul-marinho",
+        "canonical": "#b9c9dc",
+        "canonicalLight": "#c3d3e6",
+        "tonalRamp": [
+          "#030c18",
+          "#1a2634",
+          "#364353",
+          "#556373",
+          "#758495",
+          "#97a7b9",
+          "#bbcbde",
+          "#e4f0ff"
+        ],
+        "tonalRampLight": [
+          "#030c18",
+          "#1a2634",
+          "#364353",
+          "#556373",
+          "#758495",
+          "#97a7b9",
+          "#bbcbde",
+          "#e4f0fe"
         ]
       },
       "navy-deep": {
         "role": "brand",
-        "displayName": "Azul da coluna de horas",
-        "canonical": "#0d3f73",
+        "displayName": "Azul profundo da coluna de horas",
+        "canonical": "#123a66",
+        "canonicalLight": "#154a85",
         "tonalRamp": [
-          "#000b1e",
-          "#01264d",
-          "#15467a",
-          "#38689f",
-          "#5b8cc6",
-          "#7fb1ee",
-          "#b2d4fe",
+          "#000b21",
+          "#00254c",
+          "#1b4370",
+          "#3b6392",
+          "#5c85b7",
+          "#7ea8dc",
+          "#a4cdfe",
           "#e4f0ff"
+        ],
+        "tonalRampLight": [
+          "#000a21",
+          "#00244c",
+          "#0a427c",
+          "#2f629f",
+          "#5085c4",
+          "#72a8ea",
+          "#a6ccfc",
+          "#e4f0fe"
         ]
       },
       "brand": {
         "role": "brand",
         "displayName": "Azul do logotipo",
-        "canonical": "#1f6fd1",
+        "canonical": "#3d86e6",
+        "canonicalLight": "#1a63c4",
         "tonalRamp": [
-          "#000a20",
-          "#012552",
-          "#03428a",
-          "#0d63c4",
-          "#3b88ec",
-          "#77b0fe",
-          "#b5d3fe",
+          "#000925",
+          "#002350",
+          "#013f85",
+          "#0e5eba",
+          "#3881e1",
+          "#68a7fb",
+          "#a8ccfc",
+          "#e5effe"
+        ],
+        "tonalRampLight": [
+          "#000926",
+          "#012351",
+          "#033e87",
+          "#125dbd",
+          "#3a80e4",
+          "#69a6fe",
+          "#a8cbfe",
+          "#e5efff"
+        ]
+      },
+      "sidebar": {
+        "role": "neutral",
+        "displayName": "Superfície do menu",
+        "canonical": "#0b1017",
+        "canonicalLight": "#ffffff",
+        "tonalRamp": [
+          "#070b12",
+          "#20252d",
+          "#3c424b",
+          "#5b626b",
+          "#7c838d",
+          "#9ea6b0",
+          "#c2cad4",
+          "#e7effa"
+        ],
+        "tonalRampLight": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "sidebar-fg": {
+        "role": "neutral",
+        "displayName": "Texto do menu",
+        "canonical": "#dfe6ee",
+        "canonicalLight": "#1b2633",
+        "tonalRamp": [
+          "#070c11",
+          "#20262b",
+          "#3d4349",
+          "#5c6269",
+          "#7d838a",
+          "#9fa6ad",
+          "#c3cad2",
+          "#e8eff7"
+        ],
+        "tonalRampLight": [
+          "#040c17",
+          "#1b2633",
+          "#374351",
+          "#566372",
+          "#768494",
+          "#99a7b7",
+          "#bccbdc",
+          "#e4f0fe"
+        ]
+      },
+      "sidebar-muted": {
+        "role": "neutral",
+        "displayName": "Ícone e texto inativo do menu",
+        "canonical": "#7f8b9b",
+        "canonicalLight": "#6b778a",
+        "tonalRamp": [
+          "#040b17",
+          "#1c2633",
+          "#384351",
+          "#576271",
+          "#788393",
+          "#9aa6b7",
+          "#becadc",
           "#e4f0ff"
+        ],
+        "tonalRampLight": [
+          "#040b19",
+          "#1c2535",
+          "#384354",
+          "#566274",
+          "#778396",
+          "#99a6ba",
+          "#bdcadf",
+          "#e6effe"
+        ]
+      },
+      "sidebar-active": {
+        "role": "neutral",
+        "displayName": "Item ativo do menu",
+        "canonical": "#172131",
+        "canonicalLight": "#e9f1fc",
+        "tonalRamp": [
+          "#040b19",
+          "#1b2536",
+          "#374354",
+          "#566275",
+          "#778397",
+          "#99a6bb",
+          "#bccae0",
+          "#e5efff"
+        ],
+        "tonalRampLight": [
+          "#070b12",
+          "#20262d",
+          "#3c434b",
+          "#5b626b",
+          "#7c838d",
+          "#9ea6b0",
+          "#c2cad4",
+          "#e7effa"
         ]
       },
       "accent": {
         "role": "action",
         "displayName": "Azul de seleção e texto de ação",
-        "canonical": "#4b8fe8",
+        "canonical": "#5b9cf0",
+        "canonicalLight": "#1a63c4",
         "tonalRamp": [
-          "#000a20",
-          "#012551",
-          "#00428a",
-          "#1f65ba",
-          "#4689e2",
-          "#76b0ff",
-          "#b4d4fe",
-          "#e5f0ff"
+          "#000a23",
+          "#002350",
+          "#054081",
+          "#1f60af",
+          "#4383d5",
+          "#66a7fc",
+          "#a7ccfd",
+          "#e5f0fe"
+        ],
+        "tonalRampLight": [
+          "#000926",
+          "#012351",
+          "#033e87",
+          "#125dbd",
+          "#3a80e4",
+          "#69a6fe",
+          "#a8cbfe",
+          "#e5efff"
         ]
       },
       "primary": {
         "role": "action",
         "displayName": "Azul de ação preenchida",
-        "canonical": "#0b5cbf",
+        "canonical": "#1f6fd1",
+        "canonicalLight": "#1a63c4",
         "tonalRamp": [
-          "#000a21",
-          "#012454",
-          "#03418d",
-          "#1462c5",
-          "#3e87ee",
-          "#7aaffd",
-          "#b5d3fe",
+          "#000924",
+          "#002351",
+          "#044083",
+          "#035dbe",
+          "#3381e5",
+          "#65a6ff",
+          "#a7ccfe",
+          "#e4f0ff"
+        ],
+        "tonalRampLight": [
+          "#000926",
+          "#012351",
+          "#033e87",
+          "#125dbd",
+          "#3a80e4",
+          "#69a6fe",
+          "#a8cbfe",
           "#e5efff"
         ]
       },
       "primary-hover": {
         "role": "action",
         "displayName": "Azul de ação em hover",
-        "canonical": "#1468d1",
+        "canonical": "#2b7ce0",
+        "canonicalLight": "#1556ab",
         "tonalRamp": [
-          "#000a21",
-          "#012453",
-          "#00418e",
-          "#0761c9",
-          "#3887f3",
-          "#79b0fe",
-          "#b5d3fe",
-          "#e5efff"
+          "#000924",
+          "#01244f",
+          "#024084",
+          "#0f5fb8",
+          "#3181e6",
+          "#69a7f9",
+          "#a6ccff",
+          "#e4f0ff"
+        ],
+        "tonalRampLight": [
+          "#000925",
+          "#002253",
+          "#063f85",
+          "#1f5fb4",
+          "#4382db",
+          "#6aa6fb",
+          "#a9cbfc",
+          "#e5effe"
+        ]
+      },
+      "on-primary": {
+        "role": "action",
+        "displayName": "Texto sobre a ação",
+        "canonical": "#ffffff",
+        "canonicalLight": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
         ]
       },
       "gold": {
         "role": "achievement",
-        "displayName": "Dourado de conquista",
-        "canonical": "#e5b443",
+        "displayName": "Ouro de conquista",
+        "canonical": "#e8b64a",
+        "canonicalLight": "#dca42b",
         "tonalRamp": [
-          "#110a00",
-          "#332401",
-          "#584104",
-          "#816007",
-          "#ac820d",
-          "#d6a631",
-          "#fbc95b",
-          "#ffecc7"
+          "#120900",
+          "#312201",
+          "#553e03",
+          "#7d5b00",
+          "#a47b19",
+          "#cd9c2a",
+          "#f3c156",
+          "#feecca"
+        ],
+        "tonalRampLight": [
+          "#130900",
+          "#332200",
+          "#563d06",
+          "#7d5a06",
+          "#a77906",
+          "#d29a1a",
+          "#f8bf4d",
+          "#feeccd"
+        ]
+      },
+      "gold-ink": {
+        "role": "achievement",
+        "displayName": "Tinta do ouro (texto sobre neutro)",
+        "canonical": "#f0c25e",
+        "canonicalLight": "#8f6407",
+        "tonalRamp": [
+          "#120900",
+          "#312200",
+          "#553e00",
+          "#7a5c0d",
+          "#a37b12",
+          "#ca9e35",
+          "#f0c25e",
+          "#feedc9"
+        ],
+        "tonalRampLight": [
+          "#130900",
+          "#342100",
+          "#583c05",
+          "#805903",
+          "#a67929",
+          "#ca9c50",
+          "#f0c174",
+          "#feeccf"
         ]
       },
       "bronze": {
         "role": "rarity",
         "displayName": "Bronze dessaturado",
-        "canonical": "#c08a5a",
+        "canonical": "#c99168",
+        "canonicalLight": "#a8693c",
         "tonalRamp": [
-          "#150700",
-          "#3b1e00",
-          "#663801",
-          "#8b5928",
-          "#b17c4c",
-          "#d8a170",
-          "#fdc492",
-          "#ffead9"
+          "#180600",
+          "#3c1b00",
+          "#643405",
+          "#87532b",
+          "#aa744c",
+          "#cf976e",
+          "#f6bb91",
+          "#ffeadc"
+        ],
+        "tonalRampLight": [
+          "#190500",
+          "#3c1b00",
+          "#673100",
+          "#8c5021",
+          "#b17144",
+          "#d69466",
+          "#fdb889",
+          "#ffeadc"
         ]
       },
       "silver": {
         "role": "rarity",
         "displayName": "Prata dessaturada",
-        "canonical": "#b9c0cb",
+        "canonical": "#c3cad6",
+        "canonicalLight": "#7f8a99",
         "tonalRamp": [
-          "#070b12",
-          "#21272f",
-          "#40454f",
-          "#606670",
-          "#838a94",
-          "#a8aeb9",
-          "#cad1dd",
-          "#e8effa"
+          "#070b13",
+          "#20252e",
+          "#3d424c",
+          "#5b626c",
+          "#7c838e",
+          "#9fa5b1",
+          "#c3cad6",
+          "#e8effb"
+        ],
+        "tonalRampLight": [
+          "#050b16",
+          "#1d2632",
+          "#394350",
+          "#586270",
+          "#788392",
+          "#9ba6b6",
+          "#becada",
+          "#e5f0fe"
         ]
       },
       "platinum": {
         "role": "rarity",
         "displayName": "Platina dessaturada",
-        "canonical": "#a9d6e5",
+        "canonical": "#a9dbe8",
+        "canonicalLight": "#3f93ab",
         "tonalRamp": [
           "#000e13",
-          "#012c37",
-          "#214b58",
-          "#436d7b",
-          "#66919f",
-          "#8ab6c5",
-          "#acdae9",
-          "#d6f5ff"
+          "#002b33",
+          "#184954",
+          "#3a6975",
+          "#5b8b97",
+          "#7eaebb",
+          "#a1d3e0",
+          "#d3f6ff"
+        ],
+        "tonalRampLight": [
+          "#000e14",
+          "#002a35",
+          "#074a5a",
+          "#076c83",
+          "#3a8fa6",
+          "#60b2cb",
+          "#85d7f1",
+          "#d6f5fe"
         ]
       },
       "danger": {
         "role": "state",
         "displayName": "Vermelho de erro",
-        "canonical": "#ff6b5e",
+        "canonical": "#ff6b61",
+        "canonicalLight": "#d13b30",
         "tonalRamp": [
-          "#1f0000",
-          "#4f0103",
-          "#850308",
-          "#b82521",
-          "#e25146",
-          "#fe8679",
-          "#febfb7",
+          "#200000",
+          "#4e0003",
+          "#7e0a0f",
+          "#b21d20",
+          "#da4942",
+          "#fe746a",
+          "#feb3ab",
+          "#fee9e6"
+        ],
+        "tonalRampLight": [
+          "#210000",
+          "#4c0202",
+          "#800505",
+          "#b41814",
+          "#dc463a",
+          "#fa7768",
+          "#fcb5aa",
           "#ffe9e5"
+        ]
+      },
+      "success": {
+        "role": "state",
+        "displayName": "Verde de sucesso",
+        "canonical": "#45c58a",
+        "canonicalLight": "#1d8a59",
+        "tonalRamp": [
+          "#001006",
+          "#012e1a",
+          "#024f31",
+          "#12734b",
+          "#199a66",
+          "#3ec085",
+          "#69e5a8",
+          "#c4fedd"
+        ],
+        "tonalRampLight": [
+          "#001005",
+          "#002e19",
+          "#074f30",
+          "#067448",
+          "#319866",
+          "#59bc88",
+          "#7fe1ab",
+          "#c6fedc"
         ]
       }
     },
     "typographyMeta": {
+      "brand": {
+        "displayName": "Marca",
+        "purpose": "Só o logotipo Inatel no painel de marca da entrada. 76px, 88px em xl. Peso 800 itálico."
+      },
       "display": {
         "displayName": "Display",
-        "purpose": "Posição e números de conquista. 36px no mobile, 48px no desktop."
+        "purpose": "Posição no ranking. 56px no mobile, 64px no desktop, line-height 0,9, tracking -0,03em."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Pontos e números-chave. Degraus de 28, 30, 32 e 34px, 600, com .num e contados de zero."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Título da página no cabeçalho. 20px no mobile, 22px no desktop."
+        "purpose": "Saudação e título do aviso aberto. 21px e 26px, 600. Termos da fórmula do Cálculo em 19px."
+      },
+      "header-title": {
+        "displayName": "Título de página",
+        "purpose": "Título no cabeçalho. 19px no mobile, 22px no desktop, 500."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Títulos de seção e nomes de medalha. 15px, 16px no desktop."
+        "purpose": "Títulos de seção, nome da aula e de medalha. 15px, 16px e 17px, 600."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Texto corrido e descrições. 15px, 14px em trechos densos."
+        "purpose": "Descrições e avisos. 14px, 15px, 16px e 17px (leitor desktop, line-height 1,7, até 68ch)."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Rótulos de chip, metadados e grade. 13px, 12px em metadados, 11px só na barra inferior."
+        "purpose": "Chips, selos, cabeçalhos de tabela, unidades. 12px e 13px, 500 e 600."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Eixo do gráfico, termos da fórmula, rótulo da barra inferior. 11px, nunca em texto corrido."
       }
     },
     "shadows": [
       {
+        "name": "shadow-card",
+        "value": {
+          "dark": "0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 24px -12px rgba(0, 0, 0, 0.6)",
+          "light": "0 1px 2px rgba(16, 32, 56, 0.05), 0 8px 24px -14px rgba(16, 32, 56, 0.18)"
+        },
+        "purpose": "Sombra de repouso de painéis, listas e cartões."
+      },
+      {
+        "name": "shadow-pop",
+        "value": {
+          "dark": "0 24px 48px -16px rgba(0, 0, 0, 0.7)",
+          "light": "0 24px 48px -16px rgba(16, 32, 56, 0.28)"
+        },
+        "purpose": "Popover de ajuda das medalhas."
+      },
+      {
         "name": "drawer-edge",
         "value": "8px 0 32px rgba(0,0,0,0.5)",
-        "purpose": "Única sombra do sistema: borda do drawer mobile sobre o véu."
+        "purpose": "Borda do drawer mobile sobre o véu."
+      }
+    ],
+    "effects": [
+      {
+        "name": "sheen",
+        "value": "linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.22) 50%, transparent 65%) em background-size 220% 100%",
+        "purpose": "Brilho de metal que passa uma vez sobre medalha conquistada (hover, foco ou montagem), animado por --animate-sheen (1,1 s)."
+      },
+      {
+        "name": "wave-rings",
+        "value": "círculos de 1px em branco, opacidade 9% a 4% (bloco da Início) e 13% a 3% (painel de entrada)",
+        "purpose": "Ondas concêntricas de telecomunicações no canto das regiões azul-marinho."
       }
     ],
     "scrims": [
@@ -380,49 +891,64 @@
       {
         "name": "ease-out-expo",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Easing de entrada (token --ease-out-expo)."
+        "purpose": "Easing de tudo que entra (--ease-out-expo)."
       },
       {
         "name": "enter",
-        "value": "0.22s",
-        "purpose": "Entrada de conteúdo, 4px de deslocamento vertical com opacidade (--animate-enter)."
+        "value": "0.24s, translateY(6px) e opacidade",
+        "purpose": "Entrada de seção (--animate-enter), só ao trocar de seção."
+      },
+      {
+        "name": "sheen",
+        "value": "1.1s",
+        "purpose": "Brilho de metal (--animate-sheen)."
+      },
+      {
+        "name": "count-up",
+        "value": "0.8s a 1.1s",
+        "purpose": "Número-chave contado de zero (useCountUp)."
       },
       {
         "name": "state",
         "value": "150ms",
-        "purpose": "Cor, fundo e borda em estados de hover, seleção e foco."
+        "purpose": "Cor, fundo e borda em hover, seleção e foco."
       },
       {
         "name": "surface",
         "value": "200ms",
-        "purpose": "Indicador de aba (easeOut) e transições de painel."
+        "purpose": "Painéis e indicadores de estado."
       },
       {
         "name": "fill",
         "value": "500ms",
-        "purpose": "Preenchimento da barra de progresso. Exceção medida ao intervalo de 150 a 250 ms."
+        "purpose": "Preenchimento da barra de progresso simples."
+      },
+      {
+        "name": "authored",
+        "value": "0.8s a 1.1s",
+        "purpose": "Momento autoral por tela: brilho do escudo, linha de evolução, ondas da entrada, anel de medalha bloqueada."
+      },
+      {
+        "name": "tab-spring",
+        "value": "spring stiffness 520, damping 40",
+        "purpose": "Indicador deslizante da barra inferior, das abas de seção e do seletor de tema."
       },
       {
         "name": "sheet-spring",
         "value": "spring damping 34, stiffness 380",
-        "purpose": "Entrada do bottom sheet e do drawer mobile."
-      },
-      {
-        "name": "scrim-fade",
-        "value": "180ms",
-        "purpose": "Fade do véu do drawer e do sheet."
+        "purpose": "Drawer e bottom sheet."
       }
     ],
     "breakpoints": [
       {
         "name": "lg",
         "value": "1024px",
-        "purpose": "Divisa mobile e desktop. Sidebar fixa 232px a partir daqui."
+        "purpose": "Divisa mobile e desktop. Sidebar fixa de 248px."
       },
       {
         "name": "xl",
         "value": "1280px",
-        "purpose": "Sidebar 264px e painel de detalhe 360px."
+        "purpose": "Sidebar de 264px, painel lateral de 360px e margens de 32px."
       }
     ]
   },
@@ -431,142 +957,171 @@
       "name": "Botão primário",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Ação de confirmação ou entrada (Autenticar, Abrir). Altura de 44px, alvo de toque.",
+      "description": "Ação de confirmação ou entrada. 44px, texto on-primary.",
       "html": "<button class=\"ds-btn-primary\" type=\"button\">Autenticar</button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 16px;border:0;border-radius:var(--radius-control,10px);background:var(--color-primary);color:#ffffff;font:500 15px/1.5 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;cursor:pointer;transition:background-color 150ms,transform 150ms;}.ds-btn-primary:hover{background:var(--color-primary-hover);}.ds-btn-primary:active{transform:scale(0.99);}.ds-btn-primary:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}.ds-btn-primary:disabled{opacity:0.5;cursor:default;}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 16px;border:0;border-radius:10px;background:var(--color-primary);color:var(--color-on-primary);font:500 15px/1.5 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;box-shadow:0 1px 2px rgba(0,0,0,0.12);cursor:pointer;transition:background-color 150ms,transform 150ms;}.ds-btn-primary:hover{background:var(--color-primary-hover);}.ds-btn-primary:active{transform:scale(0.99);}.ds-btn-primary:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}.ds-btn-primary:disabled{opacity:0.5;}"
     },
     {
       "name": "Botão secundário",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Ação de apoio ao lado de uma primária. Fundo grafite com contorno.",
-      "html": "<button class=\"ds-btn-secondary\" type=\"button\">Cancelar</button>",
-      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 16px;border:1px solid var(--color-line-strong);border-radius:var(--radius-control,10px);background:var(--color-surface-2);color:var(--color-fg);font:500 15px/1.5 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;cursor:pointer;transition:background-color 150ms;}.ds-btn-secondary:hover{background:var(--color-surface-3);}.ds-btn-secondary:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}"
+      "description": "Apoio ao lado da primária; atalhos Conquistas e Ranking, com ícone em gold-ink.",
+      "html": "<button class=\"ds-btn-secondary\" type=\"button\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 9H4.5a2.5 2.5 0 0 1 0-5H6\"/><path d=\"M18 9h1.5a2.5 2.5 0 0 0 0-5H18\"/><path d=\"M4 22h16\"/><path d=\"M18 2H6v7a6 6 0 0 0 12 0V2Z\"/></svg>Ranking</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 16px;border:1px solid var(--color-line-strong);border-radius:10px;background:var(--color-surface-2);color:var(--color-fg);font:500 14px/1.5 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;cursor:pointer;transition:background-color 150ms,transform 150ms;}.ds-btn-secondary svg{color:var(--color-gold-ink);}.ds-btn-secondary:hover{background:var(--color-surface-3);}.ds-btn-secondary:active{transform:scale(0.98);}.ds-btn-secondary:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}"
     },
     {
       "name": "Chip de filtro",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Filtro selecionável com aria-pressed. Altura atual de 36px, abaixo do alvo de 44px definido em PRODUCT.md.",
-      "html": "<button class=\"ds-chip\" type=\"button\" aria-pressed=\"true\">Todas <span>12</span></button>",
+      "description": "Filtro selecionável com aria-pressed. 36px, abaixo do alvo de 44px (dívida registrada).",
+      "html": "<button class=\"ds-chip\" type=\"button\" aria-pressed=\"true\">Geral</button>",
       "css": ".ds-chip{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border:1px solid var(--color-line-strong);border-radius:9999px;background:transparent;color:var(--color-muted);font:500 13px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;white-space:nowrap;cursor:pointer;transition:border-color 150ms,color 150ms;}.ds-chip:hover{border-color:var(--color-surface-4);color:var(--color-fg);}.ds-chip[aria-pressed=\"true\"]{border-color:color-mix(in oklab,var(--color-accent) 60%,transparent);background:color-mix(in oklab,var(--color-accent) 15%,transparent);color:var(--color-fg);}.ds-chip:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}"
-    },
-    {
-      "name": "Selo de conquista",
-      "kind": "custom",
-      "refersTo": "badge-gold",
-      "description": "Etiqueta curta de conquista (pontos, desbloqueada). Dourado só para gamificação.",
-      "html": "<span class=\"ds-badge-gold\">Desbloqueada</span>",
-      "css": ".ds-badge-gold{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 10px;border-radius:9999px;background:color-mix(in oklab,var(--color-gold) 15%,transparent);color:var(--color-gold);font:600 12px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;white-space:nowrap;}"
     },
     {
       "name": "Painel",
       "kind": "card",
       "refersTo": "panel",
-      "description": "Superfície única para um bloco real (resumo, detalhe, cálculo). Nunca dentro de outro painel.",
-      "html": "<section class=\"ds-panel\"><p class=\"ds-panel-label\">Sua posição</p></section>",
-      "css": ".ds-panel{border:1px solid var(--color-line);border-radius:var(--radius-card,12px);background:var(--color-surface-1);padding:20px;}.ds-panel-label{margin:0;color:var(--color-fg);font:600 15px/1.5 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;}"
+      "description": "Superfície única para um bloco real. Borda de line e shadow-card. Nunca dentro de outro painel.",
+      "html": "<section class=\"ds-panel\"><p class=\"ds-panel-title\">Cálculo</p><p class=\"ds-panel-num\">87,0 <small>pts</small></p></section>",
+      "css": ".ds-panel{border:1px solid var(--color-line);border-radius:14px;background:var(--color-surface-1);box-shadow:var(--shadow-card);padding:20px;}.ds-panel-title{margin:0;color:var(--color-fg);font:600 15px/1.5 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;}.ds-panel-num{margin:8px 0 0;color:var(--color-fg);font:600 34px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;letter-spacing:-0.025em;font-variant-numeric:tabular-nums;}.ds-panel-num small{margin-left:4px;color:var(--color-muted);font:500 13px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;letter-spacing:0;}"
     },
     {
-      "name": "Barra de progresso",
-      "kind": "custom",
-      "refersTo": "progress-bar",
-      "description": "Trilho de 6px com preenchimento em accent (padrão), gold (meta de medalha) ou danger.",
-      "html": "<div class=\"ds-progress\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"97\"><div class=\"ds-progress-fill\" style=\"width:97%\"></div></div>",
-      "css": ".ds-progress{height:6px;width:100%;overflow:hidden;border-radius:9999px;background:var(--color-surface-3);}.ds-progress-fill{height:100%;border-radius:9999px;background:var(--color-accent);transition:width 500ms cubic-bezier(0,0,0.58,1);}"
+      "name": "Cartão de nível",
+      "kind": "card",
+      "refersTo": "panel-brand",
+      "description": "Região azul-marinho com escudo de nível, pontos em gold e trilha de XP em segmentos. O único bloco grande de cor.",
+      "html": "<section class=\"ds-level\"><svg class=\"ds-shield\" viewBox=\"0 0 64 72\" aria-hidden=\"true\"><defs><linearGradient id=\"ds-g-ouro\" x1=\"0\" y1=\"0\" x2=\"0.7\" y2=\"1\"><stop offset=\"0\" stop-color=\"#f4d28a\"/><stop offset=\"0.45\" stop-color=\"#e8b64a\"/><stop offset=\"1\" stop-color=\"#7a5a12\"/></linearGradient><linearGradient id=\"ds-g-campo\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#173d66\"/><stop offset=\"1\" stop-color=\"#0b1f35\"/></linearGradient></defs><path d=\"M32 2 L58 9.5 V32 C58 50 47.5 62.5 32 70 C16.5 62.5 6 50 6 32 V9.5 Z\" fill=\"url(#ds-g-ouro)\"/><path d=\"M32 7 L53.4 13.2 V32 C53.4 47 45 57.6 32 64.6 C19 57.6 10.6 47 10.6 32 V13.2 Z\" fill=\"url(#ds-g-campo)\"/><path d=\"M24 21.5 L32 18.5 L40 21.5\" fill=\"none\" stroke=\"#e8b64a\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"32\" y=\"39.5\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"23\" font-weight=\"700\" fill=\"#fff\">6</text></svg><div class=\"ds-level-body\"><p class=\"ds-level-name\">Nível 6 · Veterano de Labs</p><p class=\"ds-level-pts\">1.420 <small>pts</small></p><div class=\"ds-xp\"><i></i></div></div></section>",
+      "css": ".ds-level{display:flex;align-items:center;gap:16px;border-radius:14px;background:linear-gradient(135deg,var(--color-header),var(--color-header-2));box-shadow:var(--shadow-card),inset 0 0 0 1px rgba(255,255,255,0.1);padding:16px;color:var(--color-on-header);font-family:var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;}.ds-shield{width:57px;height:64px;flex-shrink:0;}.ds-level-body{min-width:0;flex:1;}.ds-level-name{margin:0;font:600 15px/1.2 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;}.ds-level-pts{margin:4px 0 0;color:var(--color-gold);font:600 26px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;letter-spacing:-0.025em;font-variant-numeric:tabular-nums;}.ds-level-pts small{margin-left:4px;color:var(--color-on-header-muted);font:500 13px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;}.ds-xp{position:relative;height:10px;margin-top:12px;overflow:hidden;border-radius:9999px;background:rgba(255,255,255,0.15);}.ds-xp i{position:absolute;inset:0 auto 0 0;width:72%;background:linear-gradient(90deg,#7a5a12,var(--color-gold) 72%,#f4d28a);}"
     },
     {
       "name": "Emblema de medalha",
       "kind": "custom",
-      "refersTo": "medal-emblem",
-      "description": "Disco com anel no metal da raridade e ícone central. Bloqueada usa --metal em cinza, opacidade 60%.",
-      "html": "<span class=\"ds-medal\" style=\"--metal:#e5b443\"><svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><defs><linearGradient id=\"ds-medal-ring\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" style=\"stop-color:var(--metal)\"/><stop offset=\"1\" style=\"stop-color:color-mix(in oklab,var(--metal) 62%,black)\"/></linearGradient></defs><circle cx=\"32\" cy=\"32\" r=\"29.5\" fill=\"var(--color-surface-3)\" stroke=\"url(#ds-medal-ring)\" stroke-width=\"3\"/><circle cx=\"32\" cy=\"32\" r=\"24\" fill=\"none\" stroke=\"var(--metal)\" stroke-opacity=\"0.3\" stroke-width=\"1\"/><circle cx=\"32\" cy=\"27\" r=\"8\" fill=\"none\" stroke=\"var(--metal)\" stroke-width=\"1.75\"/><path d=\"M26 33l-3 11 9-4 9 4-3-11\" fill=\"none\" stroke=\"var(--metal)\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>",
-      "css": ".ds-medal{display:inline-block;width:56px;height:56px;flex-shrink:0;}.ds-medal svg{display:block;width:100%;height:100%;}.ds-medal--locked{--metal:var(--color-subtle);opacity:0.6;}"
+      "refersTo": "panel",
+      "description": "Medalha conquistada em metal com fita azul-marinho. O tom --m é o token de metal; no tema claro a arte o clareia por color-mix.",
+      "html": "<span class=\"ds-medal\"><svg viewBox=\"0 0 100 100\" aria-hidden=\"true\"><defs><linearGradient id=\"ds-m-aro\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" style=\"stop-color:color-mix(in oklab,var(--m) 42%,white)\"/><stop offset=\"0.5\" style=\"stop-color:var(--m)\"/><stop offset=\"1\" style=\"stop-color:color-mix(in oklab,var(--m) 52%,black)\"/></linearGradient><radialGradient id=\"ds-m-face\" cx=\"0.38\" cy=\"0.28\" r=\"0.85\"><stop offset=\"0\" style=\"stop-color:color-mix(in oklab,var(--m) 52%,white)\"/><stop offset=\"0.55\" style=\"stop-color:var(--m)\"/><stop offset=\"1\" style=\"stop-color:color-mix(in oklab,var(--m) 74%,black)\"/></radialGradient><linearGradient id=\"ds-m-fita\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" style=\"stop-color:var(--color-header-2)\"/><stop offset=\"1\" style=\"stop-color:var(--color-header)\"/></linearGradient></defs><path d=\"M38.5 57 L49 61 L39.5 96.5 L34.6 90.6 L28.4 94.6 Z\" fill=\"url(#ds-m-fita)\"/><path d=\"M61.5 57 L51 61 L60.5 96.5 L65.4 90.6 L71.6 94.6 Z\" fill=\"url(#ds-m-fita)\"/><circle cx=\"50\" cy=\"42\" r=\"30\" fill=\"url(#ds-m-aro)\"/><circle cx=\"50\" cy=\"42\" r=\"24.8\" fill=\"url(#ds-m-face)\"/><ellipse cx=\"50\" cy=\"29.5\" rx=\"14\" ry=\"6\" fill=\"#fff\" opacity=\"0.2\"/><g transform=\"translate(38 30)\" fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke:color-mix(in oklab,var(--m) 36%,black)\"><circle cx=\"12\" cy=\"8\" r=\"6\"/><path d=\"M8.5 13.5 7 22l5-3 5 3-1.5-8.5\"/></g></svg></span>",
+      "css": ".ds-medal{--m:color-mix(in oklab,var(--color-gold) 90%,white);display:inline-block;width:88px;height:88px;}.ds-medal svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 1.6px 1.5px rgba(0,0,0,0.26));}"
+    },
+    {
+      "name": "Moeda de metal",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "Moeda do top 3 com degradê radial e o número da posição. 1º ouro, 2º prata, 3º bronze.",
+      "html": "<span class=\"ds-coin ds-coin-1\">1</span><span class=\"ds-coin ds-coin-2\">2</span><span class=\"ds-coin ds-coin-3\">3</span>",
+      "css": ".ds-coin{display:inline-grid;place-items:center;width:44px;height:44px;margin-right:8px;border-radius:9999px;font:600 18px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;font-variant-numeric:tabular-nums;background-image:radial-gradient(circle at 35% 28%,color-mix(in oklab,var(--m) 50%,white),var(--m) 48%,color-mix(in oklab,var(--m) 68%,black));box-shadow:inset 0 0 0 1.5px color-mix(in oklab,var(--m) 62%,black),inset 0 2px 1px -1px color-mix(in oklab,var(--m) 30%,white),0 1px 2px rgba(0,0,0,0.18);color:color-mix(in oklab,var(--m) 30%,black);}.ds-coin-1{--m:color-mix(in oklab,var(--color-gold) 90%,white);}.ds-coin-2{--m:color-mix(in oklab,var(--color-silver) 50%,white);}.ds-coin-3{--m:color-mix(in oklab,var(--color-bronze) 74%,white);}"
     },
     {
       "name": "Item do menu",
       "kind": "nav",
       "refersTo": "nav-item",
-      "description": "Item da sidebar (desktop, 40px) e do drawer (mobile, 48px). Ativo com fundo branco a 8%.",
-      "html": "<a class=\"ds-nav-item\" href=\"#\" aria-current=\"page\"><svg class=\"ds-nav-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"m3 7 9 6 9-6\"/></svg>Avisos</a>",
-      "css": ".ds-nav-item{display:flex;align-items:center;gap:16px;height:40px;padding:0 20px;color:var(--color-fg);font:400 14px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;text-decoration:none;transition:background-color 150ms;}.ds-nav-item:hover{background:rgba(255,255,255,0.04);}.ds-nav-item[aria-current=\"page\"]{background:rgba(255,255,255,0.08);color:#ffffff;}.ds-nav-icon{width:20px;height:20px;flex-shrink:0;color:var(--color-muted);}.ds-nav-item[aria-current=\"page\"] .ds-nav-icon{color:var(--color-accent);}.ds-nav-item:focus-visible{outline:2px solid var(--color-accent);outline-offset:-2px;}"
+      "description": "Item da sidebar e do drawer. 44px, ativo com sidebar-active e barra de 3px em accent.",
+      "html": "<a class=\"ds-nav\" href=\"#\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 9H4.5a2.5 2.5 0 0 1 0-5H6\"/><path d=\"M18 9h1.5a2.5 2.5 0 0 0 0-5H18\"/><path d=\"M4 22h16\"/><path d=\"M18 2H6v7a6 6 0 0 0 12 0V2Z\"/></svg>Conquistas e Ranking</a>",
+      "css": ".ds-nav{position:relative;display:flex;align-items:center;gap:14px;height:44px;padding:0 12px;border-radius:10px;color:var(--color-sidebar-fg);font:400 15px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;text-decoration:none;transition:background-color 150ms;}.ds-nav svg{flex-shrink:0;color:var(--color-sidebar-muted);}.ds-nav:hover{background:color-mix(in oklab,var(--color-sidebar-active) 60%,transparent);}.ds-nav[aria-current=\"page\"]{background:var(--color-sidebar-active);color:var(--color-fg);font-weight:500;}.ds-nav[aria-current=\"page\"] svg{color:var(--color-accent);}.ds-nav[aria-current=\"page\"]::before{content:\"\";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:9999px;background:var(--color-accent);}.ds-nav:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}"
     },
     {
       "name": "Atalho da barra inferior",
       "kind": "nav",
-      "refersTo": "bottom-tab",
-      "description": "Um dos 4 atalhos da barra inferior do mobile (64px). Ativo com pílula accent a 15%.",
-      "html": "<a class=\"ds-tab\" href=\"#\" aria-current=\"page\"><span class=\"ds-tab-pill\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/></svg></span>Horários</a>",
-      "css": ".ds-tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:64px;color:var(--color-subtle);font:500 11px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;text-decoration:none;transition:color 150ms;}.ds-tab:hover{color:var(--color-muted);}.ds-tab[aria-current=\"page\"]{color:var(--color-fg);}.ds-tab-pill{display:grid;place-items:center;width:48px;height:28px;border-radius:9999px;transition:background-color 150ms;}.ds-tab svg{width:20px;height:20px;}.ds-tab[aria-current=\"page\"] .ds-tab-pill{background:color-mix(in oklab,var(--color-accent) 15%,transparent);}.ds-tab[aria-current=\"page\"] svg{color:var(--color-accent);}"
+      "refersTo": "nav-item",
+      "description": "Um dos cinco destinos da barra inferior mobile (64px). Ativo com pílula accent a 15%.",
+      "html": "<a class=\"ds-tab\" href=\"#\" aria-current=\"page\"><span class=\"ds-tab-pill\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15\"/><circle cx=\"12\" cy=\"17\" r=\"5\"/></svg></span>Conquistas</a>",
+      "css": ".ds-tab{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:80px;height:64px;color:var(--color-subtle);font:500 11px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;text-decoration:none;transition:color 150ms;}.ds-tab:hover{color:var(--color-muted);}.ds-tab-pill{display:grid;place-items:center;width:48px;height:28px;border-radius:9999px;}.ds-tab[aria-current=\"page\"]{color:var(--color-fg);}.ds-tab[aria-current=\"page\"] .ds-tab-pill{background:color-mix(in oklab,var(--color-accent) 15%,transparent);color:var(--color-accent);}"
+    },
+    {
+      "name": "Aba de seção",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Aba sticky de Desempenho, Agenda e Conquistas e Ranking. Indicador de 2px em accent que desliza.",
+      "html": "<nav class=\"ds-tabs\"><a href=\"#\" aria-current=\"page\">Conquistas</a><a href=\"#\">Ranking</a></nav>",
+      "css": ".ds-tabs{display:flex;gap:4px;border-bottom:1px solid var(--color-line);}.ds-tabs a{position:relative;display:flex;align-items:center;height:48px;padding:0 12px;color:var(--color-muted);font:500 15px/1 var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;text-decoration:none;transition:color 150ms;}.ds-tabs a:hover{color:var(--color-fg);}.ds-tabs a[aria-current=\"page\"]{color:var(--color-fg);}.ds-tabs a[aria-current=\"page\"]::after{content:\"\";position:absolute;left:8px;right:8px;bottom:-1px;height:2px;border-radius:9999px;background:var(--color-accent);}"
     }
   ],
   "narrative": {
-    "northStar": "O Boletim Afinado",
+    "northStar": "O Boletim Condecorado",
     "overview": [
-      "O app é o acadêmico oficial da Inatel afinado para o módulo de gamificação. A casca é a do app real: fundo preto, cabeçalho azul-marinho, menu cinza com cabeçalho em degradê azul. Sobre ela, a informação aparece como dado: nível, pontos, posição e fórmula em números tabulares, sem frase explicando o que o número já diz.",
-      "A densidade é a de um boletim: listas com linhas finas, separadores de 1px e poucas superfícies. O sistema recusa o template de app gamificado colorido, sem cards arco-íris, glows, pódio de blocos com degradê, roxo, verde-água ou laranja. O dourado é reservado à conquista e o azul à ação e à seleção."
+      "O v3 mantém o dado como protagonista e acrescenta o que faltava ao boletim: acabamento. A casca é institucional e premium, em dois temas compostos (escuro e claro), não invertidos. A personalidade vem de objetos desenhados com cuidado: o escudo de nível, a medalha com fita e metal, a moeda do top 3, o anel de progresso.",
+      "O azul-marinho é a única região de cor grande. O resto da tela é neutro com leve tom azul, nos dois temas, com um azul de ação, ouro só para conquista, metais dessaturados e dois estados. O texto dourado usa gold-ink sobre superfície neutra e gold sobre o azul-marinho.",
+      "O movimento é pouco e autoral: cada tela tem um momento coreografado e os números-chave são contados de zero até o valor. Todo o resto responde a estado em 150 ms."
     ],
     "keyCharacteristics": [
-      "Preto e grafite como base, azul-marinho só no topo e na coluna de horas.",
-      "Um azul de ação; dourado só para conquista.",
-      "Listas e tabelas antes de cards.",
-      "Números tabulares e formato pt-BR em todo dado.",
-      "Ícones lucide de traço 1.75, nenhum emoji.",
-      "Movimento só como resposta a estado, de 150 a 250 ms."
+      "Dois temas com os mesmos nomes de token, trocados por [data-theme]; preferência sistema, claro ou escuro, aplicada antes da primeira pintura.",
+      "Um bloco grande de cor, o azul-marinho; o resto é neutro azulado.",
+      "Um azul de ação (primary em preenchimento, accent em texto e ícone).",
+      "Ouro só para conquista; metais dessaturados só para raridade e top 3.",
+      "Emblemas desenhados em SVG com degradês de metal, não ícones soltos.",
+      "Um momento de movimento autoral por tela e números contados; o resto em 150 ms.",
+      "Números tabulares em formato pt-BR em todo dado.",
+      "Ícones lucide de traço 1.75, nenhum emoji."
     ],
     "rules": [
       {
-        "name": "A Regra da Voz Única",
-        "body": "O azul marca ação e seleção. Não é decoração de título, fundo de seção nem ícone de enfeite.",
+        "name": "A Regra do Azul Único",
+        "body": "O azul-marinho é a única região de cor grande de cada tela. Um segundo bloco de cor grande, em qualquer matiz, quebra a regra. O azul de ação marca ação e seleção e não decora título, fundo de seção nem ícone.",
         "section": "colors"
       },
       {
         "name": "A Regra do Ouro Conquistado",
-        "body": "Dourado só aparece onde há conquista ou progresso de gamificação: pontos, nível, medalha, 1º lugar e meta de medalha. Dourado em botão, link ou aviso comum quebra a regra.",
+        "body": "Ouro só aparece onde há conquista ou progresso de gamificação: pontos, nível, medalha, top 3 e meta de medalha. Sobre superfície neutra o texto dourado é gold-ink; sobre o azul-marinho é gold. O ponto de aviso não lido no sino usa danger, porque é alerta e não conquista.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra dos Dois Temas",
+        "body": "Todo componente usa tokens, nunca hex, e funciona nos dois temas com os mesmos nomes. Toda cor nova nasce nos dois blocos de globals.css ao mesmo tempo. O tema claro não é o escuro invertido.",
         "section": "colors"
       },
       {
         "name": "A Regra do Número Tabular",
-        "body": "Todo dado numérico recebe a classe num. Formato pt-BR: milhar com ponto (1.420), decimal com vírgula (87,0), percentual sem espaço (97%), ordinal com º (4º).",
+        "body": "Todo dado numérico recebe .num. Formato pt-BR: milhar com ponto (1.420), decimal com vírgula (87,0), percentual sem espaço (97%), ordinal com º (4º).",
         "section": "typography"
       },
       {
-        "name": "A Regra do Plano por Padrão",
-        "body": "Superfícies são planas em repouso. Estado se mostra com borda ou cor, não com elevação. A única sombra é a borda do drawer mobile.",
+        "name": "A Regra do Número Contado",
+        "body": "Número-chave de uma tela (pontos, posição, pontuação) é contado de zero até o valor uma vez ao montar, por useCountUp (0,8 a 1,1 s). Tabelas inteiras não contam. Com prefers-reduced-motion o valor final aparece direto.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra da Escala Fechada",
+        "body": "Tamanho de fonte novo só entra se for um dos degraus registrados. O tamanho de 76px e 88px é exclusivo do logotipo da entrada.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra da Sombra de Cartão",
+        "body": "shadow-card é a única sombra de repouso e só vai em superfície que agrupa um bloco real. Estado se mostra com borda ou cor; hover não eleva. Sem glow, sem borda luminosa.",
         "section": "elevation"
       },
       {
         "name": "A Regra da Lista antes do Card",
-        "body": "Dados repetidos são listas ou tabelas com separadores. Panel só agrupa um bloco real, e card dentro de card é proibido.",
+        "body": "Dados repetidos são listas com separadores de line. Panel só agrupa um bloco real, e card dentro de card é proibido. As exceções medidas são o cartão de aula dentro da linha do tempo e o top 3.",
         "section": "components"
       },
       {
-        "name": "A Regra do Movimento de Estado",
-        "body": "Movimento responde a hover, seleção e abertura. Transições de interface ficam entre 150 e 250 ms, e a barra de progresso é a única exceção medida (500 ms).",
+        "name": "A Regra do Movimento Autoral",
+        "body": "Cada tela tem no máximo um momento coreografado, que acontece uma vez ao montar, e nenhum movimento decorativo em laço. Todo o resto responde a estado.",
         "section": "components"
       }
     ],
     "dos": [
-      "Do usar primary (#0b5cbf) para botão preenchido e accent (#4b8fe8) para texto, ícone e estado de ação.",
-      "Do reservar gold (#e5b443) para pontos, nível, medalhas, 1º lugar e metas de medalha.",
-      "Do marcar cada número com a classe num e formatá-lo em pt-BR (1.420, 87,0, 97%, 4º).",
-      "Do usar lista ou tabela com separadores de line para dados repetidos.",
-      "Do manter a fórmula do ranking sempre visível ao lado da pontuação do aluno.",
-      "Do manter alvos de toque em 44px e foco visível com contorno de 2px em accent.",
+      "Do usar tokens, nunca hex, e conferir cada tela nos dois temas.",
+      "Do usar o degradê header para header-2 só nas regiões azul-marinho (barra superior, cabeçalho da sidebar, cartão de nível, topo do bloco de gamificação, painel de marca, cabeçalho do drawer).",
+      "Do usar primary para preenchimento de ação e accent para texto, ícone e estado.",
+      "Do reservar ouro para pontos, nível, medalha, top 3 e meta de medalha: gold sobre azul-marinho, gold-ink sobre superfície neutra.",
+      "Do desenhar conquista como objeto (escudo, medalha, moeda, anel), com degradê de metal e --m no claro clareado.",
+      "Do marcar cada número com .num, formatá-lo em pt-BR e contar o número-chave da tela com useCountUp.",
+      "Do manter a fórmula do ranking visível ao lado da pontuação do aluno.",
+      "Do manter alvos de toque em 44px, foco visível com contorno de 2px em accent e rótulos acessíveis nos emblemas decorativos (aria-hidden no SVG, texto ao lado).",
       "Do usar sentence case em títulos e rótulos.",
-      "Do usar o degradê azul apenas no cabeçalho do usuário do menu, como no app real."
+      "Do usar só os degraus da escala tipográfica registrada."
     ],
     "donts": [
-      "Don't usar dourado em botão, link, aviso comum ou destaque decorativo.",
-      "Don't usar roxo, verde-água, laranja ou cor por pessoa.",
+      "Don't usar ouro em botão, link, aviso comum ou destaque decorativo.",
+      "Don't criar uma segunda região de cor grande ou usar roxo, verde-água, laranja ou cor por pessoa.",
       "Don't colocar card dentro de card, nem usar Panel para um item de lista.",
-      "Don't usar sombra de cartão, glow, borda luminosa ou gradiente em painéis ou pódios de blocos.",
-      "Don't escrever rótulo em caixa alta acima de título (kicker ou eyebrow).",
+      "Don't usar glow, borda luminosa, gradiente em painel neutro ou pódio de blocos; o único degradê de superfície é o azul-marinho.",
+      "Don't escrever rótulo em caixa alta acima de título.",
       "Don't usar emoji nem travessão no texto.",
       "Don't usar bronze, prata ou platina fora de medalha e de 2º e 3º lugares.",
-      "Don't usar ícone de caractere ou de fonte: só lucide.",
-      "Don't animar fora de estado nem passar de 250 ms em transição de interface.",
-      "Don't repetir os valores fora de token do build (#17457f, #0b63d6, #1e5fa0, #e4e4e7, #c9c9cf, #b4b4ba) em novas telas: use os tokens."
+      "Don't usar ícone de caractere ou de fonte: só lucide, e só SVG desenhado nos emblemas.",
+      "Don't animar em laço, nem encadear mais de um momento coreografado por tela, nem passar de 250 ms em transição de interface (exceções medidas: preenchimento de barra a 500 ms e os momentos autorais).",
+      "Don't repetir fora de token valores soltos do build, como o branco a 14% do trilho do anel de nível e o rgba(255,255,255,0.04) do inset da sombra de cartão: ambos vivem em seus componentes e no globals.css, e novas telas usam os tokens.",
+      "Don't usar o texto de 11px em corpo de leitura nem os 76px e 88px fora do logotipo da entrada."
     ]
   }
 }

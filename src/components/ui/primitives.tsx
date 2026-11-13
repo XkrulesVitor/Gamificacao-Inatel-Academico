@@ -189,7 +189,7 @@ export function ProgressBar({
       aria-valuemax={100}
       aria-valuenow={Math.round(pct)}
       aria-label={label}
-      className={clsx("h-1.5 w-full overflow-hidden rounded-full bg-surface-3", className)}
+      className={clsx("h-1.5 w-full overflow-hidden rounded-full bg-surface-4 dark:bg-surface-3", className)}
     >
       <div
         className={clsx("h-full rounded-full transition-[width] duration-500 ease-out", tones[tone])}
